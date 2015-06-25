@@ -18,5 +18,6 @@ int main()
 
 	cout << "x = " << x << endl;
 	cin >> x;
+
 	return 0;
 }
