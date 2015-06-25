@@ -17,6 +17,6 @@ int main()
 	r3++;
 
 	cout << "x = " << x << endl;
-
+	cin >> x;
 	return 0;
 }
