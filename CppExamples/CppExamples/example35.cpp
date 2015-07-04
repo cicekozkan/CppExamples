@@ -7,7 +7,6 @@ using namespace std;
 int main()
 {
 	int a[10] = { 0 };
-
 	int *p1 = a;
 	int (*p2)[10] = &a;
 	
