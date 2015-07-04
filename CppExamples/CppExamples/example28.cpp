@@ -1,5 +1,6 @@
-// you cannot pass a constant value to a funtction who is expecting a non-constant reference
-// and you cannot pass a different type value
+// you cannot pass a constant value to a function who is expecting a non-constant reference
+// and you cannot pass a different type value. 
+// Unless your function expects a reference to a constant type
 #include <iostream>
 
 using namespace std;
