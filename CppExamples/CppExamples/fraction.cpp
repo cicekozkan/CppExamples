@@ -48,7 +48,7 @@ int Fraction::gcd(int a, int b)
 */
 Fraction Fraction::random()
 {
-	srand(time(NULL));
+	srand(time(nullptr));
 	return Fraction((m_min + rand()%m_max), (m_min + rand()%m_max));
 }
 
@@ -56,6 +56,7 @@ int main()
 {
 	Fraction f1(3, 7);
 	int a = 0, b = 0;
+	/*
 	cout << f1 << endl;
 	cout << "Enter a new fractional number: " << endl;
 	cin >> f1;
@@ -67,6 +68,17 @@ int main()
 	cin >> a >> b;
 	cout << "gcd(" << a << "," << b << ") = " << Fraction::gcd(a, b) << endl;
 	cout << "Random fractional = " << Fraction::random() << endl;
+	*/
+	cout << "f1 = " << f1 << endl;
+	cout << "++f1 = " << ++f1 << endl;
+	cout << "f1++ = " << f1++ << endl;
+	cout << "f1 = " << f1 << endl;
+	cout << "--f1 = " << --f1 << endl;
+	cout << "f1-- = " << f1-- << endl;
+	cout << "f1 = " << f1 << endl;
+
+
+
 	cin >> a;
 	return 0;
 }

@@ -29,10 +29,24 @@ public:
 	Fraction &operator*=(const Fraction &r);
 	Fraction &operator/=(const Fraction &r);
 
-	Fraction &operator++();
-	Fraction operator++(int); //postfix
-	Fraction &operator--();
-	Fraction operator--(int); //postfix
+	Fraction &operator++(){ // prefix
+		m_nom += m_denom;
+		return *this;
+	}
+	Fraction operator++(int){ //postfix 
+		Fraction temp(*this);
+		m_nom += m_denom;
+		return temp;
+	}
+	Fraction &operator--(){ // prefix
+		m_nom -= m_denom;
+		return *this;
+	}
+	Fraction operator--(int) {//postfix
+		Fraction temp(*this);
+		m_nom -= m_denom;
+		return temp;
+	}
 	
 	static int gcd(int a, int b);
 	static Fraction random();  // return a random fractional number?
