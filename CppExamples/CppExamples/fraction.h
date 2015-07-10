@@ -31,13 +31,12 @@ public:
 	Fraction operator++(int); //postfix
 	Fraction &operator--();
 	Fraction operator--(int); //postfix
-
-
+	
 	static int gcd(int a, int b);
 	static Fraction rand();  // 
-	int nominator()const;
-	int denominator()const;
-	operator double()const;
+	int nominator()const { return m_nom; }
+	int denominator()const { return m_denom; }
+	operator double()const { return (double)m_nom / m_denom; }
 
 	friend std::ostream &operator<<(std::ostream &, const Fraction &);
 	friend std::istream &operator>>(std::istream &, Fraction &);
