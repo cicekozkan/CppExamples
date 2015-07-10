@@ -20,7 +20,7 @@ istream &operator>>(istream &is, Fraction &r)
 }
 /*!	
 	\fn int Fraction::gcd(int a, int b)
-	\brief: Returns greatest common divisor of a and b using Euclid's algorithm
+	\brief: Returns greatest common divisor of two integer numbers using Euclid's algorithm
 	\param a: an integer
 	\param b: an integer
 	\return: greatest common divisor of a and b
@@ -42,6 +42,18 @@ int Fraction::gcd(int a, int b)
 }
 
 /*!
+\fn int Fraction::lcm(int a, int b)
+\brief: Returns least common multiple of two integer numbers
+\param a: an integer
+\param b: an integer
+\return: least common multiple of a and b
+*/
+int Fraction::lcm(int a, int b)
+{
+	return abs(a*b) / gcd(a, b);
+}
+
+/*!
 	\fn Fraction Fraction::rand()
 	\param: void
 	\return: Random fractional number
@@ -55,6 +67,7 @@ Fraction Fraction::random()
 int main()
 {
 	Fraction f1(5, 10);
+	Fraction f2(2, 20);
 	int a = 0, b = 0;
 	/*
 	cout << f1 << endl;
@@ -68,7 +81,7 @@ int main()
 	cin >> a >> b;
 	cout << "gcd(" << a << "," << b << ") = " << Fraction::gcd(a, b) << endl;
 	cout << "Random fractional = " << Fraction::random() << endl;
-	*/
+	
 	cout << "nominator = " << f1.nominator() << endl;
 	cout << "denominator = " << f1.denominator() << endl;
 	cout << "f1 = " << f1 << endl;
@@ -78,7 +91,10 @@ int main()
 	cout << "--f1 = " << --f1 << endl;
 	cout << "f1-- = " << f1-- << endl;
 	cout << "f1 = " << f1 << endl;
-
+	*/
+	cout << "f1 = " << f1 << endl;
+	cout << "f2 = " << f2 << endl;
+	cout << "f1+=f2 = " << (f1 += f2) << endl;
 
 
 	cin >> a;

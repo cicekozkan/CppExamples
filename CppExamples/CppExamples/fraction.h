@@ -28,7 +28,19 @@ public:
 	friend Fraction operator*(const Fraction &r1, const Fraction &r2);
 	friend Fraction operator/(const Fraction &r1, const Fraction &r2);
 
-	Fraction &operator+=(const Fraction &r);
+	Fraction &operator+=(const Fraction &r){
+		if (m_denom == r.m_denom){
+			m_nom += r.m_nom;
+			return *this;
+		}
+		else{
+			int l = lcm(m_denom, r.m_denom);
+			m_nom *= l / m_denom;
+			m_nom += (r.m_nom * l / r.m_denom);	
+			m_denom = l;
+			return *this;
+		}
+	}
 	Fraction &operator-=(const Fraction &r);
 	Fraction &operator*=(const Fraction &r);
 	Fraction &operator/=(const Fraction &r);
@@ -53,6 +65,7 @@ public:
 	}
 	
 	static int gcd(int a, int b);
+	static int lcm(int a, int b);
 	static Fraction random();  // return a random fractional number?
 	int nominator()const { return m_nom; }
 	int denominator()const { return m_denom; }
