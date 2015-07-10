@@ -1,8 +1,13 @@
 #include "fraction.h"
 #include <iostream>
 #include <cmath>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
+
+int Fraction::m_min = 1;
+int Fraction::m_max = 9999;
 
 ostream &operator<<(ostream &os, const Fraction &r)
 {
@@ -36,6 +41,17 @@ int Fraction::gcd(int a, int b)
 	else return gcd(smaller, remainder);
 }
 
+/*!
+	\fn Fraction Fraction::rand()
+	\param: void
+	\return: Random fractional number
+*/
+Fraction Fraction::random()
+{
+	srand(time(NULL));
+	return Fraction((m_min + rand()%m_max), (m_min + rand()%m_max));
+}
+
 int main()
 {
 	Fraction f1(3, 7);
@@ -50,6 +66,7 @@ int main()
 	cout << "enter 2 numbers" << endl;
 	cin >> a >> b;
 	cout << "gcd(" << a << "," << b << ") = " << Fraction::gcd(a, b) << endl;
+	cout << "Random fractional = " << Fraction::random() << endl;
 	cin >> a;
 	return 0;
 }

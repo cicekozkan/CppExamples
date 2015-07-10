@@ -5,6 +5,8 @@
 
 class Fraction {
 	int m_nom, m_denom;
+	static int m_min;
+	static int m_max;
 	Fraction &simplify();
 public:
 	Fraction(int nom = 0, int denom = 1) : m_nom{ nom }, m_denom{ denom } {}	// constructor
@@ -33,7 +35,7 @@ public:
 	Fraction operator--(int); //postfix
 	
 	static int gcd(int a, int b);
-	static Fraction rand();  // 
+	static Fraction random();  // return a random fractional number?
 	int nominator()const { return m_nom; }
 	int denominator()const { return m_denom; }
 	operator double()const { return (double)m_nom / m_denom; }
