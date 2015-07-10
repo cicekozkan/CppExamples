@@ -11,7 +11,7 @@ int Fraction::m_max = 9999;
 
 ostream &operator<<(ostream &os, const Fraction &r)
 {
-	return os << r.m_nom << "/" << r.m_denom;
+	return os << r.simplify().m_nom << "/" << r.simplify().m_denom;
 }
 
 istream &operator>>(istream &is, Fraction &r)
@@ -54,7 +54,7 @@ Fraction Fraction::random()
 
 int main()
 {
-	Fraction f1(3, 7);
+	Fraction f1(5, 10);
 	int a = 0, b = 0;
 	/*
 	cout << f1 << endl;
@@ -69,6 +69,8 @@ int main()
 	cout << "gcd(" << a << "," << b << ") = " << Fraction::gcd(a, b) << endl;
 	cout << "Random fractional = " << Fraction::random() << endl;
 	*/
+	cout << "nominator = " << f1.nominator() << endl;
+	cout << "denominator = " << f1.denominator() << endl;
 	cout << "f1 = " << f1 << endl;
 	cout << "++f1 = " << ++f1 << endl;
 	cout << "f1++ = " << f1++ << endl;

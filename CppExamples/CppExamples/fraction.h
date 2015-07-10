@@ -7,7 +7,11 @@ class Fraction {
 	int m_nom, m_denom;
 	static int m_min;
 	static int m_max;
-	Fraction &simplify();
+	const Fraction &simplify()const{		
+		int g = gcd(m_nom, m_denom);
+		if (g != 1)	{ Fraction temp(*this); temp.m_nom /= g; temp.m_denom /= g; return temp; }
+		else return *this;
+	}
 public:
 	Fraction(int nom = 0, int denom = 1) : m_nom{ nom }, m_denom{ denom } {}	// constructor
 	// you don't need to create a copy constructor. default copy constructor will do the job
