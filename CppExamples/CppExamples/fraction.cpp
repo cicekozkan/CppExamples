@@ -33,8 +33,8 @@ int Fraction::gcd(int a, int b)
 
 	int bigger, smaller;
 	if (a == b)	return a;
-	else if (a > b){ bigger = a; smaller = b; }
-	else { bigger = b; smaller = a; }
+	else if (abs(a) > abs(b)){ bigger = abs(a); smaller = abs(b); }
+	else { bigger = abs(b); smaller = abs(a); }
 	
 	int remainder = bigger % smaller;
 	if (remainder == 0)	return smaller;
@@ -95,10 +95,10 @@ int main()
 	*/
 	cout << "f1 = " << f1 << endl;
 	cout << "f2 = " << f2 << endl;
-	//cout << "f1+=f2 = " << (f1 += f2) << endl;
-	//cout << "f1*=f2 = " << (f1 *= f2) << endl;
+	cout << "f1+=f2 = " << (f1 += f2) << endl;
+	cout << "f1*=f2 = " << (f1 *= f2) << endl;
 	cout << "f1-=f2 = " << (f1 -= f2) << endl;
-
+	
 
 
 	cin >> a;
