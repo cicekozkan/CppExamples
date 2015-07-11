@@ -41,8 +41,24 @@ public:
 			return *this;
 		}
 	}
-	Fraction &operator-=(const Fraction &r);
-	Fraction &operator*=(const Fraction &r);
+	Fraction &operator-=(const Fraction &r){
+		if (m_denom == r.m_denom){
+			m_nom -= r.m_nom;
+			return *this;
+		}
+		else{
+			int l = lcm(m_denom, r.m_denom);
+			m_nom *= l / m_denom;
+			m_nom -= (r.m_nom * l / r.m_denom);
+			m_denom = l;
+			return *this;
+		}
+	}
+	Fraction &operator*=(const Fraction &r){
+		m_nom *= r.m_nom;
+		m_denom *= r.m_denom;
+		return *this;
+	}
 	Fraction &operator/=(const Fraction &r);
 
 	Fraction &operator++(){ // prefix

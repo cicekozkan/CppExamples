@@ -29,7 +29,7 @@ int Fraction::gcd(int a, int b)
 {
 	if (a == 0 && b != 0)	return abs(b);
 	else if (b == 0 && a != 0)	return abs(a);
-	else if (a == 0 && b == 0){ return -1; }	// gcd(0,0)??? wtf
+	else if (a == 0 && b == 0){ return 0; }	
 
 	int bigger, smaller;
 	if (a == b)	return a;
@@ -50,6 +50,7 @@ int Fraction::gcd(int a, int b)
 */
 int Fraction::lcm(int a, int b)
 {
+	if (a == 0 && b == 0)	return 0;
 	return abs(a*b) / gcd(a, b);
 }
 
@@ -66,8 +67,8 @@ Fraction Fraction::random()
 
 int main()
 {
-	Fraction f1(5, 10);
-	Fraction f2(2, 20);
+	Fraction f1(3, 5);
+	Fraction f2(7, 4);
 	int a = 0, b = 0;
 	/*
 	cout << f1 << endl;
@@ -94,7 +95,10 @@ int main()
 	*/
 	cout << "f1 = " << f1 << endl;
 	cout << "f2 = " << f2 << endl;
-	cout << "f1+=f2 = " << (f1 += f2) << endl;
+	//cout << "f1+=f2 = " << (f1 += f2) << endl;
+	//cout << "f1*=f2 = " << (f1 *= f2) << endl;
+	cout << "f1-=f2 = " << (f1 -= f2) << endl;
+
 
 
 	cin >> a;
