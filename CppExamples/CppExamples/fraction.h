@@ -9,8 +9,16 @@ class Fraction {
 	static int m_max;
 	const Fraction &simplify()const{		
 		int g = gcd(m_nom, m_denom);
-		if (g != 1)	{ Fraction temp(*this); temp.m_nom /= g; temp.m_denom /= g; return temp; }
-		else return *this;
+		Fraction temp(*this);
+		if (g != 1)	{  
+			temp.m_nom /= g; 
+			temp.m_denom /= g;  
+		}
+		if ((this->m_nom < 0 && this->m_denom < 0) || (this->m_nom > 0 && this->m_denom < 0)){
+			temp.m_denom *= -1;
+			temp.m_nom *= -1;
+		}
+		return temp;
 	}
 public:
 	Fraction(int nom = 0, int denom = 1) : m_nom{ nom }, m_denom{ denom } {}	// constructor

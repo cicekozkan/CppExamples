@@ -87,12 +87,13 @@ Fraction operator/(const Fraction &r1, const Fraction &r2)
 
 bool operator<(const Fraction &r1, const Fraction &r2)
 {
-	return (r1.m_nom*Fraction::lcm(r1.m_denom, r2.m_denom) / r1.m_denom) < (r2.m_nom*Fraction::lcm(r1.m_denom, r2.m_denom) / r2.m_denom);
+	int l = Fraction::lcm(r1.m_denom, r2.m_denom);
+	return (r1.m_nom * l / r1.m_denom) < (r2.m_nom * l / r2.m_denom);
 }
 
 int main()
 {
-	Fraction f1(3, -5);
+	Fraction f1(3, 5);
 	Fraction f2(9,14);
 	int a = 5, b = 1;
 	/*
