@@ -85,9 +85,14 @@ Fraction operator/(const Fraction &r1, const Fraction &r2)
 	return Fraction(r1) /= r2;
 }
 
+bool operator<(const Fraction &r1, const Fraction &r2)
+{
+	return (r1.m_nom*Fraction::lcm(r1.m_denom, r2.m_denom) / r1.m_denom) < (r2.m_nom*Fraction::lcm(r1.m_denom, r2.m_denom) / r2.m_denom);
+}
+
 int main()
 {
-	Fraction f1(3, 5);
+	Fraction f1(3, -5);
 	Fraction f2(9,14);
 	int a = 5, b = 1;
 	/*
@@ -112,19 +117,20 @@ int main()
 	cout << "--f1 = " << --f1 << endl;
 	cout << "f1-- = " << f1-- << endl;
 	cout << "f1 = " << f1 << endl;
-	*/
+	
 	//cout << "lcm of " << a << "and " << b << "= " << Fraction::lcm(a, b) << endl;
-	cout << "f1 = " << f1 << endl;
-	cout << "f2 = " << f2 << endl;
-	//cout << "f1+=f2 = " << (f1 += f2) << endl;
-	//cout << "f1-=f2 = " << (f1 -= f2) << endl;
-	//cout << "f1*=f2 = " << (f1 *= f2) << endl;
-	//cout << "f1/=f2 = " << (f1 /= f2) << endl;
+	cout << "f1+=f2 = " << (f1 += f2) << endl;
+	cout << "f1-=f2 = " << (f1 -= f2) << endl;
+	cout << "f1*=f2 = " << (f1 *= f2) << endl;
+	cout << "f1/=f2 = " << (f1 /= f2) << endl;
 	cout << "f1 + f2 = " << f1 + f2 << endl;
 	cout << "f1 - f2 = " << f1 - f2 << endl;
 	cout << "f1 * f2 = " << f1 * f2 << endl;
 	cout << "f1 / f2 = " << f1 / f2 << endl;
-
+	*/
+	cout << "f1 = " << f1 << endl;
+	cout << "f2 = " << f2 << endl;
+	cout << "f1 < f2 = " << (f1 < f2) << endl;
 
 
 	cin >> a;
