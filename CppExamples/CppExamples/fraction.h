@@ -62,7 +62,6 @@ public:
 		m_denom *= r.m_nom;
 		return *this;
 	}
-
 	Fraction &operator++(){ // prefix
 		m_nom += m_denom;
 		return *this;
@@ -80,15 +79,13 @@ public:
 		Fraction temp(*this);
 		m_nom -= m_denom;
 		return temp;
-	}
-	
+	}	
 	static int gcd(int a, int b);
 	static int lcm(int a, int b);
 	static Fraction random();  // return a random fractional number?
 	int nominator()const { return m_nom; }
 	int denominator()const { return m_denom; }
 	operator double()const { return (double)m_nom / m_denom; }
-
 	friend std::ostream &operator<<(std::ostream &, const Fraction &);
 	friend std::istream &operator>>(std::istream &, Fraction &);
 };

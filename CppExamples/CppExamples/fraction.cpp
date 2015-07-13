@@ -62,7 +62,12 @@ int Fraction::lcm(int a, int b)
 Fraction Fraction::random()
 {
 	srand(time(nullptr));
-	return Fraction((m_min + rand()%m_max), (m_min + rand()%m_max));
+	return Fraction((m_min + rand()%(m_max - m_min)), (m_min + rand()%m_max));
+}
+
+Fraction operator+(const Fraction &r1, const Fraction &r2)
+{
+	return Fraction(r1 += r2);
 }
 
 int main()
