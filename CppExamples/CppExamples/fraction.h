@@ -32,8 +32,7 @@ public:
 		if (m_denom == r.m_denom){
 			m_nom += r.m_nom;
 			return *this;
-		}
-		else{
+		}else{
 			int l = lcm(m_denom, r.m_denom);
 			m_nom *= l / m_denom;
 			m_nom += (r.m_nom * l / r.m_denom);	
@@ -45,8 +44,7 @@ public:
 		if (m_denom == r.m_denom){
 			m_nom -= r.m_nom;
 			return *this;
-		}
-		else{
+		}else{
 			int l = lcm(m_denom, r.m_denom);
 			m_nom *= l / m_denom;
 			m_nom -= (r.m_nom * l / r.m_denom);
@@ -59,7 +57,11 @@ public:
 		m_denom *= r.m_denom;
 		return *this;
 	}
-	Fraction &operator/=(const Fraction &r);
+	Fraction &operator/=(const Fraction &r){
+		m_nom *= r.m_denom;
+		m_denom *= r.m_nom;
+		return *this;
+	}
 
 	Fraction &operator++(){ // prefix
 		m_nom += m_denom;
@@ -89,8 +91,6 @@ public:
 
 	friend std::ostream &operator<<(std::ostream &, const Fraction &);
 	friend std::istream &operator>>(std::istream &, Fraction &);
-
-
 };
 
 

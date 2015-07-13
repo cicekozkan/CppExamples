@@ -68,8 +68,8 @@ Fraction Fraction::random()
 int main()
 {
 	Fraction f1(3, 5);
-	Fraction f2(7, 4);
-	int a = 0, b = 0;
+	Fraction f2(9,14);
+	int a = 5, b = 1;
 	/*
 	cout << f1 << endl;
 	cout << "Enter a new fractional number: " << endl;
@@ -93,12 +93,14 @@ int main()
 	cout << "f1-- = " << f1-- << endl;
 	cout << "f1 = " << f1 << endl;
 	*/
+	//cout << "lcm of " << a << "and " << b << "= " << Fraction::lcm(a, b) << endl;
 	cout << "f1 = " << f1 << endl;
 	cout << "f2 = " << f2 << endl;
 	cout << "f1+=f2 = " << (f1 += f2) << endl;
-	cout << "f1*=f2 = " << (f1 *= f2) << endl;
 	cout << "f1-=f2 = " << (f1 -= f2) << endl;
-	
+	cout << "f1*=f2 = " << (f1 *= f2) << endl;
+	cout << "f1/=f2 = " << (f1 /= f2) << endl;
+
 
 
 	cin >> a;
