@@ -67,7 +67,7 @@ Fraction Fraction::random()
 
 Fraction operator+(const Fraction &r1, const Fraction &r2)
 {
-	return Fraction(r1 += r2);
+	return Fraction(r1) += r2;
 }
 
 int main()
@@ -101,10 +101,11 @@ int main()
 	//cout << "lcm of " << a << "and " << b << "= " << Fraction::lcm(a, b) << endl;
 	cout << "f1 = " << f1 << endl;
 	cout << "f2 = " << f2 << endl;
-	cout << "f1+=f2 = " << (f1 += f2) << endl;
-	cout << "f1-=f2 = " << (f1 -= f2) << endl;
-	cout << "f1*=f2 = " << (f1 *= f2) << endl;
-	cout << "f1/=f2 = " << (f1 /= f2) << endl;
+	//cout << "f1+=f2 = " << (f1 += f2) << endl;
+	//cout << "f1-=f2 = " << (f1 -= f2) << endl;
+	//cout << "f1*=f2 = " << (f1 *= f2) << endl;
+	//cout << "f1/=f2 = " << (f1 /= f2) << endl;
+	cout << "f1 + f2 = " << f1 + f2 << endl;
 
 
 
