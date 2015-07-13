@@ -70,6 +70,21 @@ Fraction operator+(const Fraction &r1, const Fraction &r2)
 	return Fraction(r1) += r2;
 }
 
+Fraction operator-(const Fraction &r1, const Fraction &r2)
+{
+	return Fraction(r1) -= r2;
+}
+
+Fraction operator*(const Fraction &r1, const Fraction &r2)
+{
+	return Fraction(r1) *= r2;
+}
+
+Fraction operator/(const Fraction &r1, const Fraction &r2)
+{
+	return Fraction(r1) /= r2;
+}
+
 int main()
 {
 	Fraction f1(3, 5);
@@ -106,6 +121,9 @@ int main()
 	//cout << "f1*=f2 = " << (f1 *= f2) << endl;
 	//cout << "f1/=f2 = " << (f1 /= f2) << endl;
 	cout << "f1 + f2 = " << f1 + f2 << endl;
+	cout << "f1 - f2 = " << f1 - f2 << endl;
+	cout << "f1 * f2 = " << f1 * f2 << endl;
+	cout << "f1 / f2 = " << f1 / f2 << endl;
 
 
 
