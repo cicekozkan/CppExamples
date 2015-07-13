@@ -91,6 +91,31 @@ bool operator<(const Fraction &r1, const Fraction &r2)
 	return (r1.m_nom * l / r1.m_denom) < (r2.m_nom * l / r2.m_denom);
 }
 
+bool operator<=(const Fraction &r1, const Fraction &r2)
+{
+	return !(r2 < r1);
+}
+
+bool operator>(const Fraction &r1, const Fraction &r2)
+{
+	return r2 < r1;
+}
+
+bool operator>=(const Fraction &r1, const Fraction &r2)
+{
+	return !(r1 < r2);
+}
+
+bool operator==(const Fraction &r1, const Fraction &r2)
+{
+	return !(r1 < r2) && !(r2 < r1);
+}
+
+bool operator!=(const Fraction &r1, const Fraction &r2)
+{
+	return (r1 < r2) || (r2 < r1);
+}
+
 int main()
 {
 	Fraction f1(3, 5);
