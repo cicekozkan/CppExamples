@@ -1,16 +1,17 @@
+#pragma once
 #include <iosfwd>
 
 class Date {
-	int m_total_days;
+	int m_total_days;	// ? 
 	int m_day, m_mon, m_year;
 
 	static const int mscYearBase = 1700;
-	static bool isleap(int y);
+	static bool isleap(int y);	// modulo 4 years
 public:
 	Date(int d = 0, int m = 0, int y = 0);
 	//////
-	int getYear()const;
-	int getMonth()const;
+	int getYear()const{ return m_year; }
+	int getMonth()const{ return m_mon; };
 	int getMonthDay()const;
 	int getWeekDay()const;
 	int getYearDay()const;
