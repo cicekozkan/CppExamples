@@ -3,9 +3,9 @@
 #include <ctime>
 
 class Date {
-	int m_total_days;	// ? 
+	int m_total_days;	
 	int m_day, m_mon, m_year;
-
+	static const int monthDays[12];
 	static const int mscYearBase = 1700;
 	static bool isleap(int y);	// modulo 4 years
 public:
@@ -43,13 +43,26 @@ public:
 			m_mon = m;
 			m_year = y;
 		}
+		m_total_days = (m_year - mscYearBase) * 365 + (m_year - mscYearBase)/4 + getYearDay();
 	}
 	//////
 	int getYear()const{ return m_year; }
 	int getMonth()const{ return m_mon; }
 	int getMonthDay()const{ return m_day; }
-	int getWeekDay()const;//?
-	int getYearDay()const;//?
+	int getWeekDay()const;
+	int getYearDay()const
+	{
+		int yearday = 0;
+		for (int i = 0; i < m_mon -1 ; i++){
+			yearday += monthDays[i];
+		}
+		yearday += m_day;
+		return yearday;
+	}
+	int getTotalDays()const
+	{
+		return m_total_days;
+	}
 
 	friend bool operator<(const Date &r1, const Date &r2);
 	friend bool operator<=(const Date &r1, const Date &r2);
@@ -73,7 +86,6 @@ public:
 	friend std::ostream &operator<<(std::ostream &, const Date &);
 	friend std::istream &operator>>(std::istream &, Date &);
 };
-
 
 
 class BadDate {
