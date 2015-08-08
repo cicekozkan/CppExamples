@@ -79,9 +79,9 @@ public:
 	Date operator--(int); //sonek
 	Date &operator+=(int ndays);
 	Date &operator-=(int ndays);
-	Date &setMonthDay(int mday);
-	Date &setMonth(int mon);
-	Date &setYear(int year);
+	Date &setMonthDay(int mday){ m_day = mday; return *this; }
+	Date &setMonth(int mon){ m_mon = mon; return *this; }
+	Date &setYear(int year){ m_year = year; return *this; }
 	static Date random();
 	friend std::ostream &operator<<(std::ostream &, const Date &);
 	friend std::istream &operator>>(std::istream &, Date &);

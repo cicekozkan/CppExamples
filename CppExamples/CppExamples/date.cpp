@@ -47,18 +47,28 @@ ostream& operator<<(ostream& os, const Date& d)
 	return os << d.getMonth() << "/" << d.getMonthDay() << "/" << d.getYear();
 }
 
+istream& operator>>(istream& is, Date& d)
+{
+	return is >> d.m_day >> d.m_mon >> d.m_year;
+}
+
 int main()
 {
 	Date d1(8, 3, 1705);
 	Date d2(7, 11, 1987);
+	Date d3;
 
 	cout << d1 << endl;
 	cout << d2 << endl;
 	cout << "d2 < d1 " << (d2 < d1) << endl;
 	cout << "d1 year day: " << d1.getYearDay() << endl;
-	cout << "d1 total days: " << d1.getTotalDay() << endl;
-	cout << "d2 total days: " << d2.getTotalDay() << endl;
+	cout << "d1 total days: " << d1.getTotalDays() << endl;
+	cout << "d2 total days: " << d2.getTotalDays() << endl;
+	cout << "enter day, month and year: ";
+	cin >> d3;
+	cout << d3 << endl;
 
+	getchar();
 	getchar();
 
 	return 0;
