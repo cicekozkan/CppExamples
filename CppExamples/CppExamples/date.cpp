@@ -57,6 +57,7 @@ int main()
 	Date d1(8, 3, 1705);
 	Date d2(7, 11, 1987);
 	Date d3;
+	int days;
 
 	cout << d1 << endl;
 	cout << d2 << endl;
@@ -66,6 +67,11 @@ int main()
 	cout << "d2 total days: " << d2.getTotalDays() << endl;
 	cout << "enter day, month and year: ";
 	cin >> d3;
+	cout << d3 << endl;
+
+	cout << "Enter days: ";
+	cin >> days;
+	d3 += days;
 	cout << d3 << endl;
 
 	getchar();

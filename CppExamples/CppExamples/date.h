@@ -77,7 +77,18 @@ public:
 	Date operator++(int); //sonek
 	Date &operator--();
 	Date operator--(int); //sonek
-	Date &operator+=(int ndays);
+	Date &operator+=(int ndays){
+		m_day += ndays;
+		while (m_day > monthDays[m_mon - 1]){
+			m_day -= monthDays[m_mon - 1];
+			++m_mon;
+			if (m_mon > 12) {
+				++m_year;
+				m_mon -= 12;
+			}
+		}
+		return *this;
+	}
 	Date &operator-=(int ndays);
 	Date &setMonthDay(int mday){ m_day = mday; return *this; }
 	Date &setMonth(int mon){ m_mon = mon; return *this; }
