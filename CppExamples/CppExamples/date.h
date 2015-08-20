@@ -89,7 +89,19 @@ public:
 		}
 		return *this;
 	}
-	Date &operator-=(int ndays);
+	Date &operator-=(int ndays){
+		m_day -= ndays;
+		while (m_day <= 0){
+			m_day += monthDays[m_mon - 2];
+			--m_mon;
+			if (m_mon <= 0) {
+				--m_year;
+				m_mon += 12;
+			}
+			if (m_year < mscYearBase)	break;
+		}
+		return *this;
+	}
 	Date &setMonthDay(int mday){ m_day = mday; return *this; }
 	Date &setMonth(int mon){ m_mon = mon; return *this; }
 	Date &setYear(int year){ m_year = year; return *this; }

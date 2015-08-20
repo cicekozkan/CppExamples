@@ -44,7 +44,7 @@ bool operator!=(const Date &r1, const Date &r2)
 
 ostream& operator<<(ostream& os, const Date& d)
 {
-	return os << d.getMonth() << "/" << d.getMonthDay() << "/" << d.getYear();
+	return os << d.getMonthDay() << "/" << d.getMonth() << "/" << d.getYear();
 }
 
 istream& operator>>(istream& is, Date& d)
@@ -69,10 +69,15 @@ int main()
 	cin >> d3;
 	cout << d3 << endl;
 
-	cout << "Enter days: ";
+	cout << "Enter days to add: ";
 	cin >> days;
 	d3 += days;
 	cout << d3 << endl;
+	cout << "Enter days to subtract: ";
+	cin >> days;
+	d3 -= days;
+	cout << d3 << endl;
+
 
 	getchar();
 	getchar();
