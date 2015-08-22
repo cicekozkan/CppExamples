@@ -65,6 +65,7 @@ int main()
 	cout << "d1 year day: " << d1.getYearDay() << endl;
 	cout << "d1 total days: " << d1.getTotalDays() << endl;
 	cout << "d2 total days: " << d2.getTotalDays() << endl;
+	/*
 	cout << "enter day, month and year: ";
 	cin >> d3;
 	cout << d3 << endl;
@@ -77,9 +78,8 @@ int main()
 	cin >> days;
 	d3 -= days;
 	cout << d3 << endl;
-
-
 	getchar();
+	*/
 	getchar();
 
 	return 0;

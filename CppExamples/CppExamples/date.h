@@ -45,13 +45,18 @@ public:
 			m_mon = m;
 			m_year = y;
 		}
-		m_total_days = (m_year - mscYearBase) * 365 + (m_year - mscYearBase)/4 + getYearDay();
+		
 	}
 	//////
 	int getYear()const{ return m_year; }
 	int getMonth()const{ return m_mon; }
 	int getMonthDay()const{ return m_day; }
 	int getWeekDay()const;
+	int getTotalDays()
+	{
+		m_total_days = (m_year - mscYearBase) * 365 + (m_year - mscYearBase) / 4 + getYearDay();
+		return m_total_days;
+	}
 	int getYearDay()const
 	{
 		int yearday = 0;
@@ -61,11 +66,6 @@ public:
 		yearday += m_day;
 		return yearday;
 	}
-	int getTotalDays()const
-	{
-		return m_total_days;
-	}
-
 	friend bool operator<(const Date &r1, const Date &r2);
 	friend bool operator<=(const Date &r1, const Date &r2);
 	friend bool operator>(const Date &r1, const Date &r2);
