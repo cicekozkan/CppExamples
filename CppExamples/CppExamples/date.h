@@ -127,21 +127,7 @@ public:
 		return *this;
 	}
 	Date &operator-=(int ndays){
-		m_day -= ndays;
-		while (m_day <= 0){
-			--m_mon;
-			if (m_mon <= 0) {
-				--m_year;
-				m_mon += 12;
-			}
-			if (m_year < mscYearBase)	{
-				m_day = 1;
-				m_mon = 1;
-				m_year = mscYearBase;
-				return *this;
-			}
-			m_day += monthDays[m_mon - 1];			
-		}
+		*this = totalDaysToDate(getTotalDays() - ndays);
 		return *this;
 	}
 	Date &setMonthDay(int mday){ m_day = mday; return *this; }

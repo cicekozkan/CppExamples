@@ -77,12 +77,12 @@ int main()
 	d3 += days;
 	cout << d3 << endl;
 	//cout << "Total days: " << d3.getTotalDays() << endl;
-	/*
+	
 	cout << "Enter days to subtract: ";
 	cin >> days;
 	d3 -= days;
 	cout << d3 << endl;
-	*/
+	
 	getchar();
 	
 	getchar();
