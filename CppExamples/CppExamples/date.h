@@ -3,11 +3,11 @@
 #include <ctime>
 #include <cmath>
 class Date {
-	int m_total_days;	
-	int m_day, m_mon, m_year;
-	static int monthDays[12]; 
-	static const int mscYearBase = 1700;
-	static bool isleap(int y){// modulo 4 years
+	mutable int m_total_days;	///< Total days elapsed since 1, 1, mscYearBase	
+	int m_day, m_mon, m_year;	///< day, month and year members
+	static int monthDays[12];	///< this array holds how many days each month has 
+	static const int mscYearBase = 1700;	///< base year for this implementation
+	static bool isleap(int y){	
 		return (y % 4 == 0);
 	}
 	/*!
@@ -83,7 +83,6 @@ public:
 			m_mon = m;
 			m_year = y;
 		}
-		m_total_days = (m_year - mscYearBase) * 365 + (int)ceil((m_year - Date::mscYearBase) / 4.0) + getYearDay();
 	}
 	//////
 	int getYear()const{ return m_year; }
@@ -92,7 +91,7 @@ public:
 	int getWeekDay()const;
 	int getTotalDays()const
 	{
-		//m_total_days = (m_year - mscYearBase) * 365 + (m_year - mscYearBase) / 4 + getYearDay();
+		m_total_days = (m_year - mscYearBase) * 365 + (int)ceil((m_year - mscYearBase) / 4.0) + getYearDay();
 		return m_total_days;
 	}
 	int getYearDay()const
@@ -124,19 +123,7 @@ public:
 	Date &operator--();
 	Date operator--(int); //sonek
 	Date &operator+=(int ndays){		
-		*this = totalDaysToDate(m_total_days + ndays);
-		//m_total_days += ndays;
-		/*
-		m_day += ndays;
-		while (m_day > monthDays[m_mon - 1]){
-			m_day -= monthDays[m_mon - 1];
-			++m_mon;
-			if (m_mon > 12) {
-				++m_year;
-				m_mon -= 12;
-			}
-		}
-		*/
+		*this = totalDaysToDate(getTotalDays() + ndays);
 		return *this;
 	}
 	Date &operator-=(int ndays){

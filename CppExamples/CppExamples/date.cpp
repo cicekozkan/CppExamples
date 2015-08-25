@@ -49,9 +49,7 @@ ostream& operator<<(ostream& os, const Date& d)
 
 istream& operator>>(istream& is, Date& d)
 {
-	is >> d.m_day >> d.m_mon >> d.m_year;
-	d.m_total_days = (d.m_year - Date::mscYearBase) * 365 + (int)ceil((d.m_year - Date::mscYearBase) / 4.0) + d.getYearDay();	// calculate total days
-	return is;
+	return is >> d.m_day >> d.m_mon >> d.m_year;
 }
 
 int main()
@@ -60,30 +58,31 @@ int main()
 	Date d2(7, 11, 1987);
 	Date d3;
 	int days;
-
+	/*
 	cout << d1 << endl;
 	cout << d2 << endl;
 	cout << "d2 < d1 " << (d2 < d1) << endl;
 	cout << "d1 year day: " << d1.getYearDay() << endl;
 	cout << "d1 total days: " << d1.getTotalDays() << endl;
 	cout << "d2 total days: " << d2.getTotalDays() << endl;
-	
+	*/
 	cout << "enter day, month and year: ";
 	cin >> d3;
 	cout << d3 << endl;
-	cout << "d3 year day: " << d3.getYearDay() << endl;
-	cout << "Total days: " << d3.getTotalDays() << endl;
+	//cout << "d3 year day: " << d3.getYearDay() << endl;
+	//cout << "Total days: " << d3.getTotalDays() << endl;
 	
 	cout << "Enter days to add: ";
 	cin >> days;
 	d3 += days;
 	cout << d3 << endl;
-	cout << "Total days: " << d3.getTotalDays() << endl;
-	
+	//cout << "Total days: " << d3.getTotalDays() << endl;
+	/*
 	cout << "Enter days to subtract: ";
 	cin >> days;
 	d3 -= days;
 	cout << d3 << endl;
+	*/
 	getchar();
 	
 	getchar();
