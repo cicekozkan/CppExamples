@@ -1,7 +1,7 @@
 #pragma once
 #include <iosfwd>
 #include <ctime>
-
+#include <cmath>
 class Date {
 	int m_total_days;	
 	int m_day, m_mon, m_year;
@@ -23,16 +23,22 @@ class Date {
 		temp.m_total_days = totalDays;
 		temp.m_day = totalDays;
 
+		// is it leap? check this year
+		if (isleap(temp.m_year))
+			monthDays[1] = 29;
+		else
+			monthDays[1] = 28;
+
 		while (temp.m_day > monthDays[temp.m_mon - 1]){
 			// we will move one month. subtract this month's days
 			temp.m_day -= monthDays[temp.m_mon - 1];
 			// go to next month
 			temp.m_mon++;
-			// end of the year?
+			// end of the year? 
 			if (temp.m_mon > 12){
 				temp.m_mon -= 12;
 				temp.m_year++;
-				// is it leap?
+				// is it leap? check new year
 				if (isleap(temp.m_year))
 					monthDays[1] = 29;
 				else
@@ -77,7 +83,7 @@ public:
 			m_mon = m;
 			m_year = y;
 		}
-		m_total_days = (m_year - mscYearBase) * 365 + (m_year - mscYearBase) / 4 + getYearDay();
+		m_total_days = (m_year - mscYearBase) * 365 + (int)ceil((m_year - Date::mscYearBase) / 4.0) + getYearDay();
 	}
 	//////
 	int getYear()const{ return m_year; }

@@ -50,7 +50,7 @@ ostream& operator<<(ostream& os, const Date& d)
 istream& operator>>(istream& is, Date& d)
 {
 	is >> d.m_day >> d.m_mon >> d.m_year;
-	d.m_total_days = (d.m_year - Date::mscYearBase) * 365 + (d.m_year - Date::mscYearBase) / 4 + d.getYearDay();	// calculate total days
+	d.m_total_days = (d.m_year - Date::mscYearBase) * 365 + (int)ceil((d.m_year - Date::mscYearBase) / 4.0) + d.getYearDay();	// calculate total days
 	return is;
 }
 
@@ -71,6 +71,7 @@ int main()
 	cout << "enter day, month and year: ";
 	cin >> d3;
 	cout << d3 << endl;
+	cout << "d3 year day: " << d3.getYearDay() << endl;
 	cout << "Total days: " << d3.getTotalDays() << endl;
 	
 	cout << "Enter days to add: ";
