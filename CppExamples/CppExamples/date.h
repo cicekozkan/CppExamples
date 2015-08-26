@@ -115,8 +115,12 @@ public:
 	friend bool operator>=(const Date &r1, const Date &r2);
 	friend bool operator==(const Date &r1, const Date &r2);
 	friend bool operator!=(const Date &r1, const Date &r2);
-	Date operator-(int ndays)const;
-	Date operator+(int ndays)const;
+	Date operator-(int ndays)const{
+		return Date(m_day) -= ndays;
+	}
+	Date operator+(int ndays)const{
+		return Date(m_day) += ndays;
+	}
 	friend int operator-(const Date &, const Date &);
 	Date &operator++();
 	Date operator++(int); //sonek
