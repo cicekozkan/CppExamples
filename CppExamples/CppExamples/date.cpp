@@ -52,11 +52,18 @@ istream& operator>>(istream& is, Date& d)
 	return is >> d.m_day >> d.m_mon >> d.m_year;
 }
 
+int operator-(const Date &d1, const Date &d2)
+{
+	return d1.getTotalDays() - d2.getTotalDays();
+}
+
+
 int main()
 {
 	Date d1(8, 3, 1700);
 	Date d2(7, 11, 1987);
 	Date d3;
+	Date d4;
 	int days;
 	/*
 	cout << d1 << endl;
@@ -68,24 +75,29 @@ int main()
 	*/
 	cout << "enter day, month and year: ";
 	cin >> d3;
-	cout << d3 << endl;
+	cout << "d3: " << d3 << endl;
+	cout << "enter day, month and year: ";
+	cin >> d4;
+	cout << "d4: " << d4 << endl;
+
+	cout << "d3 - d4: " << d3 - d4 << endl;
 	//cout << "d3 year day: " << d3.getYearDay() << endl;
 	//cout << "Total days: " << d3.getTotalDays() << endl;
 	
-	cout << "Enter days to add: ";
-	cin >> days;
+	//cout << "Enter days to add: ";
+	//cin >> days;
 	//d3 += days;
 	//cout << d3 << endl;
 	//cout << "Enter days to add: ";
 	//cin >> days;
-	cout << d3 + days << endl;
+	//cout << d3 + days << endl;
 
 	//cout << "Total days: " << d3.getTotalDays() << endl;
 	
-	cout << "Enter days to subtract: ";
-	cin >> days;
+	//cout << "Enter days to subtract: ";
+	//cin >> days;
 	//d3 -= days;
-	cout << d3 - days << endl;
+	//cout << d3 - days << endl;
 	
 	getchar();
 	
