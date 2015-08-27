@@ -122,8 +122,13 @@ public:
 		return Date(m_day) += ndays;
 	}
 	friend int operator-(const Date &, const Date &);
-	Date &operator++();
-	Date operator++(int); //sonek
+	Date &operator++(){
+		*this += 1;	// += operator overloading takes care of moving forward in case adding one day will result moving to the next month
+		return *this;
+	}
+	Date operator++(int){ //sonek
+
+	}
 	Date &operator--();
 	Date operator--(int); //sonek
 	Date &operator+=(int ndays){		
