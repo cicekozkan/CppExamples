@@ -81,8 +81,15 @@ int main()
 	cout << "d4: " << d4 << endl;
 
 	cout << "d3 - d4: " << d3 - d4 << endl;
-	cout << d3++ << endl;
-	cout << d3 << endl;
+	cout << "++d3 " << ++d3 << endl;
+	cout << "d3 " << d3 << endl;
+	cout << "d3++ " << d3++ << endl;
+	cout << "d3 " << d3 << endl;
+	cout << "--d3 " << --d3 << endl;
+	cout << "d3 " << d3 << endl;
+	cout << "d3-- " << d3-- << endl;
+	cout << "d3 " << d3 << endl;
+
 	//cout << "d3 year day: " << d3.getYearDay() << endl;
 	//cout << "Total days: " << d3.getTotalDays() << endl;
 	

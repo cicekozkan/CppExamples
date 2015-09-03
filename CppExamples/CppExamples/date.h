@@ -131,8 +131,15 @@ public:
 		*this += 1;	// += operator overloading takes care of moving forward in case adding one day will result moving to the next month
 		return temp;
 	}
-	Date &operator--();
-	Date operator--(int); //sonek
+	Date &operator--(){
+		*this -= 1;	// -= operator overloading takes care of moving forward in case adding one day will result moving to the next month
+		return *this;
+	}
+	Date operator--(int){
+		Date temp(*this);
+		*this -= 1;	// -= operator overloading takes care of moving forward in case adding one day will result moving to the next month
+		return temp;
+	}
 	Date &operator+=(int ndays){		
 		*this = totalDaysToDate(getTotalDays() + ndays);
 		return *this;
