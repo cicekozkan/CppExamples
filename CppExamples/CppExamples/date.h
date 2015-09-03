@@ -127,7 +127,9 @@ public:
 		return *this;
 	}
 	Date operator++(int){ //sonek
-
+		Date temp(*this);
+		*this += 1;	// += operator overloading takes care of moving forward in case adding one day will result moving to the next month
+		return temp;
 	}
 	Date &operator--();
 	Date operator--(int); //sonek
