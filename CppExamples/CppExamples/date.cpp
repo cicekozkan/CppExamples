@@ -49,7 +49,7 @@ ostream& operator<<(ostream& os, const Date& d)
 
 istream& operator>>(istream& is, Date& d)
 {
-	return is >> d.m_day >> d.m_mon >> d.m_year;
+	return is >> d.m_day >> d.m_mon >> d.m_year; // how to throw BadDate in operator>> overload
 }
 
 int operator-(const Date &d1, const Date &d2)
@@ -62,8 +62,8 @@ int main()
 {
 	Date d1(8, 3, 1700);
 	Date d2(7, 11, 1987);
-	Date d3;
-	Date d4;
+	Date d3(Date::random());
+	Date d4(Date::random());
 	int days;
 	try{
 		Date d5(1, 1, 1600);
@@ -71,6 +71,10 @@ int main()
 	catch(BadDate &r){
 		cout << r.getReason() << endl;
 	}
+	cout << d3 << endl;
+	cout << d4 << endl;
+	cout << Date::random() << endl;
+
 	/*
 	cout << d1 << endl;
 	cout << d2 << endl;
@@ -78,7 +82,7 @@ int main()
 	cout << "d1 year day: " << d1.getYearDay() << endl;
 	cout << "d1 total days: " << d1.getTotalDays() << endl;
 	cout << "d2 total days: " << d2.getTotalDays() << endl;
-	*/1
+	
 
 	cout << "enter day, month and year: ";
 	cin >> d3;
@@ -96,7 +100,7 @@ int main()
 	cout << "d3 " << d3 << endl;
 	cout << "d3-- " << d3-- << endl;
 	cout << "d3 " << d3 << endl;
-	
+	*/
 	//cout << "d3 year day: " << d3.getYearDay() << endl;
 	//cout << "Total days: " << d3.getTotalDays() << endl;
 	

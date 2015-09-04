@@ -100,6 +100,18 @@ public:
 				BadDate b("Day is greater than 31");
 				throw b;
 			}
+			if (m == 2 && isleap(y) && d > 29){
+				BadDate b("Day is greater than 29 in a leap year");
+				throw b;
+			}
+			if (m == 2 && !isleap(y) && d > 28){
+				BadDate b("Day is greater than 28 in a non-leap year");
+				throw b;
+			}
+			if (d > monthDays[m - 1]){
+				BadDate b("Day is greater than that month's max day");
+				throw b;
+			}
 			m_day = d;
 			m_mon = m;
 			m_year = y;
@@ -172,7 +184,17 @@ public:
 	Date &setMonthDay(int mday){ m_day = mday; return *this; }
 	Date &setMonth(int mon){ m_mon = mon; return *this; }
 	Date &setYear(int year){ m_year = year; return *this; }
-	static Date random();
+	static Date random(){
+		srand(static_cast<unsigned>(time(nullptr)));
+		int m = 1 + rand() % 12;
+		int y = mscYearBase + rand();
+		if (isleap(y)){
+			monthDays[1] = 29;
+		}
+		int d = 1 + rand() % monthDays[m - 1];
+		
+		return Date(d, m, y);
+	}
 	friend std::ostream &operator<<(std::ostream &, const Date &);
 	friend std::istream &operator>>(std::istream &, Date &);
 };
