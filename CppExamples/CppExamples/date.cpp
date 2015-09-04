@@ -65,6 +65,12 @@ int main()
 	Date d3;
 	Date d4;
 	int days;
+	try{
+		Date d5(1, 1, 1600);
+	}
+	catch(BadDate &r){
+		cout << r.getReason() << endl;
+	}
 	/*
 	cout << d1 << endl;
 	cout << d2 << endl;
@@ -72,7 +78,8 @@ int main()
 	cout << "d1 year day: " << d1.getYearDay() << endl;
 	cout << "d1 total days: " << d1.getTotalDays() << endl;
 	cout << "d2 total days: " << d2.getTotalDays() << endl;
-	*/
+	*/1
+
 	cout << "enter day, month and year: ";
 	cin >> d3;
 	cout << "d3: " << d3 << endl;
@@ -89,7 +96,7 @@ int main()
 	cout << "d3 " << d3 << endl;
 	cout << "d3-- " << d3-- << endl;
 	cout << "d3 " << d3 << endl;
-
+	
 	//cout << "d3 year day: " << d3.getYearDay() << endl;
 	//cout << "Total days: " << d3.getTotalDays() << endl;
 	

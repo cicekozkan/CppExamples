@@ -2,6 +2,15 @@
 #include <iosfwd>
 #include <ctime>
 #include <cmath>
+#include <string>
+
+class BadDate {
+	std::string reason;
+public:
+	BadDate(std::string r) { reason = r; }
+	std::string getReason(void){ return reason; }
+};
+
 class Date {
 	mutable int m_total_days;	///< Total days elapsed since 1, 1, mscYearBase	
 	int m_day, m_mon, m_year;	///< day, month and year members
@@ -49,28 +58,28 @@ class Date {
 		return temp;
 	}
 public:
-	Date(int d = 0, int m = 0, int y = 0){
-		if (d == 0 || m == 0 || y == 0){
+	Date(int d = -1, int m = -1, int y = -1){
+		if (d == -1 || m == -1 || y == -1){
 			// get current date
 			time_t t = time(0);
 			struct tm now;
 			localtime_s(&now, &t);
 			
-			if (d == 0){
+			if (d == -1){
 				m_day = now.tm_mday;
 			}
 			else
 			{
 				m_day = d;
 			}
-			if (m == 0)	{
+			if (m == -1)	{
 				m_mon = now.tm_mon + 1;
 			}
 			else
 			{
 				m_mon = m;
 			}
-			if (y == 0)	{
+			if (y == -1)	{
 				m_year = now.tm_year + 1900;
 			}
 			else
@@ -79,6 +88,18 @@ public:
 			}
 		}
 		else{
+			if (y < mscYearBase){
+				BadDate b("Year is smaller than base year");
+				throw b;
+			}
+			if (m > 12){
+				BadDate b("Month is greater than 12");
+				throw b;
+			}
+			if (d > 31){
+				BadDate b("Day is greater than 31");
+				throw b;
+			}
 			m_day = d;
 			m_mon = m;
 			m_year = y;
@@ -156,7 +177,3 @@ public:
 	friend std::istream &operator>>(std::istream &, Date &);
 };
 
-
-class BadDate {
-
-};
