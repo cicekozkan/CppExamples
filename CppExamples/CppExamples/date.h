@@ -3,11 +3,12 @@
 #include <ctime>
 #include <cmath>
 #include <string>
+#include <cstdlib>
 
 class BadDate {
 	std::string reason;
 public:
-	BadDate(std::string r) { reason = r; }
+	BadDate(std::string r): reason(r) { }	 
 	std::string getReason(void){ return reason; }
 };
 
@@ -20,10 +21,10 @@ class Date {
 		return (y % 4 == 0);
 	}
 	/*!
-		\fn static Date totalDaysToDate(int totalDays)
-		\brief Calculate the date after totalDays from base year
-		\param totalDays Total days
-		\return Date& Date object... base year + totalDays
+	\fn static Date totalDaysToDate(int totalDays)
+	\brief Calculate the date after totalDays from base year
+	\param totalDays Total days
+	\return Date object... base year + totalDays
 	*/
 	static Date totalDaysToDate(int totalDays)
 	{
@@ -184,7 +185,12 @@ public:
 	Date &setMonthDay(int mday){ m_day = mday; return *this; }
 	Date &setMonth(int mon){ m_mon = mon; return *this; }
 	Date &setYear(int year){ m_year = year; return *this; }
-	static Date random(){
+	/*!
+	\fn static Date random(void)
+	\brief Supposed to return a random Date object. However, it returns same object every time it is called. Does srand function not work?
+	\return Random Date object.
+	*/
+	static Date random(void){
 		srand(static_cast<unsigned>(time(nullptr)));
 		int m = 1 + rand() % 12;
 		int y = mscYearBase + rand();
@@ -192,7 +198,6 @@ public:
 			monthDays[1] = 29;
 		}
 		int d = 1 + rand() % monthDays[m - 1];
-		
 		return Date(d, m, y);
 	}
 	friend std::ostream &operator<<(std::ostream &, const Date &);

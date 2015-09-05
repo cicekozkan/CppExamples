@@ -57,7 +57,6 @@ int operator-(const Date &d1, const Date &d2)
 	return d1.getTotalDays() - d2.getTotalDays();
 }
 
-
 int main()
 {
 	Date d1(8, 3, 1700);
@@ -73,7 +72,7 @@ int main()
 	}
 	cout << d3 << endl;
 	cout << d4 << endl;
-	cout << Date::random() << endl;
+	//cout << Date::random() << endl;
 
 	/*
 	cout << d1 << endl;
