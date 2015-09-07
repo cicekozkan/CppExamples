@@ -1,0 +1,1736 @@
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+
+		8 Austos 2015 Cumartesi
+		
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+	#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+class Employee {
+	int mx, my;
+public:
+	virtual void func1();
+	virtual void func2();
+	virtual void func3();
+
+
+};
+
+class Manager : public Employee {
+public:
+	
+};
+
+class SalesManager : public Manager {
+public:
+};
+
+int main()
+{
+	cout << "sizeof Employee = " << sizeof(Employee) << endl;
+	cout << "sizeof Manager = " << sizeof(Manager) << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+
+
+
+class Shape {
+
+public:
+	virtual void draw();
+};
+
+
+class Triangle : public Shape {
+public:
+	int draw(); //gecersiz
+};
+
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Myclass final{
+
+public:
+};
+
+class Neco : public Myclass {
+
+};
+
+int main()
+{
+
+	return 0;
+}
+
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Base {
+
+public:
+};
+
+class Der final : public Base {
+
+};
+
+class SpecialDer : public Der {  //geersiz
+
+};
+
+int main()
+{
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Base {
+
+public:
+	virtual void func()const ;
+
+};
+
+class Der : public Base {
+public:
+	virtual void func()const override final;
+};
+
+class Der2 : public Der {
+public:
+	virtual void func()const override;  //dogrudan taban sinif
+	//final olarak belirledigi icin error
+
+};
+
+
+int main()
+{
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////
+
+
+void game_f(TetrisShape &r)
+{
+	////
+	r.rotate();
+	r.fall_down();
+
+}
+
+
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Base {
+
+public:
+	virtual void vfoo()
+	{
+		cout << "Base::vfoo()" << endl;
+	}
+
+	void func()
+	{
+		cout << "Base::func()" << endl;
+		Base::vfoo();
+	}
+};
+
+class Der : public Base {
+public:
+	virtual void vfoo()override {
+		cout << "Der::vfoo()" << endl;
+	}
+};
+
+
+int main()
+{
+	Der myder;
+
+	myder.func();
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Base {
+
+public:
+	~Base()
+	{
+		cout << "Base::~Base()" << endl;
+		vfoo();
+	}
+	virtual void vfoo()
+	{
+		cout << "Base::vfoo()" << endl;
+	}
+
+	
+};
+
+class Der : public Base {
+public:
+	virtual void vfoo()override {
+		cout << "Der::vfoo()" << endl;
+	}
+};
+
+
+int main()
+{
+	Der myder;
+
+	
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Base {
+
+public:
+	~Base()
+	{
+		cout << "Base::~Base()" << endl;
+	}
+};
+
+class Der : public Base {
+public:
+	~Der()
+	{
+		cout << "Der::~Der()" << endl;
+	}
+};
+
+
+int main()
+{
+	Der myder;
+
+	
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Base {
+
+public:
+	~Base()
+	{
+		cout << "Base::~Base()" << endl;
+	}
+};
+
+class Der : public Base {
+public:
+	~Der()
+	{
+		cout << "Der::~Der()" << endl;
+	}
+};
+
+
+int main()
+{
+	Der *pd = new Der;
+
+
+	delete pd;
+	cout << "main bitiyor" << endl;
+	
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Base {
+
+public:
+	~Base()
+	{
+		cout << "Base::~Base()" << endl;
+	}
+};
+
+class Der : public Base {
+public:
+	~Der()
+	{
+		cout << "Der::~Der()" << endl;
+	}
+};
+
+
+int main()
+{
+	Base *ptr = new Der;
+
+
+	delete ptr;
+
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Base {
+
+public:
+	virtual ~Base()
+	{
+		cout << "Base::~Base()" << endl;
+	}
+};
+
+class Der : public Base {
+public:
+	~Der()
+	{
+		cout << "Der::~Der()" << endl;
+	}
+};
+
+
+int main()
+{
+	Base *ptr = new Der;
+
+
+	delete ptr;
+
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Base {
+
+public:
+	virtual ~Base()
+	{
+		cout << "Base::~Base()" << endl;
+	}
+};
+
+class Der : public Base {
+public:
+	~Der()
+	{
+		cout << "Der::~Der()" << endl;
+	}
+};
+
+class Der2 : public Der {
+public:
+	~Der2()
+	{
+		cout << "Der2::~Der2()" << endl;
+	}
+};
+
+class Der3 : public Der2 {
+public:
+	~Der3()
+	{
+		cout << "Der3::~Der3()" << endl;
+	}
+};
+
+
+int main()
+{
+	Base *ptr = new Der3;
+
+
+	delete ptr;
+
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Employee {
+public:
+	virtual ~Employee() = default;
+	virtual Employee *createSimilar()
+	{
+		return new Employee;
+	}
+	virtual string getname() const  { return "employee"; }
+};
+
+class Manager : public Employee {
+public:
+	virtual Employee *createSimilar() override
+	{
+		return new Manager;
+	}
+	
+	virtual string getname()const override { return "Manager"; }
+
+};
+
+class Driver : public Employee {
+public:
+	virtual Employee *createSimilar() override
+	{
+		return new Driver;
+	}
+	virtual string getname() const override { return "Driver"; }
+
+};
+
+class Accountant : public Employee {
+public:
+	virtual Employee *createSimilar() override
+	{
+		return new Accountant;
+	}
+	virtual string getname()const override { return "Accountant"; }
+
+};
+
+class Cook : public Employee {
+public:
+	virtual Employee *createSimilar() override
+	{
+		return new Cook;
+	}
+	virtual string getname()const override { return "Cook"; }
+
+};
+
+
+void chatRoom(Employee *ptr)
+{
+	Employee *pnew = ptr->createSimilar();
+	cout << ptr->getname() << endl;
+	cout << pnew->getname() << endl;
+	cout << "*******************************************" << endl;
+}
+
+int main()
+{
+	srand(static_cast<unsigned>(time(nullptr)));
+
+	for (;;) {
+		switch (rand() % 4) {
+		case 0: cout << "Manager case " << endl; chatRoom(new Manager); break;
+		case 1: cout << "Driver case " << endl; chatRoom(new Driver); break;
+		case 2: cout << "Accountant case " << endl; chatRoom(new Accountant); break;
+		case 3: cout << "Cook  case " << endl; chatRoom(new Cook); break;
+		}
+		getchar();
+	}
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Employee {
+	int m_age;
+	string m_name;
+public:
+	Employee(int age, string name):m_age(age), m_name(name) {}
+	virtual ~Employee() = default;
+	virtual Employee *clone()
+	{
+		return new Employee(*this);
+	}
+	virtual string getname() const  { return "employee"; }
+	virtual void display() const  {
+		cout << getname() << endl;
+		cout << "isim : " << m_name << endl;
+		cout << "yas : " << m_age << endl;
+	}
+
+};
+
+class Manager : public Employee {
+public:
+	//bkz. inherited constructor
+	Manager(int age, string name) : Employee(age, name) {}
+	virtual Employee *clone() override
+	{
+		return new Manager(*this);
+	}
+	
+	virtual string getname()const override { return "Manager"; }
+
+};
+
+class Driver : public Employee {
+public:
+	Driver(int age, string name) : Employee(age, name) {}
+
+	virtual Employee *clone() override
+	{
+		return new Driver(*this);
+	}
+	virtual string getname() const override { return "Driver"; }
+
+};
+
+class Accountant : public Employee {
+public:
+	virtual Employee *clone() override
+	{
+		return new Accountant(*this);
+	}
+	Accountant(int age, string name) : Employee(age, name) {}
+
+	virtual string getname()const override { return "Accountant"; }
+
+};
+
+class Cook : public Employee {
+public:
+	virtual Employee *clone() override
+	{
+		return new Cook(*this);
+	}
+	virtual string getname()const override { return "Cook"; }
+	Cook(int age, string name) : Employee(age, name) {}
+
+
+};
+
+
+void chatRoom(Employee *ptr)
+{
+	Employee *pnew = ptr->clone();
+	ptr->display();
+	pnew->display();
+	cout << "*******************************************" << endl;
+}
+
+int main()
+{
+	srand(static_cast<unsigned>(time(nullptr)));
+
+	for (;;) {
+		switch (rand() % 4) {
+		case 0: cout << "Manager case " << endl; chatRoom(new Manager(55, "Mudur")); break;
+		case 1: cout << "Driver case " << endl; chatRoom(new Driver(20, "Sofor")); break;
+		case 2: cout << "Accountant case " << endl; chatRoom(new Accountant(30, "Muhasebeci")); break;
+		case 3: cout << "Cook  case " << endl; chatRoom(new Cook(60, "A")); break;
+		}
+		getchar();
+	}
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+
+
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+class Car {
+public:
+	virtual ~Car();
+	virtual void collide(Car *ptr);
+};
+
+class Opel : public Car{
+public:
+};
+
+class Mercedes : public Car{
+public:
+};
+
+
+class Bmw : public Car{
+public:
+};
+//...
+
+void game(Car *p1, Car *p2)
+{
+	p1->collide(p2);
+
+}
+
+int main()
+{
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+class Employee {
+
+public:
+	virtual void vfunc()
+	{
+		cout << "Employee::vfunc()" << endl;
+	}
+};
+
+class Manager : public Employee {
+	virtual void vfunc() override
+	{
+		cout << "Manager::vfunc()" << endl;
+	}
+public:
+
+};
+
+
+void gfunc(Employee *ptr)
+{
+	ptr->vfunc();
+}
+
+int main()
+{
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+class Employee {
+
+public:
+	virtual void vfunc()
+	{
+		cout << "Employee::vfunc()" << endl;
+	}
+};
+
+class Manager : public Employee {
+	virtual void vfunc() override
+	{
+		cout << "Manager::vfunc()" << endl;
+	}
+public:
+
+};
+
+
+void gfunc(Employee *ptr)
+{
+	ptr->vfunc();
+}
+
+int main()
+{
+	Manager m;
+	Manager *p = &m;
+
+	m.vfunc();  //gecersiz
+	ptr->vfunc();  //gecersiz
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+class Employee {
+
+public:
+	virtual void vfunc()
+	{
+		cout << "Employee::vfunc()" << endl;
+	}
+};
+
+class Manager : public Employee {
+	virtual void vfunc() override
+	{
+		cout << "Manager::vfunc()" << endl;
+	}
+public:
+
+};
+
+
+void gfunc(Employee *ptr)
+{
+	ptr->vfunc();
+}
+
+int main()
+{
+	Manager m;
+	//
+
+	gfunc(&m); //bu durumda alma zamannda sanallk mekanizmas devreye girer
+	//ilevin snfn private blmnde override edilmesi sanallk mekanizmasn
+	//engelleyici  bir rol oynamaz
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Car {
+public:
+	void start();
+	virtual void run();
+	virtual void accelarate() = 0;
+};
+
+int main()
+{
+	Car mycar;  //gecersiz.
+	//soyut snflar trnden nesne oluturulamaz
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Car {
+public:
+	void start();
+	virtual void run();
+	virtual void accelarate() = 0;
+};
+
+void cargame(Car *ptr)
+{
+	ptr->start();
+	ptr->run();
+	ptr->accelarate();
+}
+
+int main()
+{
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+
+using namespace std;
+
+
+class Car {
+public:
+	void start();
+	virtual void run();
+	virtual void accelarate() = 0;
+};
+
+class Fiat : public Car {
+
+public:
+	virtual void accelarate()override {};
+
+};
+
+int main()
+{
+	Fiat f;
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+					9 Austos 2015 Pazar
+class abstract_base {
+public:
+  virtual void abstract_method1() = 0;
+  virtual void abstract_method2() = 0;
+};
+
+class concrete_base {
+public:
+  void concrete_method1() {
+    /* do something */
+  }
+};
+
+class abstract_derived1 : public abstract_base {
+public:
+  virtual void abstract_method3() = 0;
+};
+
+class abstract_derived2 : public concrete_base {
+public:
+  virtual void abstract_method3() = 0;
+};
+
+class abstract_derived3 : public abstract_base {
+public:
+  virtual abstract_method1() {
+    /* do something */
+  }
+  /* note that we do not provide an implementation for
+     abstract_method2 so the class is still abstract */
+};
+
+class concrete_derived1 : public concrete_base {
+public:
+  void concrete_method2() {
+    /* do something */
+  }
+};
+
+class concrete_derived2 : public abstract_base {
+public:
+  virtual void abstract_method1() {
+    /* do something */
+  }
+  virtual void abstract_method2() {
+    /* do something */
+  }
+  /* This class is now concrete because no abstract methods remain */
+};
+
+
+
+class Car {
+
+public:
+	Car *createCar() = 0;
+};
+
+class Mercedes : public Car {
+
+public:
+	Car *createCar() override {
+		return new Mercedes;
+	}
+};
+
+class Volvo : public Car {
+
+public:
+	Car *createCar() override {
+		return new Volvo;
+	}
+};
+
+
+void CarSimulation(Car *ptr)
+{
+	Car *pnewcar = ptr->createCar();
+
+}
+
+
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+bool is_triangle(double d1, double d2, double d3)
+{
+	return d1 + d2 > d3 && abs(d1 - d2) < d3 && d1 + d3 > d2 && abs(d1 - d3) < d2 &&
+		d2 + d3 > d1 && abs(d2 - d3) < d1;
+}
+
+
+class Shape {
+protected:
+	const static double mspi;
+public:
+	virtual std::string getname()const = 0;
+	virtual void displayVals()const = 0;
+	virtual double getArea()const = 0;
+	virtual double getPerimeter()const = 0;
+	static double drand() { return rand() % 10 + (double)rand() / RAND_MAX; }
+	//virtual ~Shape() = 0;
+};
+/////////////////////////////////////
+const double Shape::mspi = 3.1415928763;
+
+
+using namespace std;
+
+////////
+class Square : public Shape {
+	double m_side;
+public:
+	Square(double side) : m_side{ side }{}
+	std::string getname()const override { return "Kare"; }
+	void displayVals()const override { 
+		cout << "Kenar uzunlugu : " << m_side << endl;
+	}
+	double getArea()const override { return m_side * m_side; }
+	double getPerimeter()const override { return m_side * 4; }
+};
+
+class Circle : public Shape {
+	double m_radius;
+public:
+	Circle(double radius) : m_radius{radius}{}
+	using Shape::mspi;
+	std::string getname()const override { return "Daire"; }
+	void displayVals()const override {
+		cout << "Yaricapi       : " << m_radius << endl;
+	}
+	double getArea()const override { return mspi * m_radius * m_radius; }
+	double getPerimeter()const override { return 2. * mspi * m_radius; }
+};
+
+
+class Rectangle : public Shape {
+	double m_side1, m_side2;
+public:
+	Rectangle(double side1, double side2) : m_side1{ side1 }, m_side2{ side2 }{}
+	std::string getname()const override { return "Dikdortgen"; }
+	void displayVals()const override {
+		cout << "Ksa kenar   : " << ((m_side1 < m_side2) ? m_side1 : m_side2) << endl;
+		cout << "Uzun kenar   : " << ((m_side1 > m_side2) ? m_side1 : m_side2) << endl;
+
+	}
+	double getArea()const override { return m_side1 * m_side2; }
+	double getPerimeter()const override { return 2 * (m_side1 + m_side2); }
+};
+
+class Triangle : public Shape {
+	double m_side1, m_side2, m_side3;
+public:
+	Triangle(double side1, double side2, double side3) :
+		m_side1{ side1 }, m_side2{ side2 }, m_side3{ side3 }{}
+	std::string getname()const override { return "Ucgen"; }
+	void displayVals()const override {
+		cout << "kenar1   : " << m_side1 << endl;
+		cout << "kenar2   : " << m_side2 << endl;
+		cout << "kenar3   : " << m_side3 << endl;
+	}
+	double getArea()const override
+	{
+		double u = .5 * (m_side1 + m_side2 + m_side3);
+		return sqrt(u * (u - m_side1) * (u - m_side2) * (u - m_side3));
+	}
+		
+	double getPerimeter()const override { return(m_side1 + m_side2 + m_side3); }
+};
+
+
+Shape *createRandomShape()
+{
+	switch (rand() % 4) {
+	case 0: return new Square(Shape::drand()); 
+	case 1: return new Circle(Shape::drand());
+	case 2: return new Rectangle(Shape::drand(), Shape::drand());
+	case 3:
+		double d1, d2, d3;
+		while (!is_triangle(d1 = Shape::drand(), d2 = Shape::drand(), d3 = Shape::drand()))
+			;
+		return new Triangle(d1, d2, d3);
+	}
+	return nullptr;
+}
+
+int main()
+{
+	vector<Shape *> shapeVec;
+	///////
+	srand(static_cast<unsigned>(time(nullptr)));
+
+	for (int k = 0; k < 1000; k++)
+		shapeVec.push_back(createRandomShape());
+
+	for (auto p : shapeVec) {
+		cout << "sekil    :   " << p->getname() << endl;
+		p->displayVals();
+		cout << "alan     :   " << p->getArea() << endl;
+		cout << "cevre    :   " << p->getPerimeter() << endl;
+		cout << "*******************************************" << endl;
+		getchar();
+	}
+	///////
+	
+		
+}
+
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+public:
+	void f1();
+	void f2();
+
+};
+
+class Base2 {
+public:
+	void f3();
+	void f4();
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	void f5();
+};
+
+int main()
+{
+	Mder md;
+
+	md.f1();
+	md.f2();
+	md.f3();
+	md.f4();
+	md.f5();
+
+	
+	return 0;
+}
+
+
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+public:
+	Base1(int);
+
+};
+
+class Base2 {
+public:
+	Base2(int, int);
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	Mder() : Base1(0), Base2(0, 0) {}
+};
+
+int main()
+{
+	Mder md;
+
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+public:
+	Base1(int);
+
+};
+
+class Base2 {
+public:
+	Base2(int, int);
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	using Base1::Base1;
+	using Base2::Base2;
+
+};
+
+int main()
+{
+	Mder md;
+
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+public:
+	void f();
+
+};
+
+class Base2 {
+public:
+	void f(int);
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	
+
+};
+
+int main()
+
+{
+	Mder md;
+
+	md.f(12); ///c.a.h
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+	void f();
+public:
+
+};
+
+class Base2 {
+public:
+	void f(int);
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	
+
+};
+
+int main()
+{
+	Mder md;
+
+	md.f(12); ///c.a.h
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+	int f;
+public:
+
+};
+
+class Base2 {
+public:
+	void f(int);
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	
+
+};
+
+int main()
+{
+	Mder md;
+
+	md.f(12); ///c.a.h
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+public:
+	void f();
+};
+
+class Base2 {
+public:
+	void f(int);
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	
+
+};
+
+int main()
+{
+	Mder md;
+
+	md.Base2::f(12); 
+	md.Base1::f();
+
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+public:
+	virtual void f1();
+};
+
+class Base2 {
+public:
+	virtual void f2();
+
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	
+
+};
+
+int main()
+{
+	Mder md;
+	Base1 *p1 = &md;
+	Base2 *p2 = &md;
+
+
+	
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+public:
+};
+
+class Base2 {
+public:
+
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	
+
+};
+
+void func(Base1 *);
+void func(Base2 *);
+
+
+int main()
+{
+	Mder md;
+	
+	func(&md);  //c.a.h
+
+	
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+public:
+};
+
+class Base2 {
+public:
+
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	
+
+};
+
+void func(Base1 *);  //1
+void func(Base2 *);  //2
+
+
+int main()
+{
+	Mder md;
+	
+	//func(&md); //gecersiz c.a.h
+	func(static_cast<Base1 *>(&md)); //1
+	func(static_cast<Base2 *>(&md)); //2
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+using namespace std;
+
+class Counter {
+public:
+	friend std::ostream &operator<<(std::ostream &, const Counter);
+	virtual ~Counter();
+};
+
+class Acounter : public Counter{
+
+};
+
+class Bcounter : public Counter{
+
+};
+
+class Ccounter : public Counter{
+
+};
+
+
+void func(Counter &r)
+{
+	cout << r << endl;
+
+}
+
+
+int main()
+{
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base1 {
+protected:
+	int mx;
+};
+
+class Base2 {
+protected:
+	int mx;
+
+};
+
+class Mder : public Base1, public Base2 {
+public:
+	void func()
+	{
+		mx++;  //c.a.h
+	}
+
+};
+
+
+
+int main()
+{
+
+	
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+int mx;
+class Base {
+protected:
+	int mx;
+};
+
+class Der1: public Base {
+protected:
+	int mx;
+
+};
+
+class Der2 : public Der1 {
+	//int mx;
+public:
+	void func()
+	{
+		//int mx;
+		mx
+	}
+	
+};
+
+
+
+int main()
+{
+
+	
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class Base {
+public:
+	void func(double);
+
+};
+
+class Der: public Base {
+public:
+	void func(int);
+
+};
+
+int main()
+{
+	Der myder;
+
+	myder.func(3.4);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class Base {
+public:
+	void func(double);
+
+};
+
+class Der: public Base {
+public:
+	void func(double d)
+	{
+		Base::func(d);
+	}
+	void func();
+
+};
+
+int main()
+{
+	Der myder;
+
+	myder.func(3.4);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class Base {
+protected:
+	void func();
+public:
+
+};
+
+class Der: public Base {
+public:
+	void func()
+	{
+		Base::func();
+	}
+
+};
+
+int main()
+{
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class Base {
+protected:
+	void func();
+public:
+
+};
+
+class Der: public Base {
+public:
+	using Base::func;
+
+};
+
+int main()
+{
+	Der myder;
+
+	myder.func();
+
+	return 0;
+}

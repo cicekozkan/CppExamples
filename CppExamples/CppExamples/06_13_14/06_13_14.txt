@@ -1,0 +1,796 @@
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+			13 Haziran 2015 Cumartesi
+
+
+snfn
+varsaylan kurucu ilevi  (default constructor)
+sonlandrc ilevi (destructor)
+kopyalayan kurucu ilevi  (copy constructor)
+kopyalayan atama ilevi  (assignment op. function)
+_____________________________________________________
+tayan kurucu ilevi    (move constructor)
+tayan atama ilevi    (move assignment op. function)
+
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+	Myclass();  //gecerli ctor private olabilir
+public:
+};
+
+
+
+int main()
+{
+
+
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+}
+
+Myclass m;
+
+int main()
+{
+	cout << "main basliyor... " << endl;
+	cout << "main bitiyor... " << endl;
+	
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+}
+
+Myclass m1, m2, m3;
+
+int main()
+{
+	cout << "main basliyor... " << endl;
+	cout << "main bitiyor... " << endl;
+	
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+}
+
+int main()
+{
+	Myclass m;
+	Myclass &r = m;  //ref. nesnenin yerine gecenisim.
+	//ref. icin ctor cagrilmaz
+
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+}
+
+int main()
+{
+	Myclass m();  //ismi m olan gdd Myclass turu olan bir islevin bildirimi
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+}
+
+int main()
+{
+	cout << "main basladi" << endl;
+	Myclass x;
+	cout << "main devam ediyor" << endl;
+	Myclass y;
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+}
+
+void func()
+{
+	Myclass m;
+}
+
+int main()
+{
+	for (int k = 0; k < 10; ++k)
+		func();
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+}
+
+void func()
+{
+	static Myclass m;
+}
+
+int main()
+{
+	cout << "main basliyor" << endl;
+
+	for (int k = 0; k < 10; ++k) {
+		cout << "k = " << k << endl;
+		func();
+	}
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+}
+
+void func()
+{
+	static Myclass m;
+}
+
+int main()
+{
+	cout << "main basliyor" << endl;
+
+	for (int k = 0; k < 10; ++k) {
+		Myclass m;
+	}
+
+	cout << "main bitiyor" << endl;
+
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+}
+
+void func()
+{
+	static Myclass m;
+}
+
+int main()
+{
+	Myclass *p;
+
+	cout << "main basliyor" << endl;
+
+	p = new Myclass;
+
+	cout << "main bitiyor " << endl;
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+	cout << "this     = " << this << endl;
+}
+
+
+int main()
+{
+	Myclass x;
+
+	cout << "&x    = " << &x << endl;
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+};
+
+////cpp
+
+Myclass::Myclass()
+{
+	cout << "Myclass::Myclass()" << endl;
+	cout << "this     = " << this << endl;
+}
+
+
+int main()
+{
+	Myclass *p = new Myclass;
+
+	cout << "p        = " << p << endl;
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+	Myclass();
+public:
+	static Myclass *createObject();
+};
+
+////cpp
+
+Myclass *Myclass::createObject()
+{
+	return new Myclass;
+}
+
+int main()
+{
+	Myclass *p = Myclass::createObject();
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+	mutable int mx;
+public:
+	void func()const;
+};
+
+
+void Myclass::func()const
+{
+	mx = 10;
+}
+
+int main()
+{
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass(int);
+};
+
+int main()
+{
+	Myclass m;  //gecersiz : default ctor yok
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+	~Myclass();
+};
+
+int main()
+{
+	Myclass m; 
+	m.Myclass();  //ctor isim ile bu sekilde cagrilamaz , gecersiz
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+	~Myclass();
+};
+
+Myclass::Myclass()
+{
+	cout << "constructor " << endl;
+}
+
+Myclass::~Myclass()
+{
+	cout << "destructor " << endl;
+
+}
+
+Myclass m;
+
+int main()
+{
+	cout << "main basladi " << endl;
+	cout << "main bitti " << endl;
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+	~Myclass();
+};
+
+Myclass::Myclass()
+{
+	cout << "constructor " << endl;
+}
+
+Myclass::~Myclass()
+{
+	cout << "destructor " << endl;
+
+}
+
+void func()
+{
+	Myclass m;
+}
+
+int main()
+{
+	func();
+	func();
+	func();
+
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+	~Myclass();
+};
+
+Myclass::Myclass()
+{
+	cout << "constructor " << endl;
+}
+
+Myclass::~Myclass()
+{
+	cout << "destructor " << endl;
+
+}
+
+void func()
+{
+	Myclass m;
+}
+
+int main()
+{
+	cout << "main basliyor" << endl;
+
+	for (int k = 0; k < 5; k++) {
+		cout << "k = " << k << endl;
+		func();
+	}
+	
+	cout << "main bitiyor" << endl;
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+#include <iostream>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	Myclass();
+	~Myclass();
+};
+
+Myclass::Myclass()
+{
+	cout << "constructor " << endl;
+}
+
+Myclass::~Myclass()
+{
+	cout << "destructor " << endl;
+
+}
+
+void func()
+{
+	static Myclass m;
+}
+
+int main()
+{
+	cout << "main basliyor" << endl;
+
+	for (int k = 0; k < 5; k++) {
+		cout << "k = " << k << endl;
+		func();
+	}
+	
+	cout << "main bitiyor" << endl;
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+				
+				14.06.2015 Pazar
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass();
+	~Myclass();
+};
+
+Myclass::Myclass()
+{
+	cout << "constructor " << endl;
+}
+
+Myclass::~Myclass()
+{
+	cout << "destructor " << endl;
+
+}
+
+int main()
+{
+	Myclass *p = new Myclass;
+
+	delete p;
+
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+#ifndef _POINT_H_
+#define _POINT_H_
+
+class Point {
+public:
+	Point(double x = 0., double y = 0.) : mx{ x }, my{ y } {}
+	void display()const;
+	double getx()const { return mx; }
+	double gety()const { return my; }
+	void setx(double x) { mx = x; }
+	void sety(double y) { my = y; }
+	void setxy(double x, double y) { mx = x, my = y; }
+	double getOriginDistance()const;
+private:
+	double mx, my;
+};
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+#endif
+
+
+#include "point.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	Point p1;
+
+	cout << p1.gety() << endl;
+
+	p1.setxy(2.3, 5.6).display();
+	
+
+	return 0;
+}

@@ -1,0 +1,1447 @@
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+//
+multiple inheritance
+namespaces
+exception handling
+RTTI (runtime type identification)
+/////
+
+				15 Austos 2015 Cumartesi
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class Base {
+public:
+	void func(int);
+};
+
+class Der : public Base {
+public:
+	void func();
+	void func(int x) {
+		Base::func(x);
+	}
+
+};
+
+int main()
+{
+	Der myder;
+
+	myder.func(13);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class Base {
+protected:
+	void func(int);
+public:
+};
+
+class Der : public Base {
+public:
+	void func();
+	void func(int x) {
+		Base::func(x);
+	}
+
+
+};
+
+int main()
+{
+	Der myder;
+
+	myder.func(13);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class Der1{
+public:
+	void func();
+};
+
+class Der2{
+public:
+	void func();
+};
+
+class Mulder : public Der1, public Der2 {
+
+};
+
+int main()
+{
+	Mulder md;
+	md.func();  //c.a.h
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base {
+public:
+	void func(int);
+};
+
+class Der1 : public Base{
+public:
+};
+
+class Der2{
+public:
+	void func();
+};
+
+class Mulder : public Der1, public Der2 {
+
+};
+
+int main()
+{
+	Mulder md;
+	md.func(12);  //c.a.h
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class Der1{
+public:
+	void func(int);
+};
+
+class Der2{
+public:
+	void func();
+};
+
+class Mulder : public Der1, public Der2 {
+
+};
+
+int main()
+{
+	Mulder md;
+	md.Der1::func(12);  
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class Der1{
+public:
+	void func(int);
+};
+
+class Der2{
+public:
+	void func();
+};
+
+class Mulder : public Der1, public Der2 {
+public:
+	void func() { Der2::func(); }
+	void func(int x) {Der1::func(x)}
+};
+
+int main()
+{
+	Mulder md;
+	md.func(12);  
+	md.func();
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+class GuiObject {
+public:
+	virtual void draw() = 0;
+	virtual void minimize() = 0;
+};
+
+class Clickable {
+public:
+	virtual void click() = 0;
+};
+
+
+
+int main()
+{
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base {
+public:
+	void func();
+};
+
+class Der1 : public Base{
+public:
+};
+
+class Der2 : public Base{
+public:
+};
+
+class Mulder : public Der1, public Der2 {
+public:
+};
+
+
+
+int main()
+{
+	Mulder md;
+
+	md.func(); //hangi Base'den gelen this adresi kullanilacak;
+	//md nesnesinin icinde 2 ayr Base var.
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base {
+public:
+	void func();
+};
+
+class Der1 : public Base{
+public:
+};
+
+class Der2 : public Base{
+public:
+};
+
+class Mulder : public Der1, public Der2 {
+public:
+	void foo()
+	{
+		Der1::func();
+		Der2::func();
+
+	}
+};
+
+
+
+int main()
+{
+	Mulder md;
+
+	//md.func(); //gecersiz
+	md.Der1::func();
+	md.Der2::func();
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+class Base {
+public:
+};
+
+class Der1 : public Base{
+public:
+};
+
+class Der2 : public Base{
+public:
+};
+
+class Mulder : public Der1, public Der2 {
+public:
+};
+
+void func(Base *ptr);
+
+int main()
+{
+	Mulder md;
+
+	func(&md);  //c.a.h
+	func((Der1 *)&md);
+	func((Der2 *)&md);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+using namespace std;
+
+class A {
+
+};
+
+class B : public A {
+
+};
+
+class Base {
+public:
+	virtual A * func(int);
+};
+
+class Der : public Base {
+public:
+	B * func(int);  //covariant return type
+
+};
+
+int main()
+{
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+using namespace std;
+
+class Employee {
+public:
+	virtual Employee *clone() = 0;
+};
+
+class Manager : public Employee {
+public:
+	Manager *clone();
+};
+
+int main()
+{
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+using namespace std;
+
+class Fruit {
+
+
+};
+
+
+class Apple : public Fruit {
+
+};
+
+
+class FruitTree {
+public:
+	virtual Fruit *pick() = 0;
+
+};
+
+class AppleTree : public FruitTree {
+public:
+	Apple *pick();
+};
+
+int main()
+{
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+
+namespace Neco {
+	int x, y, z;
+	void func(int);
+	class Myclass {
+
+	};
+	namespace Gurk {
+
+	}
+
+}
+
+
+int main()
+{
+	Neco::Myclass m;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+
+namespace Neco {
+	int x, y, z;
+
+}
+
+namespace Gurk{
+	int x, y, z;
+
+}
+
+int x, y, z;
+
+int main()
+{
+	::x = 0;
+	Neco::x++;
+	Gurk::x++;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+
+namespace Neco {
+	int x, y, z;
+	void func()
+	{
+
+	}
+
+}
+
+namespace Gurk{
+	int x, y, z;
+
+}
+
+int x, y, z;
+
+int main()
+{
+	::x = 0;
+	Neco::x++;
+	Gurk::x++;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+
+namespace Neco {
+	int x, y, z;
+}
+
+namespace Neco{
+	double x;  //gecersiz
+}
+
+
+int main()
+{
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+//////  mylib.h
+namespace Neco {
+	void gfunc();
+	class Myclass {
+		void func();
+	};
+}
+
+
+///mylib.cpp
+
+void Neco::gfunc()
+{
+
+}
+
+void Neco::Myclass::func()
+{
+
+}
+
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+//////  mylib.h
+namespace Neco {
+	void gfunc();
+	class Myclass {
+		void func();
+	};
+}
+
+
+///mylib.cpp
+namespace Neco {
+	void gfunc()
+	{
+
+	}
+
+	void Myclass::func()
+	{
+
+	}
+
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+namespace Neco {
+	////
+	namespace Project {
+		void func();
+	}
+}
+
+
+int main()
+{
+	namespace Pro = Neco::Project;
+
+	Pro::func();
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+namespace Ver1{
+	class Myclass {
+
+
+	};
+}
+
+namespace Ver2{
+	class Myclass {
+
+
+	};
+}
+
+namespace Cur = Ver2;
+/////
+
+int main()
+{
+	Cur::Myclass m;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+namespace Neco {
+	int x, y, z;
+}
+
+int main()
+{
+	using Neco::x;
+
+	x = 10;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+
+
+using std::cout;
+using std::endl;
+
+int main()
+{
+	int ival = 12;
+
+	cout << ival << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+
+
+using std::cout;
+using std::endl;
+
+int main()
+{
+	cout << 10;
+	return 0;
+}
+
+void func()
+{
+	cout << 20 << endl;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+
+namespace Neco {
+	int x = 90;
+}
+
+int x = 45;
+
+int main()
+{
+	using Neco::x;
+
+	x++;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+
+namespace Neco {
+	int x = 90;
+	double dval = 2.3;
+}
+
+using namespace Neco;
+
+int main()
+{
+	x++;
+
+	return 0;
+}
+
+void func()
+{
+	dval = 4.5;
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+
+namespace Neco {
+	int x = 90;
+	double dval = 2.3;
+}
+
+
+int main()
+{
+	using namespace Neco;
+
+	x++;
+
+	return 0;
+}
+
+void func()
+{
+	dval = 4.5;  //gecersiz
+}
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+
+namespace Neco {
+	int x = 90;
+	double dval = 2.3;
+}
+
+
+int main()
+{
+	using Neco::x;
+
+	int x;  //gecersiz
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+
+namespace Neco {
+	int x = 90;
+	double dval = 2.3;
+}
+
+
+int main()
+{
+	using namespace Neco;
+
+	int x = 56;
+
+	std::cout << x << std::endl;
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>   //namespace sdt;
+#include "image.h"   //namespace Image
+#include "matrix.h"   //namespace Math
+
+
+using namespace std;
+using namespace Image;
+using namespace Math;
+
+
+
+int main()
+{
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+namespace Ali {
+	int x, y, z;
+	double k, m, t;
+}
+
+namespace Veli {
+	int val, ival;
+	double x;
+}
+
+int main()
+{
+	Ali::x = 34;
+	Veli::x = 2.3;
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+namespace Neco {
+	void func();
+}
+
+
+int main()
+{
+	Neco::func();
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+
+namespace Neco {
+	class Myclass {
+
+
+	};
+
+	void func(Myclass &r);
+	void foo(int);
+}
+
+
+int main()
+{
+	Neco::Myclass m;
+	
+	func(m);
+
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+			16 Austos 2015 Pazar
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+namespace Neco {
+	class Myclass {
+
+
+	};
+
+	void func(Myclass &r);
+	void foo(int);
+}
+
+
+int main()
+{
+	Neco::Myclass m;
+
+	func(m);
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+//static int x = 10;
+
+namespace {
+	int x = 10;
+}
+
+
+namespace {
+	int y = 10;
+}
+
+
+
+int main()
+{
+	x = 12;
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+
+using namespace std;
+
+void f4()
+{
+	cout << "f4 cagrildi" << endl;
+	cout << "f4 kodu yurutuldu" << endl;
+}
+
+
+
+void f3()
+{
+	cout << "f3 cagrildi" << endl;
+	f4();
+	cout << "f3 kodu yurutuldu" << endl;
+}
+
+
+void f2()
+{
+	cout << "f2 cagrildi" << endl;
+	f3();
+	cout << "f2 kodu yurutuldu" << endl;
+}
+
+
+
+void f1()
+{
+	cout << "f1 cagrildi" << endl;
+	f2();
+	cout << "f1 kodu yurutuldu" << endl;
+}
+
+
+int main()
+{
+	cout << "main basladi" << endl;
+	f1();
+	cout << "main bitti" << endl;
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <cstdlib>
+
+
+
+//////xxx.h
+typedef void(*Handler)();
+Handler set_terminate(Handler h);
+
+void terminate();
+/////
+static void(*gf)() = &abort;
+
+typedef void(*Handler)();
+
+void terminate()
+{
+	gf();
+}
+
+Handler set_terminate(Handler h)
+{
+	Handler temp = gf;
+	gf = h;
+	return temp;
+}
+
+#include <iostream>
+#include <vector>
+
+
+using namespace std;
+
+void f4()
+{
+	/////
+	vector<int> myvec(10);
+	myvec.at(24) = 12;
+}
+
+
+
+void f3()
+{
+	f4();
+}
+
+
+void f2()
+{
+	f3();
+}
+
+
+
+void f1()
+{
+	f2();
+}
+
+
+int main()
+{
+	try {
+		f1();
+	}
+	catch(exception &r) {
+		cout << "hata yakalandi..." << endl;
+		cout << r.what() << endl;
+	}
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+
+
+
+using namespace std;
+
+void f4()
+{
+	/////
+	vector<int> myvec(10);
+	myvec.at(24) = 12;
+}
+
+
+
+void f3()
+{
+	f4();
+}
+
+
+void f2()
+{
+	f3();
+}
+
+
+
+void f1()
+{
+	f2();
+}
+
+
+int main()
+{
+	try {
+		f1();
+	}
+	catch(logic_error &r) {
+		cout << "hata yakalandi..." << endl;
+		cout << r.what() << endl;
+	}
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+
+
+
+using namespace std;
+
+void f4()
+{
+	/////
+	throw 4.5;
+}
+
+
+
+void f3()
+{
+	f4();
+}
+
+
+void f2()
+{
+	f3();
+}
+
+
+
+void f1()
+{
+	f2();
+}
+
+
+int main()
+{
+	try {
+		f1();
+	}
+	
+	catch (out_of_range &r) {
+		cout << "hata yakalandi... out_of_range" << endl;
+		cout << r.what() << endl;
+	}
+	catch (logic_error &r) {
+		cout << "hata yakalandi..." << endl;
+		cout << r.what() << endl;
+	}
+	catch (exception &r) {
+		cout << "hata yakalandi..." << endl;
+		cout << r.what() << endl;
+	}
+	catch (...) {
+		cout << "bilinmeyen hata.... call your software producer!";
+	}
+	
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+throw MathError("matematiksel hata");
+
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+#include <string>
+
+
+
+
+using namespace std;
+
+void f2()
+{
+	try {
+		throw 5;
+	}
+	catch (int x) {
+		cout << "hata yakalandi (f2)" << endl;
+		throw;
+	}
+}
+
+void f1()
+{
+	f2();
+}
+
+int main()
+{
+	try {
+		f1();
+	}
+	catch (int x) {
+		cout << "hata yakalandi .... (main)" << endl;
+	}
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+#include <string>
+
+using namespace std;
+
+
+
+class Myclass {
+
+public:
+	Myclass()
+	{
+		cout << "Myclass::Constructor" << endl;
+	}
+	~Myclass()
+	{
+		cout << "Myclass::Destructor" << endl;
+	}
+};
+
+
+void f4()
+{
+	Myclass m4;
+	throw 1;
+}
+
+void f3()
+{
+	Myclass m3;
+	f4();
+}
+
+void f2()
+{
+	Myclass m2;
+	f3();
+}
+
+void f1()
+{
+	Myclass m1;
+	f2();
+}
+
+
+int main()
+{
+	try {
+		f1();
+	}
+	catch (int) {
+		cout << "hata yakalandi..." << endl;
+	}
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+#include <string>
+#include <memory>
+
+
+using namespace std;
+
+
+
+class Myclass {
+
+public:
+	Myclass()
+	{
+		cout << "Myclass::Constructor" << endl;
+	}
+	~Myclass()
+	{
+		cout << "Myclass::Destructor" << endl;
+	}
+};
+
+
+void f4()
+{
+	unique_ptr<Myclass> ptr(new Myclass);
+	/////
+	
+	throw 1;
+}
+
+void f3()
+{
+	Myclass m3;
+	f4();
+}
+
+void f2()
+{
+	Myclass m2;
+	f3();
+}
+
+void f1()
+{
+	Myclass m1;
+	f2();
+}
+
+
+int main()
+{
+	try {
+		f1();
+	}
+	catch (int) {
+		cout << "hata yakalandi..." << endl;
+	}
+	cout << "hata islendi ve program devam ediyor..." << endl;
+
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+#include <string>
+#include <fstream>
+
+
+using namespace std;
+
+void func()
+{
+	ofstream ofs("burak.txt");
+	//////
+
+	ofs.close();
+
+	ofs.open("ali.txt");
+}
+
+
+
+int main()
+{
+	Connection mycon;
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+#include <string>
+#include <fstream>
+
+
+using namespace std;
+
+class Base {
+public:
+	virtual ~Base();
+	virtual void display()const = 0;
+	friend ostream & operator<<(ostream &r, const Base &r);
+};
+
+class Der : public{
+public:
+};
+
+
+void func(Base &r)
+{
+	cout << r << endl;
+}
+
+int main()
+{
+	
+
+	return 0;
+}

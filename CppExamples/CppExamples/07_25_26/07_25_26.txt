@@ -1,0 +1,1205 @@
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+			25 Temmuz 2015 Cumartesi 
+
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+
+string
+
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s1("ali");
+	string s2 = "gurkan";
+	string s3{ "mehmet" };  //c++11
+
+	////
+
+	cout << s1.length() << endl;
+
+
+
+	return 0;
+}
+
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s(12, 'A');
+
+	cout << "(" << s << ")" << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s1(1, 'A');
+	string s2("A");
+
+
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s(34, '\0');
+
+	cout << s.length() << endl;
+
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s1("Nurettin");
+	string s2(s1, 3);
+
+	cout << "(" << s2 << ")" << endl;
+	string s3(s1, 3, 2);
+	cout << "(" << s3 << ")" << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	char str[100] = "sevencan";
+
+	string s1(str);
+	string s2(str + 5);
+	string s3(str + 3, 2);
+
+	cout << "(" << s1 << ")" << endl;
+	cout << "(" << s2 << ")" << endl;
+	cout << "(" << s3 << ")" << endl;
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	char str[100] = "sevencan";
+
+	string s(str + 1, str + 5);
+	cout << "(" << s << ")" << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s1("sina dogru");
+
+	string s2(s1.begin(), s1.begin() + 4);
+	cout << "(" << s2 << ")" << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s1("sina dogru");
+
+	string s2(s1.begin(), s1.begin() + 4);
+	cout << "(" << s2 << ")" << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	list<char> mylist;
+	mylist.push_back('c');
+	mylist.push_back('a');
+	mylist.push_back('n');
+
+	////
+	string s(mylist.begin(), mylist.end());
+
+	cout << "(" << s << ")" << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string::size_type cap = 0;
+	string s;
+
+	for (int k = 0; k < 1000000; ++k) {
+		s.push_back('A');
+		if (s.capacity() != cap) {
+			cout << "size     = " << s.size() << endl;
+			cout << "capacity =" << s.capacity() << endl;
+			cap = s.capacity();
+			getchar();
+		}
+	}
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string::size_type cap = 0;
+	string s;
+
+	s.reserve(500000);
+
+
+	for (int k = 0; k < 1000000; ++k) {
+		s.push_back('A');
+		if (s.capacity() != cap) {
+			cout << "size     = " << s.size() << endl;
+			cout << "capacity =" << s.capacity() << endl;
+			cap = s.capacity();
+			getchar();
+		}
+	}
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string s(15, 'a');
+
+	char *ptr = &s[10];
+	cout << *ptr << endl;
+
+	for (int k = 0; k < 100; k++)
+		s.push_back('x');
+
+	cout << *ptr << endl;  //pointer invalidation ?
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string s(23450, 'x');
+
+	cout << "s.size() = " << s.size() << endl;
+	cout << "s.cap()  = " << s.capacity() << endl;
+
+	s.erase(15);
+	cout << "s.size() = " << s.size() << endl;
+	cout << "s.cap()  = " << s.capacity() << endl;
+
+
+
+	
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string s(23450, 'x');
+
+	cout << "s.size() = " << s.size() << endl;
+	cout << "s.cap()  = " << s.capacity() << endl;
+
+	s.erase(15);
+	s.shrink_to_fit();
+	cout << "s.cap()  = " << s.capacity() << endl;
+
+
+	
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string s("orhankaya");
+
+	for (int k = 0; k < s.size(); k++)
+		cout << s[k] << " ";
+
+	cout << endl;
+	s[5] = 'X';
+	s[8] = 'X';
+
+	cout << s << endl;
+
+
+	
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string s("orhankaya");
+
+	for (int k = 0; k < s.size(); k++)
+		cout << s.at(k) << " ";
+
+	cout << endl;
+	s.at(5) = 'X';
+	s.at(2) = 'X';
+
+	cout << s << endl;
+
+
+	
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string s("orhankaya");
+
+	try {
+		s[45] = 'A';
+	}
+	catch (exception &r) {
+		cout << "hata yakalandi...." << r.what() << endl;
+	}
+
+	
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string s("orhan");
+
+	cout << (int)s[s.size()] << endl; //C++11 ile birlikte null karakter garantisi var.
+	//at ilevi iin byle bir garanti yok...
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string s("orhan");
+
+	s.front() = 'X';  //c++11
+	s.back() = 'X';   ////c++11
+
+	cout << s << endl;
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+///begin(), end() iterator donduren ilevler
+///front(), back() ilk ve son eye eritiren ilevler
+
+int main()
+{
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+///begin(), end() iterator donduren ilevler
+///front(), back() ilk ve son eye eritiren ilevler
+
+int main()
+{
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s1 = "mehmet";
+	string s2;
+
+	s2 = s1;
+	s2 = "hulya";
+	s2 = 'x';
+	s2 = { 'c', 'a', 'n' };
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <list>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s("murat aksoy");
+	////
+
+	//auto idx = s.find('a');
+	string::size_type idx = s.find('a');
+
+	if (idx == string::npos)
+		cout << "bulunamadi" << endl;
+
+	
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+			26 Temmuz 2015 Pazar
+
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s("recep mutlu");
+
+	sort(s.begin(), s.end());
+	cout << "(" << s << ")" << endl;
+		
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <vector>
+
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	vector<string> svec{ "orhan", "necati", "aylin", "emre", "ozkan" };
+	sort(svec.begin(), svec.end());
+
+	for (auto s : svec)
+		cout << s << " ";
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s;
+
+	cout << "bir yazi girin : ";
+	getline(cin, s);
+
+	cout << "(" << s << ")" << endl;
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	string s;
+
+	cout << "bir yazi girin : ";
+	getline(cin, s);
+
+	cout << "(" << s << ")" << endl;
+	cout << "max = " << *max_element(s.begin(), s.end()) << endl;
+	cout << "min = " << *min_element(s.begin(), s.end()) << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s("mahmuttuncer");
+
+
+	cout << "(" << s.substr() << ")" << endl;
+	cout << "(" << s.substr(6) << ")" << endl;
+	cout << "(" << s.substr(6, 4) << ")" << endl;
+
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string filename;
+	string name{ "ali" };
+
+	cout << "dosya ismi : ";
+	cin >> filename;
+	auto idx = filename.rfind('.');
+
+	if (idx == string::npos) {
+		cout << "dosya uzantisi yok" << endl;
+	}
+	else {
+		name += '.' + filename.substr(idx + 1);
+		cout << "dosya ismi (" << name << ")" << endl;
+	}
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s("ali");
+
+	s.resize(8, 'x');
+
+	cout << s << endl;
+
+	s.resize(2);
+
+	cout << s << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<int> vec1(10000);
+	vector<int> vec2(1);
+
+	vec2[0]++;
+
+	if (vec2 > vec1)
+		cout << "dogru" << endl;
+	else
+		cout << "yanlis" << endl;
+
+
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string psw;
+
+	cout << "parola : ";
+	cin >> psw;
+
+	if (psw == "rose")
+		cout << "dogru parola" << endl;
+	else
+		cout << "yanlis parola" << endl;
+
+
+
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+int compare(string::size_type _Off, 
+          string::size_type _N0,
+		  const char *_Ptr,
+		  string::size_type _Count) const
+
+
+		  #include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s1{ "gurkan" };
+	string s2{ "xyz" };
+
+	s1.insert(3, s2);
+
+	cout << s1 << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s1{ "gurkan" };
+	string s2{ "xyz12345" };
+
+	s1.insert(3, s2, 3, 4);
+
+	cout << s1 << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s1{ "recepmutlu" };
+	string s2{ "necati" };
+
+	s1.insert(s1.begin() + 5, s2.begin(), s2.begin() + 5);
+
+	cout << s1 << endl;
+
+	
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s{ "recepmutlu" };
+
+	s.erase(3);
+
+	cout << s << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s{ "recepmutlu" };
+
+	s.erase(s.begin() + 3);
+
+	cout << s << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s{ "recepmutlu" };
+
+	s.erase(2, 3);
+
+
+	cout << s << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s{ "recepmutlu" };
+
+	s.erase(s.begin() + 2, s.begin() + 5);
+
+
+	cout << s << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s{ "recepmutlu" };
+
+	s.pop_back();
+
+
+	cout << s << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s1("can");
+	string s2("oylu");
+
+
+	cout << "er" + s1 + 'k' + s2 << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string str("123mahmut");
+	char s[100];
+
+	//cout << atoi(str.c_str()) << endl;
+	strcpy(s, str.c_str());
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string str("123mahmut");
+	char s[100];
+
+	//cout << atoi(str.c_str()) << endl;
+	strcpy(s, str.c_str());
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int x;
+	string base{ "image" };
+
+	cout << "tamsayiyi girin : ";
+	cin >> x;
+
+	cout << base + to_string(x) + ".jpg" << endl;
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+#include <list>
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s("23451ali");
+	size_t uval;
+
+	auto x = stoi(s, &uval);
+
+	cout << x << endl;
+	cout << uval << endl;
+
+
+	return 0;
+}
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
