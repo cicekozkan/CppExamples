@@ -13,8 +13,10 @@ void func(T *a)
 int main()
 {
 	int x = 10;
+	int *ptr = &x;
 
-	func(&x);
+	func(&x);	// T = int
+	func(&ptr);	// T = int *
 	cin >> x;
 
 	return 0;
