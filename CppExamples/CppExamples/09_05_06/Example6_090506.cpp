@@ -14,6 +14,7 @@ void func(T &r1, T &r2)
 int main()
 {
 	int a[5] = { 0 }, b[10] = { 0 };
-	func(a, b); // parameter T is ambigious
+	//func(a, b); // parameter T is ambigious
+	func("ozkan", "ruhi");// parameter T is ambigious
 	return 0;
 }
