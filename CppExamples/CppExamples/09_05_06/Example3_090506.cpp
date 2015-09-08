@@ -18,6 +18,9 @@ int main()
 	const int &r2 = y;
 	int a[10] = { 0 };
 	int *ptr = &x;
+	const int *p = &y;	// low level const pointer. we can change p
+	int *const cp = &x;	// high level const pointer. we cannot change cp
+	const int * const cp2 = &y;	// high level const pointer 
 
 		
 	func(x);	// int
@@ -28,6 +31,9 @@ int main()
 	func(y); // int 
 	func(r1); // int
 	func(r2); // int
+	func(p);	// low level const points to const int
+	func(cp);	// high level const points to int
+	func(cp2);	// high level const points to const int
 	cin >> x;
 
 	return 0;
