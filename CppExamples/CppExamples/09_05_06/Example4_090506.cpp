@@ -10,13 +10,17 @@ void func(T *a)
 	cout << typeid(T).name() << endl;
 }
 
+class Myclass{};
+
 int main()
 {
 	int x = 10;
 	int *ptr = &x;
+	Myclass m;
 
 	func(&x);	// T = int
 	func(&ptr);	// T = int *
+	func(&m);	// T = class Myclass
 	cin >> x;
 
 	return 0;

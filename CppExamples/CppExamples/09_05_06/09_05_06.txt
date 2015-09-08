@@ -5,31 +5,6 @@
 using namespace std;
 
 template<class T>
-void func(T *ptr)
-{
-	cout << typeid(T).name() << endl;  //int
-}
-
-class Myclass {};
-
-int main()
-{
-	Myclass m;
-
-	func(&m);
-
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-template<class T>
 void func(T x)
 {
 	cout << typeid(T).name() << endl; 
