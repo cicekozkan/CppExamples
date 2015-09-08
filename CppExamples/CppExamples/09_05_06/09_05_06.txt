@@ -1,40 +1,6 @@
 #include <iostream>
 #include <string>
 
-
-template<typename T>
-void Swap(T &r1, T &r2)
-{
-	T temp{ r1 };
-	r1 = r2;
-	r2 = temp;
-}
-
-using namespace std;
-
-int main()
-{
-	int x = 10, y = 20;
-	double d1 = 3.6, d2 = 7.8;
-	string s1{ "recep" }, s2{ "ali" };
-
-	///////
-	Swap(x, y);
-	cout << x << " " << y << endl;
-	Swap(d1, d2);
-	cout << d1 << " " << d2 << endl;
-
-	Swap(s1, s2);
-	cout << s1 << " " << s2 << endl;
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-#include <iostream>
-#include <string>
-
 using namespace std;
 
 template<class T>
