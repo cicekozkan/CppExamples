@@ -1,5 +1,5 @@
 // in this example a function template take its parameters by value. In this case array to pointer 
-// conversion occurs. String literals are converted to const char *
+// conversion occurs. For example string literals are converted to const char *
 #include <iostream>
 
 using namespace std;
@@ -14,10 +14,14 @@ int main()
 {
 	int x = 10;
 	int a[10] = { 0 };
+	int *ptr = &x;
+
 		
-	func(x);
-	func(a);
-	func("Mutlu olsaydim ne kadar mutlu olurdum");
+	func(x);	// int
+	func(a);	// int * -> array to pointer conversion
+	func("Mutlu olsaydim ne kadar mutlu olurdum");	// const char *
+	func(ptr);	// int *
+	func(&ptr); // int **
 	cin >> x;
 
 	return 0;
