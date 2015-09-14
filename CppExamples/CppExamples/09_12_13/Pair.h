@@ -3,6 +3,7 @@
 \brief Header file of Pair struct
 */
 #pragma once
+#include<iosfwd>
 
 /*!
 Pair struct; groups two variables in a pair (a,b)
@@ -19,7 +20,7 @@ struct Pair{
 		first = r.first;
 		second = r.second;
 	}
-	void swap(Pair &r){			///< Swap member function
+	void swap(Pair &r){			///< Swap member function; swaps two Pairs
 		U tempf;
 		T temps;
 		tempf = this->first;
@@ -29,5 +30,7 @@ struct Pair{
 		r.first = tempf;
 		r.second = temps;
 	}
+
+	//ostream& operator<<(ostream&, const Pair&);
 
 };
