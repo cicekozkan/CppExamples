@@ -16,6 +16,8 @@ struct Pair{
 	Pair(T a, U b) : first{ a }, second{ b }{}	///< Parameter constructor	
 	template<typename X, typename Y>
 	Pair(const Pair<X,Y> &r) : first{ r.first }, second{r.second}{}		///< Copy constructor template	
+	template<typename X, typename Y>
+	Pair(Pair<X, Y> &r) : first{ r.first }, second{ r.second } {}		///< Copy constructor template	
 	Pair& operator=(const Pair& r){				///< Operator assignment function
 		first = r.first;
 		second = r.second;

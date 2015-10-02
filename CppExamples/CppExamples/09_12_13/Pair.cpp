@@ -16,13 +16,15 @@ ostream& operator<<(ostream& os, const Pair<T,U> &r)
 
 int main()
 {
-	Pair<int, int> p1();
-	string key = "Key";
+	Pair<int, int> p1;
+	string key = "Bes";
 	double value = 5.0;
 	Pair<string, double> p2(key, value);
+	
 
 	cout << p1 << endl;
-	//cout << p2 << endl;
+	cout << p2 << endl;
 
+		
 	return 0;
 }
