@@ -1,0 +1,867 @@
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+			4 Temmuz Cumartesi 2015
+
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <fstream>
+
+#include "myint.h"
+
+
+using namespace std;
+
+class Myclass {
+public:
+	explicit operator int()const;
+};
+
+int main()
+{
+	Myclass m;
+	int ival;
+
+	ival = (int)m;
+	
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <fstream>
+
+#include "myint.h"
+
+
+using namespace std;
+
+class Myclass {
+public:
+	explicit operator int()const;
+};
+
+int main()
+{
+	Myclass m;
+	int ival;
+
+	ival = static_cast<int>(m);
+	
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <fstream>
+
+#include "myint.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	if (cin)
+		;
+	
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <fstream>
+
+#include "myint.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	if ((bool)cin)
+		;
+	
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <fstream>
+
+#include "myint.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	Myint x(23);
+	Myint y, z;
+
+	y = ++x;
+	cout << y << endl;
+	cout << x << endl;
+
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <fstream>
+
+#include "myint.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	Myint x(23);
+	Myint y, z;
+
+	y = x++;
+	cout << y << endl;
+	cout << x << endl;
+
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#pragma once
+#include <iosfwd>
+
+
+class Myint {
+	int mval;
+public:
+	Myint(int val = 0) : mval(val) {}
+	friend bool operator<(const Myint &r1, const Myint &r2)
+	{
+		return r1.mval < r2.mval;
+	}
+
+	friend bool operator<=(const Myint &r1, const Myint &r2)
+	{
+		return !(r2 < r1);
+	}
+
+	friend bool operator>(const Myint &r1, const Myint &r2)
+	{
+		return r2 < r1;
+	}
+	friend bool operator>=(const Myint &r1, const Myint &r2)
+	{
+		return !(r1 < r2);
+	}
+
+	friend bool operator==(const Myint &r1, const Myint &r2)
+	{
+		return !(r1 < r2) && !(r2 < r1);
+	}
+
+	friend bool operator!=(const Myint &r1, const Myint &r2)
+	{
+		return (r1 < r2) || (r2 < r1);
+	}
+	
+	friend Myint operator+(const Myint &r1, const Myint &r2)
+	{
+		/*Myint retval(r1);
+		retval += r2;
+		return retval;*/
+
+		return Myint(r1) += r2;
+	}
+
+	friend Myint operator-(const Myint &, const Myint &);
+	friend Myint operator/(const Myint &, const Myint &);
+	friend Myint operator*(const Myint &, const Myint &);
+	friend Myint operator%(const Myint &, const Myint &);
+	
+	Myint &operator+=(const Myint &r)
+	{
+		mval += r.mval;
+		return *this;
+	}
+
+
+	Myint &operator-=(const Myint &r);
+	Myint &operator*=(const Myint &r);
+	Myint &operator/=(const Myint &r);
+
+	Myint &operator++()
+	{
+		mval++;
+		return *this;
+	}
+
+	Myint operator++(int)
+	{
+		return mval++;
+	}
+
+	/*Myint operator++(int)
+	{
+		Myint temp(*this);
+		++mval;
+		return temp;
+	}*/
+
+	Myint &operator--();
+	Myint operator--(int);  //postfix
+
+	friend std::ostream &operator<<(std::ostream &, const Myint &r);
+	friend std::istream &operator>>(std::istream &, Myint &r);
+
+	operator void *()const 
+	{
+		if (mval)
+			return (void *)this;
+		
+		return nullptr;
+	}
+
+
+
+
+};
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <fstream>
+
+#include "fraction.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	Fraction f1, f2(24), f3(3, 7), f4(5, -25);
+
+	cout << f1 << f2 << f3 << f4 << endl;
+	// (0) (24) (3/7), (-1/5)
+	cin >> f2;
+	Fraction f7 = Fraction::rand();
+
+	f1 = f2 * f3 - f4 / f7;
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <fstream>
+
+#include "fraction.h"
+
+
+using namespace std;
+
+struct Myclass {
+	operator int()const;
+};
+
+int main()
+{
+	Myclass m1, m2, m3;
+
+	m2 + m3;
+	m2.operator int() + m3.operator int();
+
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "fraction.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	vector<int> ivec(34);
+	
+	for (int k = 0; k < 34; k++) {
+		ivec[k] = k;
+		ivec.operator[](k) = k;
+	}
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "fraction.h"
+
+
+using namespace std;
+
+class Myclass {
+public:
+	int operator[](int index)
+	{
+		cout << "operator[]()" << endl;
+		cout << "index = " << index << endl;
+		return 1;
+	}
+};
+
+int main()
+{
+	Myclass m;
+
+	m[5]
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "fraction.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	string s("sina dogru");
+
+	for (int k = 0; k < s.length(); k++)
+		cout << s[k] << " ";
+
+	cout << endl;
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include "fraction.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	map<string, int> mymap;
+	///
+
+	mymap["necati"] = 45;
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include "fraction.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	vector<int> ivec1(20);
+
+	ivec1[5]++;
+	ivec1[15] = 34;
+
+	const vector<int> myvec(100);
+
+	cout << myvec[12] << endl;
+	myvec[10] = 234;
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include "fraction.h"
+
+
+using namespace std;
+
+class Vector {
+public:
+	int &operator[](size_t);
+	const int &operator[](size_t)const;
+
+};
+
+int main()
+{
+	const Vector vec;
+
+	vec[12]++;
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include "fraction.h"
+
+
+using namespace std;
+
+class Array {
+	int *mp;
+	int msize;
+public:
+	Array(int size);
+	~Array();
+	Array(const Array &r);
+	Array &operator=(const Array &r);
+	////
+	int &operator[](size_t index)
+	{
+		return mp[index];
+	}
+
+	const int &operator[](size_t index)const
+	{
+		return mp[index];
+	}
+
+
+
+
+};
+
+int main()
+{
+	Array a(56);
+
+	for (int k = 0; k < 56; ++k)
+		a[k] = 0;
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+					5 Temmuz 2015 Pazar
+
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+
+
+using namespace std;
+
+int main()
+{
+	list<int> mylist{ 12, 56, -5, 89, 123, 62, 12, 1 };
+
+	mylist.push_back(234);
+	mylist.push_front(10);
+
+	cout << mylist.size() << " tane oge var" << endl;
+
+	mylist.reverse();
+
+	for (auto iter = mylist.begin(); iter != mylist.end(); ++iter)
+		cout << *iter << " ";
+
+	cout << endl;
+
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+
+using namespace std;
+
+class Myclass {
+	int mx;
+public:
+	Myclass(int val = 0) : mx{ val } {
+		cout << "Myclass nesnesi hayata geldi " << endl;
+	}
+	~Myclass()
+	{
+		cout << "Myclass nesnesi destruct edildi" << endl;
+	}
+	void display()const { cout << "(" << mx << ")"; }
+	void set(int val) { mx = val; }
+	int get()const { return mx;}
+};
+
+class SmartPtr {
+	Myclass *mp;
+public:
+	SmartPtr(Myclass *p) : mp(p) {}
+
+	~SmartPtr()
+	{
+		delete mp;
+	}
+	Myclass &operator*() { return *mp; }
+	Myclass *operator->() { return mp; }
+};
+
+int main()
+{
+	SmartPtr ptr = new Myclass;
+	
+	(*ptr).display();
+	(*ptr).set(346);
+	Myclass m{ 45 };
+	m = *ptr;
+
+	ptr->display();
+	ptr.operator->()->display();
+	
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+
+using namespace std;
+
+class A {
+public:
+	void set();
+	void display()const;
+};
+
+class B {
+public:
+	A *operator->();
+};
+
+
+class C {
+public:
+	B operator->();
+};
+
+int main()
+{
+	C p;
+	
+	p->display();
+
+	p.operator->().operator->()->display();
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <list>
+
+using namespace std;
+
+
+template <typename T>
+class Smartptr {
+	T *mp;
+public:
+	Smartptr(T *p) : mp(p) {}
+	~Smartptr() { delete mp; }
+	T &operator*() { return *mp; }
+	T *operator->(){ return mp; }
+};
+
+class Myclass {
+	int mx;
+public:
+	Myclass(int val = 0) : mx{ val } {
+		cout << "Myclass nesnesi hayata geldi " << endl;
+	}
+	~Myclass()
+	{
+		cout << "Myclass nesnesi destruct edildi" << endl;
+	}
+	void display()const { cout << "(" << mx << ")"; }
+	void set(int val) { mx = val; }
+	int get()const { return mx; }
+};
+
+int main()
+{
+	Smartptr<Myclass> ptr = new Myclass;
+	Smartptr<string> p = new string;
+
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+
+using namespace std;
+
+class Myclass {
+public:
+	void operator()(int x)
+	{
+		cout << "Myclass::operator()(int)" << endl;
+		cout << "this  =  " << this << endl;
+		cout << "x = " << x << endl;
+	}
+};
+
+int main()
+{
+	Myclass m;
+
+	cout << "&m = " << &m << endl;
+
+	m(10);
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+
+using namespace std;
+
+class Myclass {
+public:
+	void operator()(int x = 10)
+	{
+		cout << "Myclass::operator()(int)" << endl;
+		cout << "this  =  " << this << endl;
+		cout << "x = " << x << endl;
+	}
+};
+
+int main()
+{
+	Myclass m;
+
+	cout << "&m = " << &m << endl;
+
+	m();
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+
+using namespace std;
+
+class Random {
+	int mlow, mhigh;
+public:
+	Random(int low, int high) : mlow(low), mhigh(high) {}
+	int operator()() { return rand() % (mhigh - mlow + 1) + mlow; }
+};
+
+int main()
+{
+	Random rand1(12, 56);
+	Random rand2(1000, 1300);
+
+	////
+	for (int i = 0; i < 100; i++)
+		cout << rand1() << " ";
+	cout << "\n\n";
+
+	for (int i = 0; i < 100; i++)
+		cout << rand2() << " ";
+	cout << "\n\n";
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+
+using namespace std;
+
+class Random {
+	int mlow, mhigh;
+	int mcounter;
+public:
+	Random(int low, int high) : mlow(low), mhigh(high), mcounter(0) {}
+	int operator()() { 
+		mcounter++; 
+		return rand() % (mhigh - mlow + 1) + mlow; 
+	}
+	int getcallcount()const { return mcounter; }
+};
+
+int main()
+{
+	Random rand1(12, 56);
+	Random rand2(1000, 1300);
+
+	////
+	for (int i = 0; i < 100; i++)
+		cout << rand1() << " ";
+	cout << "\n\n";
+
+	for (int i = 0; i < 100; i++)
+		cout << rand2() << " ";
+	cout << "\n\n";
+
+	cout << rand2.getcallcount() << endl;
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+#include <ctime>
+#include <cstdlib>
+#include <algorithm>
+
+
+using namespace std;
+
+bool isok(int val)
+{
+	return val % 5 == 0;
+}
+
+int main()
+{
+	list<int> mylist;
+
+	srand(static_cast<unsigned>(time(nullptr)));
+	for (int k = 0; k < 1000; k++)
+		mylist.push_back(rand());
+
+	cout << count_if(mylist.begin(), mylist.end(), &isok) << endl;
+
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+#include <ctime>
+#include <cstdlib>
+#include <algorithm>
+
+
+using namespace std;
+
+class Unpred {
+	int mx;
+public:
+	Unpred(int val) : mx{ val } {}
+	bool operator()(int x) { return x % mx == 0; }
+};
+
+int main()
+{
+	list<int> mylist;
+
+	srand(static_cast<unsigned>(time(nullptr)));
+	for (int k = 0; k < 1000; k++)
+		mylist.push_back(rand());
+
+	cout << "kaca bolunenleri sayalim : ";
+	int ival;
+	cin >> ival;
+
+	cout << count_if(mylist.begin(), mylist.end(), Unpred(ival)) << endl;
+
+	return 0;
+}
