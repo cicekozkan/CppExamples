@@ -1,0 +1,1022 @@
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<int> x;
+	auto cap = x.capacity();
+
+	while (true) {
+		x.push_back(0);
+		if (x.capacity() != cap) {
+			cout << "size is         : " << x.size() << endl;
+			cout << "new capacity is : " << x.capacity() << endl;
+			cap = x.capacity();
+			getchar();
+		}
+	}
+
+
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<int> x(50000);
+
+	cout << "size is         : " << x.size() << endl;
+	cout << "capacity is : " << x.capacity() << endl;
+
+	x.erase(x.begin() + 10, x.end());
+
+	cout << "size is         : " << x.size() << endl;
+	cout << "new capacity is : " << x.capacity() << endl;
+	///swap trick
+	vector<int>(x).swap(x);
+	cout << "new capacity is : " << x.capacity() << endl;
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<int> x(10, 50);
+
+	cout << "size : " << x.size() << endl;
+	display(x);
+	x.resize(300);
+
+	cout << "new size : " << x.size() << endl;
+	display(x);
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<int> x(100, 50);
+
+	cout << "size : " << x.size() << endl;
+	display(x);
+	x.resize(5);
+
+	cout << "new size : " << x.size() << endl;
+	display(x);
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<string> myvec;
+
+	randomize();
+
+	fc(myvec, 50, rs);
+	cout << "size : " << myvec.size() << endl;
+	display(myvec);
+
+	myvec.resize(200, "mehmet");
+	cout << "size : " << myvec.size() << endl;
+	display(myvec);
+
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<Date> myvec;
+	randomize();
+
+	fc(myvec, 50, &Date::random);
+
+	for (vector<Date>::iterator iter = myvec.begin(); iter != myvec.end(); ++iter)
+		cout << (*iter) << endl;
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<Date> myvec;
+	randomize();
+
+	fc(myvec, 50, &Date::random);
+
+	for (auto iter = myvec.cbegin(); iter != myvec.cend(); ++iter)
+		cout << (*iter) << endl;
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<Date> myvec;
+	randomize();
+
+	fc(myvec, 5, &Date::random);
+
+	display(myvec);
+
+	for (auto &x : myvec)
+		++x;
+	cout << sl;
+
+	display(myvec);
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+#include <algorithm>
+
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+void inc(Date &r)
+{
+	r++;
+}
+
+int main()
+{
+	vector<Date> myvec;
+	randomize();
+
+	fc(myvec, 5, &Date::random);
+
+	display(myvec);
+
+	for_each(myvec.begin(), myvec.end(), inc);
+
+	cout << sl;
+
+	display(myvec);
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+#include <algorithm>
+
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<Date> myvec;
+	randomize();
+
+	fc(myvec, 15, &Date::random);
+
+	try {
+		myvec.at(25)++;
+	}
+	catch (exception &r) {
+		cout << "hata yakalandi ... : " << r.what() << endl;
+	}
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+#include <algorithm>
+
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<Date> myvec;
+	randomize();
+
+	fc(myvec, 15, &Date::random);
+
+	cout << myvec.back() << endl;
+	cout << myvec[myvec.size() - 1] << endl;
+	cout << *(myvec.end() - 1) << endl;  //if is not empty
+	cout << *--myvec.end() << endl;  //if is not empty
+
+
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+#include <algorithm>
+
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int a[] = { 10,7,3,9,2,8,454,2,30,5 };
+	
+	vector<int> myvec(begin(a), end(a));  //c++11
+	display(myvec);
+
+
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+#include <algorithm>
+
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+//odev
+int main()
+{
+	vector<string> myvec;
+	randomize();
+
+	fc(myvec, 100, rs);
+	display(myvec);
+	//tek bir iteratr dngs kullanlarak
+	//algoritma ve lambda kullanmadan
+	//snfn insert ve erase ilevlerini kullanarak
+	//uzunlugu tek say olan stringler vektorden silinecek
+	//uzunlugu cift say olan stringler duplicate edilecek
+	//snfn insert ve erase ilevlerini
+	//bir iterator dngs iinde kullannz
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+#include <algorithm>
+
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+//odev
+int main()
+{
+	vector<string> myvec;
+	randomize();
+	fc(myvec, 5, rs);
+	display(myvec);
+	myvec.insert(myvec.begin(), "Mualla");
+	display(myvec);
+	myvec.insert(myvec.begin() + 2, "Orhan");
+	display(myvec);
+	myvec.insert(myvec.end(), "Soner");
+	display(myvec);
+
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+#include <algorithm>
+
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+//odev
+int main()
+{
+	vector<string> myvec;
+	list<string> mylist{ "ali", "veli", "necati", "selami" };
+	randomize();
+	fc(myvec, 5, rs);
+	display(myvec);
+	myvec.insert(myvec.begin(), "Mualla");
+	display(myvec);
+	myvec.insert(myvec.begin() + 2, "Orhan");
+	display(myvec);
+	myvec.insert(myvec.end(), "Soner");
+	display(myvec);
+	myvec.insert(myvec.begin(), 5, "Ayse");
+	display(myvec);
+	myvec.insert(myvec.begin() + 3, { "Tunc", "Ceylan", "Atif" });
+
+	myvec.insert(myvec.end(), mylist.begin(), mylist.end());
+	display(myvec);
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+#include <algorithm>
+
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+//odev
+int main()
+{
+	vector<string> myvec;
+	randomize();
+	fc(myvec, 5, rs);
+	
+	auto iter = myvec.insert(myvec.begin() + 2, "Sadullah");
+	cout << *iter << endl;
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	vector<string> svec;
+	set<string> myset;
+	randomize();
+
+
+	fc(svec, 20, rs);
+	fc(myset, 5, rs);
+
+	display(svec);
+	display(myset);
+
+	svec.insert(svec.begin() + 2, myset.begin(), myset.end());
+	display(svec);
+
+
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	vector<string> myvec;
+	randomize();
+
+	fc(myvec, 100, rs);
+	display(myvec);
+
+	auto iter = myvec.begin();
+
+	while (iter != myvec.end()) {
+		if (iter->length() % 2) {
+			iter = myvec.erase(iter);
+		}
+		else {
+			iter = myvec.insert(iter, *iter);
+			iter += 2;
+		}
+	}
+
+	display(myvec);
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+
+using namespace std;
+
+
+void display(const string &r)
+{
+	string s{ r };
+	for (int k = 0; k < 3; k++) {
+		for_each(s.begin(), s.end(), [](char &c) {c = toupper(c);});
+		cout << s;
+		delay(0.2);
+		system("cls");
+		for_each(s.begin(), s.end(), [](char &c) {c = tolower(c);});
+		cout << s;
+		delay(0.2);
+		system("cls");
+	}
+}
+
+
+void namedisplay(vector<string> &svec)
+{
+	for (int k = 0; k < 3; k++) {
+		display(svec);
+		delay(0.8);
+		system("cls");
+		random_shuffle(svec.begin(), svec.end());
+	}
+}
+
+int main()
+{
+	vector<string> svec{ "Aylin", "Orhan", "Ali", "Ozkan", "Veli",
+	"Baris", "Necati", "Mehmet", "Ogulcan", "Gulce", "Sina", "Fatih", "Oguz"
+	, "OrhanOzturk", "Ozan", "Huseyin", "Yunus", "Burak" ,"Emre", "Can", "Bilgehan" };
+	
+	randomize();
+
+	while (svec.size() != 1) {
+		namedisplay(svec);
+		auto iter = svec.begin() + rand() % svec.size();
+		display(*iter);
+		svec.erase(iter);
+	}
+
+	cout << "en sanssiz kisi : " << svec[0] << endl;
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+
+
+using namespace std;
+
+
+int main()
+{
+	list<string> slist{ "Aylin", "Orhan", "Ali", "Ozkan", "Veli",
+	"Baris", "Necati", "Mehmet", "Ogulcan", "Gulce", "Sina", "Fatih", "Oguz"
+	, "OrhanOzturk", "Ozan", "Huseyin", "Yunus", "Burak" ,"Emre", "Can", "Bilgehan" };
+	
+	randomize();
+	vector<string> svec;
+	///
+	svec.assign(10, "Mustafa");
+	////
+	svec.assign(slist.begin(), slist.end());
+	///////
+	svec.assign({ "ali", "cetin", "mustafa" });
+	///////
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+
+
+using namespace std;
+
+
+int main()
+{
+	vector<string> svec{ "Aylin", "Orhan", "Ali", "Ozkan", "Veli",
+	"Baris", "Necati", "Mehmet", "Ogulcan", "Gulce", "Sina", "Fatih", "Oguz"
+	, "OrhanOzturk", "Ozan", "Huseyin", "Yunus", "Burak" ,"Emre", "Can", "Bilgehan" };
+	
+	svec.clear();
+	svec.erase(svec.begin(), svec.end());
+	svec.resize(0);
+	svec = vector<string>();
+	svec.assign(0, string()); //????
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+
+
+using namespace std;
+
+
+void displayArray(const int *p, size_t size);
+
+int main()
+{
+	vector<int> ivec;
+	
+	fc(ivec, 100, rand);
+	displayArray(ivec.data(), ivec.size());
+	
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+
+
+using namespace std;
+
+
+void displayArray(const int *p, size_t size);
+
+int main()
+{
+	vector<string> svec;
+	
+	svec.emplace_back(11, 'A');
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+
+
+using namespace std;
+
+
+
+int main()
+{
+	vector<string> svec;
+	randomize();
+
+	fc(svec, 5, rs);
+	display(svec);
+	svec.front() += "can";
+	svec.back() += "su";
+	display(svec);
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+
+
+using namespace std;
+
+
+
+int main()
+{
+	list<string> slist;
+
+	randomize();
+	fc(slist, 100, rs);
+
+	for (list<string>::iterator iter = slist.begin(); iter != slist.end(); ++iter)
+		cout << *iter << " ";
+
+	cout << sl;
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+
+
+using namespace std;
+
+
+
+int main()
+{
+	list<string> slist;
+
+	randomize();
+	fc(slist, 100, rs);
+
+	for (auto iter = slist.begin(); iter != slist.end(); ++iter)
+		cout << iter->size() << " ";
+
+	cout << sl;
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+
+
+using namespace std;
+
+
+
+int main()
+{
+	list<string> slist;
+
+	randomize();
+	fc(slist, 100, rs);
+
+	for (auto s: slist)
+		cout << s.size() << " ";
+
+	cout << sl;
+
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <set>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+
+
+using namespace std;
+
+
+
+int main()
+{
+	list<string> slist;
+	randomize();
+
+	fc(slist, 100, rs);
+	display(slist);
+	slist.sort();
+
+	/*[](const string &r1, const string &r2)
+	{if (r1.size() != r2.size())
+		return r1.size() < r2.size();
+	return r1 < r2;
+	}); */
+							
+	display(slist);
+
+
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+int main()
+{
+	list<int> ilist;
+	vector<int> ivec;
+	deque<int> idec;
+
+
+	randomize();
+	fc(ilist, 10, rand);
+	fc(ivec, 10, rand);
+	transform(ilist.begin(), ilist.end(), ivec.begin(), back_inserter(idec), plus<int>());
+	display(ilist);
+	display(ivec);
+	display(idec);
+
+
+
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////

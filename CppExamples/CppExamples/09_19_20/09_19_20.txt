@@ -1,0 +1,1233 @@
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+							19 Eyll 2015 Cumartesi
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <list>
+
+using namespace std;
+
+ostream &sl(ostream &os)   ///manipulator
+{
+	return os << "\n*******************************************************************************\n";
+}
+
+int main()
+{
+	int x = 34;
+	double d = 3.41;
+	string name("celalettin");
+
+	cout << x << sl << d << sl << name << sl;
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+template<typename Iter>
+void algo(Iter beg, Iter end)
+{
+	while (beg != end) {
+		*beg
+		beg++;
+	}
+}
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+
+using namespace std;
+
+
+int main()
+{
+	vector<string> svec{ "ali", "veli", "hakan", "selami", "tuncer" };
+
+	reverse(svec.begin(), svec.end());
+
+	for (auto &x : svec)
+		cout << x << " ";
+
+	cout << endl;
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <deque>
+
+
+using namespace std;
+
+template<typename InIter, typename OutIter>
+OutIter Copy(InIter beg, InIter end, OutIter destbeg)
+{
+	while (beg != end)
+		*destbeg++ = *beg++;
+
+	return destbeg;
+}
+
+
+int main()
+{
+	list<int> mylist{ 12, 34, 65, 1, 5, 9, 3 };
+	vector<int> myvec(7);
+
+	Copy(mylist.begin(), mylist.end(), myvec.begin());
+
+	for (auto &x : myvec)
+		cout << x << " ";
+
+	cout << endl;
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+template<typename InIter, typename T>
+InIter Find(InIter beg, InIter end, const T &sval)
+{
+	while (beg != end) {
+		if (*beg == sval)
+			return beg;
+		beg++;
+	}
+	return beg;
+}
+
+int main()
+{
+	randomize();
+	list<string> mylist;
+
+	fc(mylist, 100, rs);
+	display(mylist);
+
+	string sval;
+
+	cout << "aranacak ismi girin : ";
+	cin >> sval;
+	auto iter = find(mylist.begin(), mylist.end(), sval);
+
+	if (iter == mylist.end()) {
+		cout << "bulunamadi" << endl;
+	}
+	else {
+		cout << "bulundu" << endl;
+		cout << *iter << endl;
+	}
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+template<typename InIter, typename Unpred>
+InIter Find_if(InIter beg, InIter end, Unpred f)
+{
+	while (beg != end) {
+		if (f(*beg))
+			return beg;
+		beg++;
+	}
+	return beg;
+}
+
+bool isOk(const string &r)
+{
+	return r.size() == 7;
+}
+
+int main()
+{
+	randomize();
+	list<string> mylist;
+
+	fc(mylist, 100, rs);
+	display(mylist);
+
+	auto iter = find_if(mylist.begin(), mylist.end(), isOk);
+	if (iter != mylist.end()) {
+		cout << "bulundu " << *iter << endl;
+	}
+	else
+		cout << "bulunamadi" << endl;
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+template<typename InIter, typename Unpred>
+InIter Find_if(InIter beg, InIter end, Unpred f)
+{
+	while (beg != end) {
+		if (f(*beg))
+			return beg;
+		beg++;
+	}
+	return beg;
+}
+
+class LenPred {
+private:
+	int mlen;
+public:
+	LenPred(int len):mlen{len}{}
+	bool operator()(const string &r)const
+	{
+		return r.length() == mlen;
+	}
+
+};
+
+
+int main()
+{
+	randomize();
+	list<string> mylist;
+
+	fc(mylist, 100, rs);
+	display(mylist);
+
+	int len;
+
+	cout << "uzunlugu kac olani bulalim : ";
+	cin >> len;
+
+	auto iter = find_if(mylist.begin(), mylist.end(), LenPred(len));
+
+	if (iter != mylist.end()) {
+		cout << "bulundu " << *iter << endl;
+	}
+	else
+		cout << "bulunamadi" << endl;
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+template<typename InIter, typename Unpred>
+InIter Find_if(InIter beg, InIter end, Unpred f)
+{
+	while (beg != end) {
+		if (f(*beg))
+			return beg;
+		beg++;
+	}
+	return beg;
+}
+
+int main()
+{
+	randomize();
+	list<string> mylist;
+
+	fc(mylist, 100, rs);
+	display(mylist);
+
+	int len;
+
+	cout << "uzunlugu kac olani bulalim : ";
+	cin >> len;
+
+	auto iter = find_if(mylist.begin(), mylist.end(), [len](const string &r) {return r.size() == len;});
+
+	if (iter != mylist.end()) {
+		cout << "bulundu " << *iter << endl;
+	}
+	else
+		cout << "bulunamadi" << endl;
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+template<typename InIter, typename OutIter>
+OutIter Copy(InIter beg, InIter end, OutIter destbeg)
+{
+	while (beg != end) {
+		*destbeg++ = *beg++;
+	}
+	return destbeg;
+}
+
+template<typename C>
+class BackInsertIterator {
+	C &mc;
+public:
+	BackInsertIterator(C &c) : mc(c) {}
+	BackInsertIterator &operator++() { return *this; }
+	BackInsertIterator &operator++(int) { return *this; }
+	BackInsertIterator &operator*() { return *this; }
+	BackInsertIterator&operator=(const typename C::value_type &r)
+	{
+		mc.push_back(r);
+		return *this;
+	}
+
+};
+
+template<typename C>
+BackInsertIterator<C> backinserter(C &c)
+{
+	return BackInsertIterator<C>(c);
+}
+
+int main()
+{
+	vector<int> myvec{ 1, 5, 6, 7, 2, 3, 90 };
+
+	list<int> mylist;
+	
+	Copy(myvec.begin(), myvec.end(), backinserter(mylist));
+
+	display(mylist);
+
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+int main()
+{
+	randomize();
+	list<string> slist;
+
+	fc(slist, 100, rs);
+	display(slist);
+	vector<string> svec;
+	char c;
+
+	cout << "bir karakter girin : ";
+	cin >> c;
+	int n;
+
+	cout << "kacinci karakter : ";
+	cin >> n;
+	copy_if(slist.begin(), slist.end(), back_inserter(svec), [=](const string &r) {return r[n] == c;});
+
+	display(svec);
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+							20 Eyll 2015 Pazar
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+template<typename Iter>
+void Advance(Iter &r, int n, std::random_access_iterator_tag)
+{
+	
+}
+
+template<typename Iter>
+void Advance(Iter &r, int n, std::bidirectional_iterator_tag)
+{
+
+}
+
+template<typename Iter>
+void Advance(Iter &r, int n)
+{
+	Advance(r, n, typename Iter::iterator_category());
+}
+
+int main()
+{
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+template<class Iter, class F>
+F For_each(Iter beg, Iter end, F f)
+{
+	while (beg != end)
+		f(*beg++);
+
+	return f;
+}
+
+
+int main()
+{
+	randomize();
+	list<string> mylist;
+	fc(mylist, 10, rs);
+
+	for_each(mylist.begin(), mylist.end(), [](string &r) {r += "can";});
+	display(mylist);
+
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+template<class Iter, class F>
+F For_each(Iter beg, Iter end, F f)
+{
+	while (beg != end)
+		f(*beg++);
+
+	return f;
+}
+
+bool isWowel(char c)
+{
+	c = toupper(c);
+	return c == 'A' || c == 'E' || c == 'I' || c == 'U' || c == 'O';
+}
+
+int main()
+{
+	randomize();
+	list<string> mylist;
+	fc(mylist, 100, rs);
+	display(mylist);
+	vector<string> myvec;
+
+	remove_copy_if(mylist.begin(), mylist.end(), back_inserter(myvec),
+		[](const string &r) {return !(isWowel(r[0]) && isWowel(r.back()));});
+
+	display(myvec);
+	
+
+
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+template<class Iter, class F>
+F For_each(Iter beg, Iter end, F f)
+{
+	while (beg != end)
+		f(*beg++);
+
+	return f;
+}
+
+bool isWowel(char c)
+{
+	c = toupper(c);
+	return c == 'A' || c == 'E' || c == 'I' || c == 'U' || c == 'O';
+}
+
+int main()
+{
+	randomize();
+	list<string> mylist;
+	fc(mylist, 10, rs);
+	display(mylist);
+
+	mylist.erase(--mylist.end());
+	display(mylist);
+
+
+
+
+	
+
+
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+	list<int> mylist;
+	fc(mylist, 100, []() {return rand() % 5;});
+	display(mylist);
+
+	int ival;
+
+	cout << "hangi degeri silmek istiyorsunuz : ";
+	cin >> ival;
+	auto iter = remove(mylist.begin(), mylist.end(), ival);
+	display(mylist.begin(), iter);
+
+	cout << "size = " << mylist.size() << endl;
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+	list<int> mylist;
+	fc(mylist, 100, []() {return rand() % 5;});
+	display(mylist);
+
+	int ival;
+
+	cout << "hangi degeri silmek istiyorsunuz : ";
+	cin >> ival;
+	mylist.erase(remove(mylist.begin(), mylist.end(), ival), mylist.end());
+
+	display(mylist);
+
+	cout << "size = " << mylist.size() << endl;
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+	vector<string> svec;
+	fc(svec, 100, rs);
+	display(svec);
+	char c;
+
+	cout << "bir harf girin : ";
+	cin >> c;
+
+	svec.erase(remove_if(svec.begin(), svec.end(),
+		[=](const string &s) {return s.find(c) != string::npos;}), svec.end());
+
+	display(svec);
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+	list<int> mylist;
+	fc(mylist, 100, []() {return rand() % 3;});
+	display(mylist);
+	cout << endl;
+	mylist.erase(unique(mylist.begin(), mylist.end()), mylist.end());
+	display(mylist);
+
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+
+int main()
+{
+	string str;
+
+	cout << "bir yazi girin : ";
+	getline(cin, str);
+	str.erase(unique(str.begin(), str.end()), str.end());
+
+	cout << "(" << str <<  ")" << endl;
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+
+int main()
+{
+	vector<string> svec;
+
+	randomize();
+	fc(svec, 100, rs);
+	display(svec);
+	svec.erase(unique(svec.begin(), svec.end(), [](const string &r1, const string &r2) {return r1.size() == r2.size();}),
+		svec.end());
+	display(svec);
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+
+int main()
+{
+	vector<string> svec;
+
+	fc(svec, 100, rs);
+	display(svec);
+	list<size_t> lenlist(100);
+
+	transform(svec.begin(), svec.end(), lenlist.begin(), [] (const string &r) {
+		return r.length();});
+	display(lenlist);
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+
+using namespace std;
+
+
+int main()
+{
+	vector<string> svec;
+
+	fc(svec, 100, rs);
+	list<size_t> lenlist(100);
+
+	char c;
+	cout << "bir karakter girin : ";
+	cin >> c;
+	transform(svec.begin(), svec.end(), svec.begin(), [=](const string &r) {string s(r.size(), c); return s;});
+	display(svec);
+
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+#include "date.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+	list<Date> dlist;
+	fc(dlist, 200, &Date::random);
+	dlist.erase(remove_if(dlist.begin(), dlist.end(),
+		[](const Date &r) {string s1{ "Sunday" }, s2{ "Saturday" }; return !(r.getWeekDay() == s1 || r.getWeekDay() == s2);}), dlist.end());
+
+	display(dlist.begin(), dlist.end());
+
+
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+#include "date.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+	list<Date> dlist;
+	fc(dlist, 10, &Date::random);
+	dlist.sort();
+
+	display(dlist.begin(), dlist.end());
+
+
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+#include "date.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+	list<Date> dlist;
+	fc(dlist, 10, &Date::random);
+	display(dlist.begin(), dlist.end());
+
+	for (auto &d : dlist)
+		d += 35;
+	getchar();
+	display(dlist.begin(), dlist.end());
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+#include "date.h"
+
+
+using namespace std;
+
+template<typename InIter, typename OutIter, typename Unpred>
+OutIter Remove_copy_if(InIter beg, InIter end, OutIter destbeg, Unpred pred)
+{
+	while (beg != end) {
+		if (!pred(*beg))
+			*destbeg++ = *beg;
+		++beg;
+	}
+	return destbeg;
+}
+
+
+int main()
+{
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <list>
+#include <forward_list>
+#include <iterator>
+#include <set>
+
+#include <deque>
+#include "cupa.h"
+#include "date.h"
+
+using namespace std;
+
+int main()
+{
+	auto f = [](double d1, double d2) ->int {return d1 + d2;};
+
+	cout << f(1.3, 5.6) << endl;
+
+
+
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+	vector<int> ivec;
+	cout << "ivec.size() = " << ivec.size() << endl;
+
+	if (ivec.empty())
+		cout << "vector bos... " << endl;
+	else
+		cout << "vectorde oge var ... " << endl;
+	
+	return 0;
+}
+
+#include <vector>
+#include <string>
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	Date mydate{ 12, 7, 1987 };
+	vector<Date> myvec(20, mydate);
+
+	display(myvec);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <string>
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<int> myvec{ 10, 20, 30, 40 };
+	display(myvec);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <string>
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<int> myvec1(20);
+	vector<int> myvec2{ 20 };
+
+	display(myvec1);
+	display(myvec2);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	//eskiden
+	int a[] = { 2, 3, 5, 7, 9, 13 };
+	vector<int> primevec(a, a + sizeof(a) / sizeof(*a));
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<int> primevec { 2, 3, 5, 7, 9, 13 };
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+#include <vector>
+#include <initializer_list>
+
+#include <string>
+#include <list>
+
+#include "date.h"
+#include "cupa.h"
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	vector<int> myvec(35);
+
+	////
+	for (int k = 0; k < 20; k++)
+		myvec.push_back(k);
+	///
+	cout << "capacity : " << myvec.capacity() << endl;
+	cout << "size     : " << myvec.size() << endl;
+	cout << sl;
+
+
+
+
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+using namespace std;
+
+int main()
+{
+	//initializer_list constructor
+	list<string> namelist{ "aylin", "orhan", "ali", "veli", "emre" };
+	display(namelist);
+
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
