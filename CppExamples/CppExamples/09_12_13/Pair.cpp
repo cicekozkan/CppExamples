@@ -21,11 +21,18 @@ int main()
 	double value = 5.0;
 	Pair<string, double> p2(key, value);
 	Pair<int, int> p3(p1);
+	Pair<double, double> p4(1.2, 2.3);
 	
-	cout << p1 << endl;
-	cout << p2 << endl;
-	cout << p3 << endl;
+	cout << "Pair 1 = " << p1 << endl;
+	cout << "Pair 2 = " << p2 << endl;
+	cout << "Pair 3 = " << p3 << endl;
+	cout << "Pair 4 = " << p4 << endl;
 
-		
+
+	cout << "Swap Pair 1 and Pair 4" << endl;
+	p1.swap(p4);
+	cout << "Pair 1 = " << p1 << endl;
+	cout << "Pair 4 = " << p4 << endl;
+			
 	return 0;
 }
