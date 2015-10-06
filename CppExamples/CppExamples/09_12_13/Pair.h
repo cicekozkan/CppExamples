@@ -33,6 +33,8 @@ struct Pair{
 		r.second = temps;
 	}
 
-	//ostream& operator<<(ostream&, const Pair&);
+	//friend std::ostream& operator<<(std::ostream&, const Pair&); We don't need to give friendship since this is a 
+																  // struct - all variables are global
+	
 
 };

@@ -14,6 +14,18 @@ ostream& operator<<(ostream& os, const Pair<T,U> &r)
 	return os << "(" << r.first << ", " << r.second << ")";
 }
 
+template<typename T, typename U>
+istream& operator>>(istream& is, Pair<T, U> &r)
+{
+	return is >> r.first >> r.second;
+}
+
+template<typename T, typename U>
+bool operator<(const Pair<T, U> &p1, const Pair<T, U> &p2)
+{
+
+}
+
 int main()
 {
 	Pair<double, double> p1(2.5, 3.4);
@@ -27,12 +39,15 @@ int main()
 	cout << "Pair 2 = " << p2 << endl;
 	cout << "Pair 3 = " << p3 << endl;
 	cout << "Pair 4 = " << p4 << endl;
-
-
+	
 	cout << "Swap Pair 1 and Pair 4" << endl;
 	p1.swap(p4);
 	cout << "Pair 1 = " << p1 << endl;
 	cout << "Pair 4 = " << p4 << endl;
-			
+	
+	cout << "Enter two integers to hold them in a Pair" << endl;
+	cin >> p3;
+	cout << "Pair 3 = " << p3 << endl;
+
 	return 0;
 }
