@@ -1,0 +1,1826 @@
+					10 Ekim Cumartesi 2015
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+
+	list<string> mylist;
+
+	fc(mylist, 100, rs);
+	display(mylist);
+
+	mylist.sort();
+	display(mylist);
+
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+
+	list<string> mylist;
+
+	fc(mylist, 100, rs);
+	display(mylist);
+
+	mylist.sort(greater<string>());
+	display(mylist);
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+
+	list<string> mylist;
+
+	fc(mylist, 100, rs);
+	display(mylist);
+
+	mylist.sort([](const string &r1, const string &r2) {
+		if (r1.size() != r2.size())
+			return r1.size() < r2.size();
+		return r1 < r2;
+	});
+
+	display(mylist);
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+
+	list<int> mylist;
+
+	fc(mylist, 100, []() {return rand() % 3;});
+	display(mylist);
+	mylist.unique();
+	display(mylist);
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+
+	list<int> mylist;
+
+	fc(mylist, 100, rand);
+
+	display(mylist);
+	mylist.unique([](int x, int y) {return x % 2 == y % 2;});
+	display(mylist);
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+
+	list<string> mylist;
+
+	fc(mylist, 100, rs);
+
+	display(mylist);
+	mylist.unique([](const string &r1, const string &r2) {return r1.length() % 2 == r2.length() % 2;});
+	display(mylist);
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+
+	list<int> mylist;
+
+	fc(mylist, 100, []() {return rand() % 5;});
+	display(mylist);
+
+	cout << "silinecek deeri girin : ";
+	int ival;
+	cin >> ival;
+
+	mylist.remove(ival);
+	display(mylist);
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+
+	list<string> mylist;
+
+	fc(mylist, 100, rs);
+	display(mylist);
+
+	cout << "iki uzunluk degeri girin : ";
+	int len1, len2;
+	cin >> len1 >> len2;
+
+	mylist.remove_if([=](const string &r) {return r.size() >= len1 && r.size() <= len2;});
+
+	display(mylist);
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+
+	list<string> mylist;
+
+	fc(mylist, 5, rs);
+	display(mylist);
+	mylist.reverse();
+
+	display(mylist);
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+	list<string> x, y;
+
+	fc(x, 5, rs);
+	fc(y, 9, rs);
+	x.sort();
+	y.sort();
+
+	display(x);
+	display(y);
+	x.merge(move(y));
+	display(x);
+	getchar();
+	display(y);
+
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	list<string> ls1, ls2;
+
+	srand(345324U);
+	fc(ls1, 10, rs);
+	fc(ls2, 10, rs);
+	display(ls1);
+	display(ls2);
+	ls1.splice(ls1.begin(), ls2);
+	display(ls1);
+	display(ls2);
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	list<string> ls1, ls2;
+
+	srand(345324U);
+	fc(ls1, 10, rs);
+	fc(ls2, 10, rs);
+	display(ls1);
+	display(ls2);
+	ls1.splice(next(ls1.begin()), ls2, prev(ls2.end()));
+	display(ls1);
+	display(ls2);
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	list<string> ls1, ls2;
+
+	srand(345324U);
+	fc(ls1, 10, rs);
+	fc(ls2, 10, rs);
+	display(ls1);
+	display(ls2);
+	ls1.splice(next(ls1.begin()), ls2, next(ls2.begin(), 3), prev(ls2.end(), 2));
+	display(ls1);
+	display(ls2);
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	list<string> mylist;
+	randomize();
+	fc(mylist, 10, rs);
+	display(mylist);
+
+	auto iter = mylist.begin();
+	cout << *iter << endl;
+
+	advance(iter, 5);
+	cout << *iter << endl;
+	advance(iter, -2);
+	cout << *iter << endl;
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	list<string> mylist;
+	randomize();
+	fc(mylist, 10, rs);
+	display(mylist);
+
+	cout << distance(mylist.begin(), mylist.end()) << endl;
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+
+using namespace std;
+
+
+int main()
+{
+	list<string> mylist{ "ali", "hakan", "selami", "nur" };
+	vector<string> myvec{ "haldun", "ayca", "turgut" };
+
+	iter_swap(mylist.begin(), myvec.end() - 1);
+
+	display(mylist);
+	display(myvec);
+
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <forward_list>
+
+using namespace std;
+
+
+int main()
+{
+	forward_list<string> mylist{ "ali", "hakan", "selami", "nur" };
+
+	mylist.insert_after(mylist.cbefore_begin(), "sinan");
+	display(mylist);
+	mylist.insert_after(mylist.begin(), "yesim");
+	display(mylist);
+
+
+
+
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <forward_list>
+
+using namespace std;
+
+
+int main()
+{
+	forward_list<string> mylist{ "ali", "hakan", "selami", "nur" };
+
+	display(mylist);
+	mylist.erase_after(mylist.cbefore_begin());
+	display(mylist);
+	mylist.erase_after(mylist.begin());
+	display(mylist);
+	
+	return 0;
+};
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+					11 Ekim 2015 Pazar
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	set<string> myset;   ///
+
+	randomize();
+	fc(myset, 100, rs);
+	for (const auto &r : myset)
+		cout << r << " ";
+	cout << endl;
+
+
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	set<string, greater<string>> myset;   ///
+
+	randomize();
+	fc(myset, 100, rs);
+	for (const auto &r : myset)
+		cout << r << " ";
+	cout << endl;
+
+
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+struct Pred {
+	bool operator()(const string &r1, const string &r2)
+	{
+		if (r1.size() != r2.size())
+			return r1.size() < r2.size();
+		return r1 < r2;
+	}
+};
+
+
+int main()
+{
+	set<string, Pred> myset;   ///
+
+	randomize();
+	fc(myset, 100, rs);
+	for (const auto &r : myset)
+		cout << r << " ";
+	cout << endl;
+
+
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+bool cmp(const string &r1, const string &r2)
+{
+	if (r1.size() != r2.size())
+		return r1.size() < r2.size();
+	
+	return r1 < r2;	
+}
+
+
+int main()
+{
+	set<string, bool (*)(const string &, const string &)> myset;   ///
+
+	randomize();
+	fc(myset, 100, rs);
+	for (const auto &r : myset)
+		cout << r << " ";
+	cout << endl;
+
+
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+bool cmp(const string &r1, const string &r2)
+{
+	if (r1.size() != r2.size())
+		return r1.size() < r2.size();
+	
+	return r1 < r2;	
+}
+
+
+int main()
+{
+	set<string, decltype(&cmp)> myset;   ///
+
+	randomize();
+	fc(myset, 100, rs);
+	for (const auto &r : myset)
+		cout << r << " ";
+	cout << endl;
+
+
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	auto lambda = [](const string &r1, const string &r2)
+	{
+		if (r1.size() != r2.size())
+			return r1.size() < r2.size();
+
+		return r1 < r2;
+	};
+
+	set<string, decltype(lambda)> myset(lambda);   ///
+
+	randomize();
+	fc(myset, 100, rs);
+	for (const auto &r : myset)
+		cout << r << " ";
+	cout << endl;
+
+
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	vector<string> myvec;
+	randomize();
+	fc(myvec, 100, rs);
+	display(myvec);
+
+	set<string> myset(myvec.begin(), myvec.end());
+	display(myset);
+
+	cout << myset.size() << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	vector<string> myvec;
+	randomize();
+	fc(myvec, 100, rs);
+	display(myvec);
+
+	multiset<string> myset(myvec.begin(), myvec.end());
+	display(myset);
+
+	cout << myset.size() << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	
+	randomize();
+
+	
+	///////////////////////
+	///////////
+	set<Date> impDates;
+	for (int k = 0; k < 200; k++)
+		impDates.insert(Date::random());
+
+	vector<Date> datevec;
+	fc(datevec, 2000, Date::random);
+
+	for (auto &d : datevec)
+		if (impDates.find(d) != impDates.end()) {
+			cout << "ozel tarih" << d << endl;
+			d++;
+		}
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	set<string> myset;
+	randomize();
+
+	fc(myset, 20, rs);
+	display(myset);
+	string name, newname;
+
+	cout << "eski ve yeni  ismi girin : ";
+	cin >> name >> newname;
+
+	auto iter = myset.find(name);
+
+	if (iter != myset.end())
+		*iter = newname;  //hayir! hayir!
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	set<string> myset;
+	randomize();
+
+	fc(myset, 20, rs);
+	display(myset);
+	string name, newname;
+
+	cout << "eski ve yeni  ismi girin : ";
+	cin >> name >> newname;
+
+	auto iter = myset.find(name);
+
+	if (iter != myset.end()) {
+		myset.erase(iter);
+		myset.insert(newname);
+	}
+
+	display(myset);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	set<string> myset;
+	randomize();
+
+	fc(myset, 20, rs);
+	display(myset);
+	list<string> mylist;
+	fc(mylist, 10, rs);
+	display(mylist);
+	myset.insert(mylist.begin(), mylist.end());
+
+	display(myset);
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	set<string> myset;
+	randomize();
+
+	fc(myset, 20, rs);
+	display(myset);
+	list<string> mylist;
+	myset.insert({ "erkan", "gurkan", "turkan", "serkan", "tarkan" });
+
+
+	display(myset);
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	multiset<int> myset;
+	randomize();
+
+	fc(myset, 100, []() {return rand() % 10;});
+
+	display(myset);
+	int ival;
+	cout << "degeri girin ";
+	cin >> ival;
+	int count = myset.count(ival);
+
+	cout << "count : " << count << endl;
+
+	auto iter = myset.lower_bound(ival);
+	while (count--) {
+		cout << *iter << endl;
+		++iter;
+	}
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	multiset<int> myset;
+	randomize();
+
+	fc(myset, 100, []() {return rand() % 10;});
+
+	display(myset);
+	int ival;
+	cout << "degeri girin ";
+	cin >> ival;
+
+	auto iter1 = myset.lower_bound(ival);
+	auto iter2 = myset.upper_bound(ival);
+	
+	display(iter1, iter2);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	multiset<int> myset;
+	randomize();
+
+	fc(myset, 100, []() {return rand() % 10;});
+
+	display(myset);
+	int ival;
+	cout << "degeri girin ";
+	cin >> ival;
+
+	for (auto iterp = myset.equal_range(ival); iterp.first != iterp.second; ++iterp.first)
+		cout << *iterp.first << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	multiset<int> myset;
+	randomize();
+
+	fc(myset, 100, []() {return rand() % 10;});
+
+	display(myset);
+	int ival;
+	cout << "aranacak deger : ";
+	cin >> ival;
+
+	auto iter = myset.find(ival);
+	
+	while (iter != myset.end()) {
+		if (*iter == ival) {
+			iter = myset.erase(iter);
+		}
+		else 
+			iter++;
+	}
+
+	display(myset);
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	multiset<int> myset;
+	randomize();
+
+	fc(myset, 100, []() {return rand() % 10;});
+
+	display(myset);
+	int ival;
+	cout << "aranacak deger : ";
+	cin >> ival;
+
+	auto iter = myset.find(ival);
+	
+	while (iter != myset.end()) {
+		if (*iter == ival) {
+			myset.erase(iter++);
+		}
+		else 
+			iter++;
+	}
+
+	display(myset);
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+
+using namespace std;
+
+
+int main()
+{
+	multiset<int, greater<int>> myset;
+	randomize();
+
+	auto x = myset.key_comp();
+
+	cout <<  boolalpha << x(10, 30) << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+
+int main()
+{
+	map<string, int> mymap{ {"zeliha", 76}, {"ali", 27},{ "nur", 27 }, {"deniz", 22},
+	{"ayca", 22} };
+
+	for (auto iter = mymap.begin(); iter != mymap.end(); ++iter)
+		cout << iter->first << " " << iter->second << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+
+int main()
+{
+	map<string, int, greater<string>> mymap{ {"zeliha", 76}, {"ali", 27},{ "nur", 27 }, {"deniz", 22},
+	{"ayca", 22} };
+
+	for (auto iter = mymap.begin(); iter != mymap.end(); ++iter)
+		cout << iter->first << " " << iter->second << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+
+int main()
+{
+	map<string, int, greater<string>> mymap{ {"zeliha", 76}, {"ali", 27},{ "nur", 27 }, {"deniz", 22},
+	{"ayca", 22} };
+
+	
+	mymap.insert(pair<string, int>("orhan", 27));
+	mymap.insert(make_pair("nurdan", 45));
+	mymap.insert(map<string, int, greater<string>>::value_type("eren", 15));
+
+	for (auto iter = mymap.begin(); iter != mymap.end(); ++iter)
+		cout << iter->first << " " << iter->second << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+
+int main()
+{
+	map<string, int, greater<string>> mymap{ {"zeliha", 76}, {"ali", 27},{ "nur", 27 }, {"deniz", 22},
+	{"ayca", 22} };
+
+	
+	mymap.insert(pair<string, int>("orhan", 27));
+	mymap.insert(make_pair("nurdan", 45));
+	mymap.insert(map<string, int, greater<string>>::value_type("eren", 15));
+
+	for (const auto &p :  mymap)
+		cout << p.first << " " << p.second << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+template<class T, class U>
+std::ostream & operator<<(std::ostream &os, const std::pair<T, U> &r)
+{
+	return os << "(" << r.first << ", " << r.second << ")";
+}
+
+int main()
+{
+	map<string, Date> nd_map;
+
+	for (int k = 0; k < 1000; ++k)
+		nd_map.insert(make_pair(rs(), Date::random()));
+
+	for (const auto &r : nd_map)
+		cout << r << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+template<class T, class U>
+std::ostream & operator<<(std::ostream &os, const std::pair<T, U> &r)
+{
+	return os << "(" << r.first << ", " << r.second << ")";
+}
+
+int main()
+{
+	map<Date, string> nd_map;
+
+	for (int k = 0; k < 1000; ++k)
+		nd_map.insert(make_pair(Date::random(), rs()));
+
+	for (const auto &r : nd_map)
+		cout << r << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+template<class T, class U>
+std::ostream & operator<<(std::ostream &os, const std::pair<T, U> &r)
+{
+	return os << "(" << r.first << ", " << r.second << ")";
+}
+
+int main()
+{
+	map<Date, string> nd_map;
+
+	for (int k = 0; k < 1000; ++k)
+		nd_map.insert(make_pair(Date::random(), rs()));
+
+	for (const auto &r : nd_map)
+		cout << r.first << " " << r.second << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+template<class T, class U>
+std::ostream & operator<<(std::ostream &os, const std::pair<T, U> &r)
+{
+	return os << "(" << r.first << ", " << r.second << ")";
+}
+
+int main()
+{
+	map<string, Date> nd_map;
+
+	for (int k = 0; k < 1000; ++k)
+		nd_map.insert(make_pair(rs(), Date::random()));
+
+	string name;
+
+	cout << "aranacak isim : " << endl;
+	cin >> name;
+
+	auto iter = nd_map.find(name);
+	
+
+	if (iter != nd_map.end()) {
+		cout << "dogum tarihi " << iter->second << endl;
+		iter->second++;
+		cout << "dogum tarihi " << iter->second << endl;
+	}
+	else {
+		cout << "bulunamadi" << endl;
+	}
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+template<class T, class U>
+std::ostream & operator<<(std::ostream &os, const std::pair<T, U> &r)
+{
+	return os << "(" << r.first << ", " << r.second << ")";
+}
+
+int main()
+{
+	multimap<string, Date> nd_map;
+
+	for (int k = 0; k < 1000; ++k)
+		nd_map.insert(make_pair(rs(), Date::random()));
+
+	string name;
+
+	cout << "aranacak isim : " << endl;
+	cin >> name;
+
+	for (auto mp = nd_map.equal_range(name); mp.first != mp.second; ++mp.first)
+		mp.first->second++;
+	/////
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+template<class T, class U>
+std::ostream & operator<<(std::ostream &os, const std::pair<T, U> &r)
+{
+	return os << "(" << r.first << ", " << r.second << ")";
+}
+
+int main()
+{
+	vector<string> svec;
+
+	randomize();
+
+	fc(svec, 2000, rs);
+	//display(svec);
+
+	map<string, int> mymap;
+
+	for (const auto &s : svec)
+		mymap[s]++;
+
+	for (const auto &p : mymap)
+		cout << p << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+template<typename T>
+class Myclass {
+	T mx;
+public:
+	Myclass() :mx(T()) {};
+
+	void display()const
+	{
+		cout << mx << endl;
+	}
+};
+
+
+int main()
+{
+	Myclass<int> a;
+
+	a.display();
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+template<class T, class U>
+std::ostream & operator<<(std::ostream &os, const std::pair<T, U> &r)
+{
+	return os << "(" << r.first << ", " << r.second << ")";
+}
+
+int main()
+{
+	map<string, int> simap;
+
+	randomize();
+
+	for (int k = 0; k < 100; ++k)
+		simap.insert(make_pair(rs(), rand()));
+
+	auto iter = simap.begin();
+
+	while (iter != simap.end()) {
+		if (iter->second % 2 == 0)
+			iter = simap.erase(iter);
+		else
+			++iter;
+	}
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+
+
+using namespace std;
+
+template<class T, class U>
+std::ostream & operator<<(std::ostream &os, const std::pair<T, U> &r)
+{
+	return os << "(" << r.first << ", " << r.second << ")";
+}
+
+int main()
+{
+	map<string, int> simap;
+
+	randomize();
+
+	for (int k = 0; k < 100; ++k)
+		simap.insert(make_pair(rs(), rand()));
+
+	auto iter = simap.begin();
+
+	while (iter != simap.end()) {
+		if (iter->second % 2 == 0)
+			simap.erase(iter++);
+		else
+			++iter;
+	}
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
