@@ -77,9 +77,9 @@ int main()
 	cout << "Pair 1 = " << p1 << endl;
 	cout << "Pair 4 = " << p4 << endl;
 	
-	//cout << "Enter two integers to hold them in a Pair" << endl;
-	//cin >> p3;
-	//cout << "Pair 3 = " << p3 << endl;
+	cout << "Enter two integers to hold them in a Pair" << endl;
+	cin >> p3;
+	cout << "Pair 3 = " << p3 << endl;
 
 	cout << "p1 < p4 : " << (p1 < p4) << endl;
 	cout << "p1 <= p4 : " << (p1 <= p4) << endl;
