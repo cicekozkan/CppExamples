@@ -20,11 +20,8 @@ istream& operator>>(istream& is, Pair<T, U> &r)
 	return is >> r.first >> r.second;
 }
 
-template<typename T, typename U>
-bool operator<(const Pair<T, U> &p1, const Pair<T, U> &p2)
-{
 
-}
+
 
 int main()
 {
