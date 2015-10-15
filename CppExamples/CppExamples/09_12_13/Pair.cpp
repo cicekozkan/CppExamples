@@ -23,7 +23,39 @@ istream& operator>>(istream& is, Pair<T, U> &r)
 template<typename T, typename U>
 bool operator<(const Pair<T, U> &p1, const Pair<T, U> &p2)
 {
+	if (p1.first < p2.first) return true;
+	else if (p1.first == p2.first && p1.second < p2.second)	return true;
+	else return false;
+}
 
+template<typename T, typename U>
+bool operator>(const Pair<T, U> &p1, const Pair<T, U> &p2)
+{
+	return p2 < p1;
+}
+
+template<typename T, typename U>
+bool operator==(const Pair<T, U> &p1, const Pair<T, U> &p2)
+{
+	return !(p2 < p1) && !(p1 < p2);
+}
+
+template<typename T, typename U>
+bool operator!=(const Pair<T, U> &p1, const Pair<T, U> &p2)
+{
+	return (p2 < p1) || (p1 < p2);
+}
+
+template<typename T, typename U>
+bool operator<=(const Pair<T, U> &p1, const Pair<T, U> &p2)
+{
+	return !(p2 < p1);
+}
+
+template<typename T, typename U>
+bool operator>=(const Pair<T, U> &p1, const Pair<T, U> &p2)
+{
+	return !(p1 < p2);
 }
 
 int main()
@@ -45,9 +77,17 @@ int main()
 	cout << "Pair 1 = " << p1 << endl;
 	cout << "Pair 4 = " << p4 << endl;
 	
-	cout << "Enter two integers to hold them in a Pair" << endl;
-	cin >> p3;
-	cout << "Pair 3 = " << p3 << endl;
+	//cout << "Enter two integers to hold them in a Pair" << endl;
+	//cin >> p3;
+	//cout << "Pair 3 = " << p3 << endl;
+
+	cout << "p1 < p4 : " << (p1 < p4) << endl;
+	cout << "p1 <= p4 : " << (p1 <= p4) << endl;
+	cout << "p1 > p4 : " << (p1 > p4) << endl;
+	cout << "p1 >= p1 : " << (p1 >= p4) << endl;
+	cout << "p1 == p4 : " << (p1 == p4) << endl;
+	cout << "p1 != p4 : " << (p1 != p4) << endl;
+
 
 	return 0;
 }
