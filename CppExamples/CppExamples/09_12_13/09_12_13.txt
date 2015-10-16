@@ -27,75 +27,6 @@ template specialization
 
 
 
-
-
-
-#include <string>
-#include <iostream>
-
-using namespace std;
-
-template <typename T>
-class Sclass {
-
-
-};
-
-
-template <typename T>
-class Tclass {
-
-
-};
-
-template<typename T, template<typename> class C>
-struct Myclass {
-	C<T> mx;
-	Myclass()
-	{
-		cout << typeid(mx).name() << endl;
-	}
-};
-
-
-int main()
-{
-	Myclass<int, Tclass> m1;
-	Myclass<double, Sclass> m2;
-
-	return 0;
-}
-
-
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-
-#include <string>
-#include <list>
-#include <vector>
-
-
-#include <iostream>
-
-using namespace std;
-
-//typedef std::list<double> Dlist;
-//typedef vector<Dlist> ListVec;
-
-using Dlist = std::list<double>;
-using ListVec = std::vector<Dlist>;
-
-
-int main()
-{
-	ListVec myvec;
-
-
-	return 0;
-}
-
-
 #include <string>
 
 
@@ -117,6 +48,17 @@ int main()
 
 	return 0;
 }
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 #include <string>
 
