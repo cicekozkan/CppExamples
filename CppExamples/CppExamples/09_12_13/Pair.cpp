@@ -20,6 +20,8 @@ istream& operator>>(istream& is, Pair<T, U> &r)
 	return is >> r.first >> r.second;
 }
 
+template<typename T, typename U>
+bool operator<(const Pair<T, U> &p1, const Pair<T, U> &p2){
 	if (p1.first < p2.first) return true;
 	else if (p1.first == p2.first && p1.second < p2.second)	return true;
 	else return false;
@@ -57,17 +59,26 @@ bool operator>=(const Pair<T, U> &p1, const Pair<T, U> &p2)
 
 int main()
 {
-	Pair<double, double> p1(2.5, 3.4);
+	Pair<double, double> p1(2.5, 3.4);		// parameter constructor
 	string key = "Bes";
 	double value = 5.0;
 	Pair<string, double> p2(key, value);
-	Pair<int, int> p3(p1);
+	Pair<int, int> p3(p1);					// copy constructor
 	Pair<double, double> p4(1.2, 2.3);
+	Pair<int, int> p5 = Pair<int, int>();	// move constructor
+	Pair<double, double> p6;
+	Pair<string, float> p7;					// default constructor
+
+	p6 = Pair<double, double>();			// move assignment
 	
 	cout << "Pair 1 = " << p1 << endl;
 	cout << "Pair 2 = " << p2 << endl;
 	cout << "Pair 3 = " << p3 << endl;
 	cout << "Pair 4 = " << p4 << endl;
+	cout << "Pair 5 = " << p5 << endl;
+	cout << "Pair 6 = " << p6 << endl;
+	cout << "Pair 7 = " << p7 << endl;
+
 	
 	cout << "Swap Pair 1 and Pair 4" << endl;
 	p1.swap(p4);
@@ -84,7 +95,6 @@ int main()
 	cout << "p1 >= p1 : " << (p1 >= p4) << endl;
 	cout << "p1 == p4 : " << (p1 == p4) << endl;
 	cout << "p1 != p4 : " << (p1 != p4) << endl;
-
 
 	return 0;
 }

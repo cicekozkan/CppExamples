@@ -21,30 +21,22 @@ struct Pair{
 	*/
 	Pair(T a, U b) : first{ a }, second{ b }{}
 	/**
-	* Copy constructor template const overload
-	*/
-	template<typename X, typename Y>
-	Pair(const Pair<X,Y> &r) : first( r.first ), second( r.second ){}		
-	/**
 	* Copy constructor template 
 	*/
 	template<typename X, typename Y>
-	Pair(Pair<X, Y> &r) : first( r.first ), second( r.second ) {}
-	/**
-	* Operator assignment function
-	*/
-	Pair& operator=(const Pair& r){				
-	Pair(Pair<X, Y> &r) : first( r.first ), second( r.second ) {}		///< Copy constructor template	
+	Pair(const Pair<X,Y> &r) : first( r.first ), second( r.second ){}			
 	/**
 	* Move constructor
 	*/
 	Pair(Pair &&r) :first{ r.first }, second{ r.second } {}
-	Pair& operator=(const Pair& r){				///< Operator assignment function
+	/**
+	* Operator assignment function
+	*/
+	Pair& operator=(const Pair& r){				
 		first = r.first;
 		second = r.second;
 		return *this;
-	}
-	
+	}	
 	/**
 	* Move assignment
 	*/
@@ -53,10 +45,6 @@ struct Pair{
 		second = r.second;
 		return *this;
 	}
-
-	
-
-	void swap(Pair &r){			///< Swap member function; swaps two Pairs
 	/**
 	* Swap member function; swaps two Pairs
 	*/
