@@ -18,35 +18,7 @@ template instantiation
 template specialization
 
 
-#include <string>
-#include <iostream>
 
-
-using namespace std;
-
-template<typename T, typename U>
-T func(T x, U y)
-{
-	cout << "master template" << endl;
-	return T();
-}
-
-template<>
-int func(int x, double y)
-{
-	cout << "acik ozellestirme" << endl;
-	return 1;
-}
-
-
-
-
-int main()
-{
-	func(3, 4.5);
-
-	return 0;
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -54,62 +26,11 @@ int main()
 ///////////////////////////////////////////////////////////////////////////////
 
 
-namespace std {
-	template<typename T>
-	class Vector {
-
-	};
-
-	template<typename T>
-	class Vector<T *> {
-
-	};
-
-	template<typename T>
-	class Vector<T &> {
-
-	};
-
-	template<typename T>
-	class Vector<T &&> {
-
-	};
-
-}
 
 
-#include <string>
-#include <iostream>
-
-using namespace std;
-
-
-template<typename T>
-struct Myclass {
-	Myclass()
-	{
-		cout << "master template" << endl;
-		cout << "type T is" << typeid(T).name() << endl;
-	}
-};
-
-
-template<typename T>
-struct Myclass<T *> {
-	Myclass()
-	{
-		cout << "secondary template" << endl;
-	}
-};
-
-
-int main()
-{
-	Myclass<int> m1;
-	Myclass<double *> m2;
-
-	return 0;
-} 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 
 #include <string>
