@@ -20,9 +20,6 @@ istream& operator>>(istream& is, Pair<T, U> &r)
 	return is >> r.first >> r.second;
 }
 
-template<typename T, typename U>
-bool operator<(const Pair<T, U> &p1, const Pair<T, U> &p2)
-{
 	if (p1.first < p2.first) return true;
 	else if (p1.first == p2.first && p1.second < p2.second)	return true;
 	else return false;

@@ -34,10 +34,29 @@ struct Pair{
 	* Operator assignment function
 	*/
 	Pair& operator=(const Pair& r){				
+	Pair(Pair<X, Y> &r) : first( r.first ), second( r.second ) {}		///< Copy constructor template	
+	/**
+	* Move constructor
+	*/
+	Pair(Pair &&r) :first{ r.first }, second{ r.second } {}
+	Pair& operator=(const Pair& r){				///< Operator assignment function
 		first = r.first;
 		second = r.second;
 		return *this;
 	}
+	
+	/**
+	* Move assignment
+	*/
+	Pair& operator=(Pair&&r) {
+		first = r.first;
+		second = r.second;
+		return *this;
+	}
+
+	
+
+	void swap(Pair &r){			///< Swap member function; swaps two Pairs
 	/**
 	* Swap member function; swaps two Pairs
 	*/
