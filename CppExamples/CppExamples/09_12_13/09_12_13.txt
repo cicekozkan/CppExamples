@@ -31,42 +31,6 @@ template specialization
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-
-
-#include <string>
-#include <iostream>
-
-using namespace std;
-
-
-template<typename T, typename U>
-struct Myclass {
-	Myclass()
-	{
-		cout << "master template" << endl;
-		cout << "type T is " << typeid(T).name() << endl;
-		cout << "type U is " << typeid(U).name() << endl;
-
-	}
-};
-
-template<typename T>
-struct Myclass<T, T>
-{
-	Myclass() {
-		cout << "secondary template" << endl;
-	}
-};
-
-
-int main()
-{
-	Myclass<int, double> m1;
-	Myclass<double, double> m2;
-
-
-	return 0;
-}
 //////////////////////////////////////////////
 #include <string>
 #include <iostream>
