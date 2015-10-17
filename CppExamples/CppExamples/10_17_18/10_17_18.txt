@@ -1,61 +1,8 @@
 				17 Ekim 2015 Cumartesi
 
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-
-using namespace std;
-
-
-void displayProperties(const unordered_set<string> &us)
-{
-	cout << "size              : " << us.size() << endl;
-	cout << "bucket size       : " << us.bucket_count() << endl;
-	cout << "load factor       : " << us.load_factor() << endl;
-	cout << "max load factor   : " << us.max_load_factor() << endl;
 
 
 
-	for (size_t i = 0; i < us.bucket_count(); ++i) {
-		cout << "bucket[" << i << "] (" << us.bucket_size(i) << ") = ";
-		for (auto iter = us.cbegin(i); iter != us.cend(i); ++iter)
-			cout << *iter << " ";
-		cout << endl;
-	}
-
-	cout << sl;
-}
-
-
-int main()
-{
-	unordered_set<string> names{ "ali", "hakan", "turgut", "suleyman", "macide", "taylan", "recep", "devlet", "dogu",
-	"helin", "selin", "salim", "tijen"};
-
-	displayProperties(names);
-
-	cout << names.bucket("suleyman") << endl;
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
