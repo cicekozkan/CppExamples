@@ -3,40 +3,7 @@
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
 
-using namespace std;
-
-
-int main()
-{
-	unordered_set<string> names{ "ali", "hakan", "turgut", "suleyman", "macide", "taylan", "recep", "devlet", "dogu"};
-
-	for (;;) {
-		string s;
-		cout << "isim girin ";
-		cin >> s;
-		if (names.count(s))
-			cout << "evet" << endl;
-		else
-			cout << "hayir" << endl;
-
-	}	
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
