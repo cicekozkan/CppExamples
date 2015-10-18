@@ -1,15 +1,3 @@
-				17 Ekim 2015 Cumartesi
-
-
-
-
-
-
-
-
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
 #include <vector>
 #include <initializer_list>
 #include <string>
@@ -27,18 +15,29 @@
 
 using namespace std;
 
-bool isPmatch(const string &r);
 
 int main()
 {
-	cout << "bir yazi girin : ";
-	string s;
-	cin >> s;
+	int x = 10;
+	int y = 20;
+	int z = 30;
+	int k = 40;
 
-	if (isPmatch(s))
-		cout << "uydu..." << endl;
-	else
-		cout << "uymadi..." << endl;
+	vector<reference_wrapper<int>> svec{ x, y, z, k };
+	list<reference_wrapper<int>> slist{ x, y, z, k };
+
+	for (auto &r : svec)
+		r *= 2;
+
+	for (auto &r : slist)
+		r += 12;
+
+	cout << "x = " << x << endl;
+	cout << "y = " << y << endl;
+	cout << "z = " << z << endl;
+	cout << "k = " << k << endl;
+
+
 
 
 
@@ -64,14 +63,217 @@ int main()
 #include <stack>
 
 using namespace std;
+using namespace placeholders;
 
-bool isPmatch(const string &r);
 
-class Mystack : public std::stack<int> {
+int func(int a, int b, int c)
+{
+	return a * b * c;
+}
+
+int main()
+{
+	auto f = bind(func, _1, _1, _1);
+
+	cout << f(10) << endl;
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+using namespace placeholders;
+
+
+int func(int a, int b, int c)
+{
+	return a * b + c;
+}
+
+int main()
+{
+	auto f = bind(func, _3, _2, _1);
+
+	cout << f(10, 5, 2) << endl;
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+using namespace placeholders;
+
+
+void func(int &r1, int &r2)
+{
+	r1 += 10;
+	r2 -= 20;
+}
+
+int main()
+{
+	int x = 100;
+	int y = 200;
+
+	auto f = bind(func, x, y);
+
+	f();
+
+	cout << "x = " << x << endl;
+	cout << "y = " << y << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+using namespace placeholders;
+
+
+void print(ostream &os, int val, const char *p)
+{
+	os << val << p;
+}
+
+
+
+int main()
+{
+	int x = 456;
+
+	print(cout, x, "\n\n");
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+using namespace placeholders;
+
+
+void print(ostream &os, int val, const char *p)
+{
+	os << val << p;
+}
+
+
+
+int main()
+{
+	int x = 32421;
+
+	auto f = bind(print, ref(cout), _1, "\n\n\n");
+
+	f(x);
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+using namespace placeholders;
+
+
+
+template<typename T>
+class Ostream_iterator {
+	std::ostream &r;
+	const char *mp;
 public:
-	void popend()
+	Ostream_iterator(std::ostream &os, const char *p = "") : r(os), mp(p) {}
+	Ostream_iterator &operator*() { return *this; }
+	Ostream_iterator &operator++() { return *this; }
+	Ostream_iterator &operator++(int) { return *this; }
+	Ostream_iterator &operator=(const T &val)
 	{
-		c.pop_back();
+		r << val << mp;
 	}
 };
 
@@ -79,8 +281,882 @@ public:
 int main()
 {
 
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+
+int main()
+{
+	vector<string> svec;
+
+	randomize();
+	int len;
+
+	fc(svec, 100, rs);
+	cout << "uzunluk : ";
+	cin >> len;
+
+	copy_if(svec.begin(), svec.end(), ostream_iterator<string>(cout, "\n"), [len](const string &r) {return r.size() > len;});
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <fstream>
+
+
+using namespace std;
+
+int main()
+{
+	vector<string> svec;
+
+	randomize();
+	int len;
+
+	fc(svec, 100, rs);
+	cout << "uzunluk : ";
+	cin >> len;
+	ofstream ofs("isimler.txt");
+	//
+	copy_if(svec.begin(), svec.end(), ostream_iterator<string>(ofs, "\n"), [len](const string &r) {return r.size() > len;});
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <fstream>
+
+
+using namespace std;
+
+int main()
+{
+	ifstream ifs("isimler.txt");
+	if (!ifs) {
+		cout << "dosya acilamiyor" << endl;
+		return 1;
+	}
+	
+	auto end = istream_iterator<string>();
+
+	vector<string> myvec(istream_iterator<string>(ifs), end);
+	display(myvec);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <fstream>
+
+
+using namespace std;
+
+int main()
+{
+	vector<string> svec;
+
+	randomize();
+	fc(svec, 100, rs);
+	display(svec);
+	transform(svec.begin(), svec.end(), ostream_iterator<size_t>(cout, " "),
+		mem_fn(&string::length));
 
 
 	return 0;
 }
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <fstream>
 
+
+using namespace std;
+
+struct Pred : public std::unary_function<string, bool>{
+	bool operator()(const string &r1)
+	{
+		return r1.length() == 5;
+	}
+};
+
+int main()
+{
+	
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <fstream>
+
+
+using namespace std;
+
+struct Myfunc: public std::binary_function<int, long, double> {
+	double operator()(int x, long y)
+	{
+		return x + y;
+	}
+};
+
+int main()
+{
+	cout << typeid (Myfunc::first_argument_type).name() << endl;
+	cout << typeid (Myfunc::second_argument_type).name() << endl;
+	cout << typeid (Myfunc::result_type).name() << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <fstream>
+
+using namespace std;
+
+
+bool isMatch(const string &r)
+{
+	stack<char> cstack;
+	const string s_op = "({<[";
+	const string s_cl = ")}>]";
+
+	for (const auto &c : r) {
+		if (s_op.find(c) != string::npos)
+			cstack.push(c);
+		else {
+			auto idx = s_cl.find(c);
+			if (idx != string::npos) {
+				if (cstack.empty() || cstack.top() != s_op[idx]) {
+					return false;
+				}
+				cstack.pop();
+			}
+		}
+	}
+	return cstack.empty();
+}
+
+int main()
+{
+	string s;
+
+	cout << "giris yapin : ";
+	cin >> s;
+
+	if (isMatch(s))
+		cout << "uyumlu" << endl;
+	else
+		cout << "uyumsuz" << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+typedef stack<Date> Adt;
+
+int main()
+{
+	Adt c;
+
+	for (int k = 0; k < 5; ++k) {
+		Date x = Date::random();
+		cout << x;
+		c.push(x);
+	}
+
+	while (!c.empty()) {
+		cout << "oge sayisi : " << c.size() << endl;
+		cout << c.top() << endl;
+		c.pop();
+		getchar();
+	}
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+typedef queue<Date> Adt;
+
+int main()
+{
+	Adt c;
+
+	for (int k = 0; k < 5; ++k) {
+		Date x = Date::random();
+		cout << x;
+		c.push(x);
+	}
+
+	while (!c.empty()) {
+		cout << "oge sayisi : " << c.size() << endl;
+		cout << "kuyruk basi : " << c.front() << endl;
+		cout << "kuyruk sonu : " << c.back() << endl;
+
+		c.pop();
+		getchar();
+	}
+	
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+typedef queue<Date> Adt;
+
+int main()
+{
+	priority_queue<int> pq;
+
+	for (auto x : { 13, 27, 5, 59, 34, 20, 2, 40 })
+		pq.push(x);
+
+	while (!pq.empty()) {
+		cout << pq.top();
+		getchar();
+		pq.pop();
+	}
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+typedef queue<Date> Adt;
+
+int main()
+{
+	priority_queue<int, std::vector<int>, greater<int>> pq;
+
+	for (auto x : { 13, 27, 5, 59, 34, 20, 2, 40 })
+		pq.push(x);
+
+	while (!pq.empty()) {
+		cout << pq.top();
+		getchar();
+		pq.pop();
+	}
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	static int func(int val)
+	{
+		return val * val + 1;
+	}
+
+};
+
+int main()
+{
+	int(*fp)(int) = &Myclass::func;
+
+	cout << fp(10) << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	int func(int val)
+	{
+		cout << "this = " << this << endl;
+		return val * val + 1;
+	}
+
+};
+
+int main()
+{
+	int(Myclass::*fp)(int) = &Myclass::func;
+	auto fx = &Myclass::func;
+	Myclass m;
+	cout << "&m = " << &m << endl;
+
+	cout << (m.*fp)(20) << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	int func(int val)
+	{
+		cout << "this = " << this << endl;
+		return val * val + 1;
+	}
+
+};
+
+int main()
+{
+	int(Myclass::*fp)(int) = &Myclass::func;
+	auto fx = &Myclass::func;
+	Myclass m;
+	cout << "&m = " << &m << endl;
+
+	cout << (m.*fp)(20) << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+class Myclass {
+public:
+	int func(int val)
+	{
+		return val * val + 1;
+	}
+
+};
+
+int main()
+{
+	auto fx = &Myclass::func;
+	Myclass *p = new Myclass;
+
+	cout << (p->*fx)(20) << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+
+int main()
+{
+	vector<string> svec;
+	randomize();
+	fc(svec, 10, rs);
+	string s;
+	cout << "bir giris yapin : ";
+	cin >> s;
+
+	transform(svec.begin(), svec.end(), svec.begin(), [s](string &r) {return r + s;});
+
+	display(svec);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+
+int main()
+{
+	randomize();
+	vector<string> svec;
+	set<string> myset;
+
+
+	fc(myset, 10, rs);
+	display(myset);
+	fc(svec, 10, rs);
+	sort(svec.begin(), svec.end());
+	display(svec);
+
+	//set_union(myset.begin(), myset.end(), svec.begin(), svec.end(), ostream_iterator<string>(cout, "\n"));
+	//set_intersection(myset.begin(), myset.end(), svec.begin(), svec.end(), ostream_iterator<string>(cout, "\n"));
+	//set_difference(myset.begin(), myset.end(), svec.begin(), svec.end(), ostream_iterator<string>(cout, "\n"));
+	set_symmetric_difference(myset.begin(), myset.end(), svec.begin(), svec.end(), ostream_iterator<string>(cout, "\n"));
+
+
+
+	
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+int main()
+{
+	string s{ "bugungunlerdenpazar" };
+	sort(s.begin(), s.end(), greater<char>());
+	cout << s << endl;
+
+
+	
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+int main()
+{
+	deque<Date> x;
+	randomize();
+
+	fc(x, 10, &Date::random);
+
+	sort(x.begin(), x.end(), greater<Date>());
+	display(x);
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+int main()
+{
+	deque<Date> x;
+	randomize();
+
+	fc(x, 10, &Date::random);
+
+	sort(x.begin(), x.end(), [](const Date &d1, const Date &d2) {return d1.getMonthDay() < d2.getMonthDay();});
+
+	display(x);
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+
+int main()
+{
+	vector<string> svec;
+
+	fc(svec, 200, rs);
+	partial_sort(svec.begin(), svec.begin() + 5, svec.end());
+
+	display(svec);
+
+
+	
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
+
+
+int main()
+{
+	vector<string> svec;
+
+	fc(svec, 50, rs);
+	display(svec);
+	char c;
+
+	cout << "hangi harfe gore partisyon yapilsin : ";
+	cin >> c;
+
+	auto iter = partition(svec.begin(), svec.end(), [c](const string &r) {return r.find(toupper(c)) != string::npos || r.find(tolower(c)) != string::npos;});
+	display(svec);
+	cout << *iter << endl;
+
+
+	
+
+	return 0;
+}
