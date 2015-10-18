@@ -57,70 +57,70 @@ int operator-(const Date &d1, const Date &d2)
 	return d1.getTotalDays() - d2.getTotalDays();
 }
 
-int main()
-{
-	Date d1(8, 3, 1700);
-	Date d2(7, 11, 1987);
-	Date d3(Date::random());
-	Date d4(Date::random());
-	int days;
-	try{
-		Date d5(1, 1, 1600);
-	}
-	catch(BadDate &r){
-		cout << r.getReason() << endl;
-	}
-	cout << d3 << endl;
-	cout << d4 << endl;
-	//cout << Date::random() << endl;
-
-	/*
-	cout << d1 << endl;
-	cout << d2 << endl;
-	cout << "d2 < d1 " << (d2 < d1) << endl;
-	cout << "d1 year day: " << d1.getYearDay() << endl;
-	cout << "d1 total days: " << d1.getTotalDays() << endl;
-	cout << "d2 total days: " << d2.getTotalDays() << endl;
-	
-
-	cout << "enter day, month and year: ";
-	cin >> d3;
-	cout << "d3: " << d3 << endl;
-	cout << "enter day, month and year: ";
-	cin >> d4;
-	cout << "d4: " << d4 << endl;
-
-	cout << "d3 - d4: " << d3 - d4 << endl;
-	cout << "++d3 " << ++d3 << endl;
-	cout << "d3 " << d3 << endl;
-	cout << "d3++ " << d3++ << endl;
-	cout << "d3 " << d3 << endl;
-	cout << "--d3 " << --d3 << endl;
-	cout << "d3 " << d3 << endl;
-	cout << "d3-- " << d3-- << endl;
-	cout << "d3 " << d3 << endl;
-	*/
-	//cout << "d3 year day: " << d3.getYearDay() << endl;
-	//cout << "Total days: " << d3.getTotalDays() << endl;
-	
-	//cout << "Enter days to add: ";
-	//cin >> days;
-	//d3 += days;
-	//cout << d3 << endl;
-	//cout << "Enter days to add: ";
-	//cin >> days;
-	//cout << d3 + days << endl;
-
-	//cout << "Total days: " << d3.getTotalDays() << endl;
-	
-	//cout << "Enter days to subtract: ";
-	//cin >> days;
-	//d3 -= days;
-	//cout << d3 - days << endl;
-	
-	getchar();
-	
-	getchar();
-
-	return 0;
-}
+//int main()
+//{
+//	Date d1(8, 3, 1700);
+//	Date d2(7, 11, 1987);
+//	Date d3(Date::random());
+//	Date d4(Date::random());
+//	int days;
+//	try{
+//		Date d5(1, 1, 1600);
+//	}
+//	catch(BadDate &r){
+//		cout << r.getReason() << endl;
+//	}
+//	cout << d3 << endl;
+//	cout << d4 << endl;
+//	//cout << Date::random() << endl;
+//
+//	/*
+//	cout << d1 << endl;
+//	cout << d2 << endl;
+//	cout << "d2 < d1 " << (d2 < d1) << endl;
+//	cout << "d1 year day: " << d1.getYearDay() << endl;
+//	cout << "d1 total days: " << d1.getTotalDays() << endl;
+//	cout << "d2 total days: " << d2.getTotalDays() << endl;
+//	
+//
+//	cout << "enter day, month and year: ";
+//	cin >> d3;
+//	cout << "d3: " << d3 << endl;
+//	cout << "enter day, month and year: ";
+//	cin >> d4;
+//	cout << "d4: " << d4 << endl;
+//
+//	cout << "d3 - d4: " << d3 - d4 << endl;
+//	cout << "++d3 " << ++d3 << endl;
+//	cout << "d3 " << d3 << endl;
+//	cout << "d3++ " << d3++ << endl;
+//	cout << "d3 " << d3 << endl;
+//	cout << "--d3 " << --d3 << endl;
+//	cout << "d3 " << d3 << endl;
+//	cout << "d3-- " << d3-- << endl;
+//	cout << "d3 " << d3 << endl;
+//	*/
+//	//cout << "d3 year day: " << d3.getYearDay() << endl;
+//	//cout << "Total days: " << d3.getTotalDays() << endl;
+//	
+//	//cout << "Enter days to add: ";
+//	//cin >> days;
+//	//d3 += days;
+//	//cout << d3 << endl;
+//	//cout << "Enter days to add: ";
+//	//cin >> days;
+//	//cout << d3 + days << endl;
+//
+//	//cout << "Total days: " << d3.getTotalDays() << endl;
+//	
+//	//cout << "Enter days to subtract: ";
+//	//cin >> days;
+//	//d3 -= days;
+//	//cout << d3 - days << endl;
+//	
+//	getchar();
+//	
+//	getchar();
+//
+//	return 0;
+//}
