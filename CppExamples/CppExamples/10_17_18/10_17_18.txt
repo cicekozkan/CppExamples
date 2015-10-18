@@ -6,92 +6,9 @@
 
 
 
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <unordered_map>
-
-using namespace std;
-
-struct Veli {
-
-	int operator()(int x)
-	{
-		return x + 10;
-	}
-};
-
-int foo(int val)
-{
-	return val * val;
-}
-
-int main()
-{
-	map<string, function<int(int)>> mymap;
-
-	mymap.insert(make_pair("func1", &foo));
-	mymap.insert(make_pair("func2", Veli()));
-	mymap.insert(make_pair("func3", [](int x) {return x * x - 1;}));
-
-	cout << mymap["func2"](10) << endl;
-
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <unordered_map>
-
-using namespace std;
-
-
-template<class T, class U>
-auto func(T x, U y)->decltype(x + y)
-{
-	return x + y;
-}
-
-
-std::function<int(int)> func()
-{
-	auto f = [](int x) {return x;};
-	///////
-	return f;
-
-}
 
 
 
-int main()
-{
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
