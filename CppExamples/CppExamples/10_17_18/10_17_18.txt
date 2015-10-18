@@ -7,47 +7,6 @@
 
 
 
-
-
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <stack>
-
-using namespace std;
-
-
-int main()
-{
-	stack<string> ms;
-
-	ms.push("ali");
-	ms.push("veli");
-	ms.push("selami");
-	ms.push("hakan");
-	ms.push("tuncer");
-
-	while (!ms.empty()) {
-		cout << ms.top() << endl;
-		ms.pop();
-		getchar();
-	}
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
