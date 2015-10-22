@@ -191,13 +191,13 @@ public:
 	\return Random Date object.
 	*/
 	static Date random(void){
-		srand(static_cast<unsigned>(time(nullptr)));
-		int m = 1 + rand() % 12;
-		int y = mscYearBase + rand();
+		srand(static_cast<unsigned>(std::time(nullptr)));
+		int m = 1 + std::rand() % 12;
+		int y = mscYearBase + std::rand();
 		if (isleap(y)){
 			monthDays[1] = 29;
 		}
-		int d = 1 + rand() % monthDays[m - 1];
+		int d = 1 + std::rand() % monthDays[m - 1];
 		return Date(d, m, y);
 	}
 	friend std::ostream &operator<<(std::ostream &, const Date &);
