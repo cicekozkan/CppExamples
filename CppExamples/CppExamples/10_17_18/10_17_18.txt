@@ -1,92 +1,11 @@
 
 
 
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <stack>
-#include <queue>
-
-using namespace std;
 
 
-class Myclass {
-public:
-	int func(int val)
-	{
-		cout << "this = " << this << endl;
-		return val * val + 1;
-	}
-
-};
-
-int main()
-{
-	int(Myclass::*fp)(int) = &Myclass::func;
-	auto fx = &Myclass::func;
-	Myclass m;
-	cout << "&m = " << &m << endl;
-
-	cout << (m.*fp)(20) << endl;
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <stack>
-#include <queue>
-
-using namespace std;
 
 
-class Myclass {
-public:
-	int func(int val)
-	{
-		return val * val + 1;
-	}
 
-};
-
-int main()
-{
-	auto fx = &Myclass::func;
-	Myclass *p = new Myclass;
-
-	cout << (p->*fx)(20) << endl;
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
 #include <vector>
 #include <initializer_list>
 #include <string>
