@@ -7,53 +7,8 @@
 
 
 
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <stack>
-#include <queue>
-
-using namespace std;
 
 
-
-int main()
-{
-	randomize();
-	vector<string> svec;
-	set<string> myset;
-
-
-	fc(myset, 10, rs);
-	display(myset);
-	fc(svec, 10, rs);
-	sort(svec.begin(), svec.end());
-	display(svec);
-
-	//set_union(myset.begin(), myset.end(), svec.begin(), svec.end(), ostream_iterator<string>(cout, "\n"));
-	//set_intersection(myset.begin(), myset.end(), svec.begin(), svec.end(), ostream_iterator<string>(cout, "\n"));
-	//set_difference(myset.begin(), myset.end(), svec.begin(), svec.end(), ostream_iterator<string>(cout, "\n"));
-	set_symmetric_difference(myset.begin(), myset.end(), svec.begin(), svec.end(), ostream_iterator<string>(cout, "\n"));
-
-
-
-	
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
