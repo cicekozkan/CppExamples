@@ -6,41 +6,7 @@
 
 
 
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <stack>
-#include <queue>
 
-using namespace std;
-
-
-
-int main()
-{
-	vector<string> svec;
-	randomize();
-	fc(svec, 10, rs);
-	string s;
-	cout << "bir giris yapin : ";
-	cin >> s;
-
-	transform(svec.begin(), svec.end(), svec.begin(), [s](string &r) {return r + s;});
-
-	display(svec);
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
