@@ -1,0 +1,2021 @@
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+			24 Ekim 2015 Cumartesi
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <bitset>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
+
+
+
+int main()
+{
+	cout << (19 > 5) << endl;
+	cout.setf(ios_base::boolalpha);
+	cout << (19 > 5) << endl;
+
+	
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <bitset>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
+
+
+
+int main()
+{
+	bitset<32> x(ios::boolalpha);
+
+	cout << x << endl;
+
+	
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
+
+
+
+int main()
+{
+	int x = 34545634;
+	cout.setf(ios::hex, ios::basefield);
+	cout.setf(ios::uppercase);
+	cout.setf(ios::showbase);
+	cout << x << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
+
+
+
+int main()
+{
+	double f = 345.;
+
+	cout.setf(ios::showpoint);
+
+	cout << f << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <bitset>
+
+using namespace std;
+
+
+
+int main()
+{
+	bitset<32> x(ios::oct);
+	bitset<32> y(ios::dec);
+	bitset<32> z(ios::hex);
+	bitset<32> t(ios::basefield);
+
+
+
+	cout << x << endl;
+	cout << y << endl;
+	cout << z << endl;
+	cout << t << endl;
+
+
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <bitset>
+
+using namespace std;
+
+
+
+int main()
+{
+	int x = 10;
+	string s = "mustafa";
+
+	cout.setf(ios::left, ios::adjustfield);
+	cout.width(10);
+	cout << x;
+
+	cout << s;
+
+	cout << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+class ostream {
+public:
+/////
+	ostream &operator<<(ostream &(*fp)(ostream &))
+	{
+		return fp(*this)
+	}
+}
+
+
+
+ostream &oct(ostream &os)
+{
+	os.setf(ios::oct, ios::basefield);
+	return os;
+}
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <bitset>
+
+using namespace std;
+
+
+
+int main()
+{
+	auto x = cout.flags();
+
+	cout << bitset<32>(x) << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <bitset>
+
+using namespace std;
+
+
+
+int main()
+{
+	cout.flags(cout.flags() | ios::boolalpha);   ///cout.setf(ios::boolalpha);
+	cout.flags(cout.flags() & ~ios::boolalpha); //cout.unsetf(ios::boolalpha);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <cmath>
+
+using namespace std;
+
+
+
+int main()
+{
+
+	if (cout.flags() & ios::fixed)
+		cout << "fixed bayragi set edilmis durumda" << endl;
+	else
+		cout << "fixed bayragi set edilmemis durumda" << endl;
+
+	if (cout.flags() & ios::scientific)
+		cout << "scientific bayragi set edilmis durumda" << endl;
+	else
+		cout << "scientific bayragi set edilmemis durumda" << endl;
+
+
+
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <cmath>
+
+using namespace std;
+
+
+
+int main()
+{
+	cout << scientific << endl;
+
+	if (cout.flags() & ios::fixed)
+		cout << "fixed bayragi set edilmis durumda" << endl;
+	else
+		cout << "fixed bayragi set edilmemis durumda" << endl;
+
+	if (cout.flags() & ios::scientific)
+		cout << "scientific bayragi set edilmis durumda" << endl;
+	else
+		cout << "scientific bayragi set edilmemis durumda" << endl;
+
+
+
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <iomanip>
+
+using namespace std;
+
+
+
+int main()
+{
+	int x = 3425324;
+	int y = 9883;
+
+	cout << oct << x << endl << setbase(16) << y << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <iomanip>
+
+using namespace std;
+
+
+
+int main()
+{
+	int x = 3425324;
+	int y = 9883;
+
+	cout.setf(ios::boolalpha | ios::showbase | ios::uppercase);
+	cout << x;
+	cout << endl;
+
+	cout << hex << setiosflags(ios::boolalpha | ios::showbase | ios::uppercase) << x << endl << y << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <fstream>
+#include <iomanip>
+
+using namespace std;
+
+
+
+int main()
+{
+	int x = 10;
+
+	cout << left << setfill('+') << setw(12) << x << "ali" << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <iomanip>
+#include "date.h"
+
+using namespace std;
+
+
+
+int main()
+{
+	ostringstream oss;
+
+	int x = 23;
+	int y = 56;
+	string s = "mustafa";
+
+	oss << x << s << y;
+
+	cout << oss.str() << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+
+int main()
+{
+	ostringstream oss;
+
+	int x = 23;
+	int y = 56;
+	string s = "mustafa";
+
+	oss << setw(12) << setfill('$') << x << s << y;
+
+	cout << oss.str() << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+
+int main()
+{
+	ostringstream oss;
+
+	
+	for (int k = 1; k <= 12; k++) {
+		oss << setw(2) << setfill('0') << k << ".jpg";
+		cout << oss.str() << endl;
+		getchar();
+	}
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+
+int main()
+{
+	ostringstream oss;
+
+	
+	for (int k = 1; k <= 12; k++) {
+
+		oss << setw(2) << setfill('0') << k << ".jpg";
+		cout << oss.str() << endl;
+		getchar();
+		oss.str("");
+	}
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+
+string getLocalTimeStr()
+{
+	time_t timer = time(nullptr);
+	auto p = localtime(&timer);
+	ostringstream oss;
+	oss << setfill('0');
+
+	oss << setw(2) << p->tm_mday << "_" << setw(2) << p->tm_mon + 1 << "_" << p->tm_year + 1900 << "_" <<
+		setw(2) << p->tm_hour << '_' << setw(2) << p->tm_min << '_' << setw(2) << p->tm_sec;
+	return oss.str();
+	
+}
+
+
+int main()
+{
+	cout << getLocalTimeStr() << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+
+
+int main()
+{
+	cout << "bir yazi girin : ";
+	string s;
+
+	getline(cin, s);
+
+	istringstream iss(s);
+
+	double d;
+	string name;
+	int ival;
+
+	iss >> d >> name >> ival;
+
+	cout << "isim : " << name << endl;
+	cout << "dval : " << d<< endl;
+	cout << "ival : " << ival << endl;
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+
+
+int main()
+{
+	cout << "bir yazi girin : ";
+	string s;
+
+	getline(cin, s);
+
+	istringstream iss(s);
+
+	string word;
+
+	while (iss >> word)
+		cout << word << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	randomize();
+	vector<string> svec;
+	ostringstream os;
+
+	fc(svec, 100, rs);
+	copy_if(svec.begin(), svec.end(), ostream_iterator<string>(os, " "), [](const string &r) {return r.length() == 6;});
+
+	cout << os.str() << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	cout << "bir tamsayi girin : ";
+	int x;
+
+	cin >> hex >> x;
+
+	cout << "girilen tamsayi : " << x << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	string s;
+
+	cin >> setw(5) >> s;
+
+	cout << s << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	cout << "bir sayi girin : ";
+
+	int x;
+
+	cin >> x;
+
+	if (cin.good())
+		cout << "akim good durumunda" << endl;
+	else
+		cout << "akim good durumundada degil " << endl;
+
+	if (cin.fail())
+		cout << "akim fail durumunda" << endl;
+	else
+		cout << "akim fail durumunda degil " << endl;
+
+	if (cin.eof())
+		cout << "akim eof durumunda" << endl;
+	else
+		cout << "akim eof durumunda degil " << endl;
+
+	if (cin.bad())
+		cout << "akim bad durumunda" << endl;
+	else
+		cout << "akim bad durumunda degil " << endl;
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	cout << "bir sayi girin : ";
+
+	int x;
+
+	cin >> x;
+
+	if (cin.rdstate() & ios::failbit)
+		cout << "failbit set edilmis durumda" << endl;
+
+	if (cin.rdstate() & ios::eofbit)
+		cout << "eofbit set edilmis durumda" << endl;
+
+	if (cin.rdstate() & ios::badbit)
+		cout << "badbit set edilmis durumda" << endl;
+
+	if (cin.rdstate() == 0)
+		cout << "hic bir bit set edilmemisdurumda " << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	int ival;
+
+	cin >> ival;
+
+	if (cin)
+		cout << "dogru" << endl;
+	else
+		cout << "yanlis" << endl;
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	
+	int x;
+
+	cout << "bir sayi giriniz : ";
+
+	if (!(cin >> x))
+		cout << "olmadi be dogru gir....."
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("ali.txt");
+
+	if (!ifs) {
+		cout << "dosya acilamadi " << endl;
+			return 1;
+	}
+
+	string str;
+
+	while (ifs >> str)
+		cout << str << endl;
+
+	if (ifs.eof())
+		cout << "akim eof durumunda" << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	int x;
+
+	cout << "bir tamsayi girin : ";
+	cin.exceptions(ios::eofbit | ios::badbit | ios::failbit);
+
+	try {
+		cin >> x;
+	}
+	catch (exception &r) {
+		cout << "hata yakalandi .... : " << r.what() << endl;
+	}
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+		25 Ekim 2015 Pazar
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	char c;
+
+	cout << "bir giris yapin : ";
+	cin.get(c);
+
+	cout << cin.gcount() << endl;
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs;
+	///////////
+	if (ifs.is_open()) {
+		cout << "acik dosya var" << endl;
+	}
+	else
+		cout << "acik dosya yok" << endl;
+
+	ifs.open("ornekler.txt");
+	if (!ifs) {
+		cout << "dosya acilamiyor" << endl;
+		return 1;
+	}
+	cout << "dosya acildi" << endl;
+
+	if (ifs.is_open()) {
+		cout << "acik dosya var" << endl;
+	}
+	else
+		cout << "acik dosya yok" << endl;
+
+	ifs.close();
+
+	if (ifs.is_open()) {
+		cout << "acik dosya var" << endl;
+	}
+	else
+		cout << "acik dosya yok" << endl;
+
+
+	
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("orhan.txt");
+
+	if (!ifs) {
+		cout << "dosya acilamadi..." << endl;
+		return 1;
+	}
+	int ival;
+
+	while (ifs >> ival)
+		cout << ival << " ";
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ofstream ofs("sina.dat", ios::binary);
+
+	if (ofs.fail()) {
+		cout << "dosya olusturulamadi\n";
+		return 1;
+	}
+	int ival = 2;
+	int prime_cnt = 0;
+
+	while (prime_cnt < 100000) {
+		if (isprime(ival)) {
+			ofs.write(reinterpret_cast<char *>(&ival), sizeof(ival));
+			prime_cnt++;
+		}
+		ival++;
+	}
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("sina.dat", ios::binary);
+	vector<int> ivec;
+
+	if (ifs.fail()) {
+		cout << "dosya acilamadi\n";
+		return 1;
+	}
+	int ival;
+
+	while (ifs.read(reinterpret_cast<char *>(&ival), sizeof(ival)))
+		ivec.push_back(ival);
+
+	cout << "size = " << ivec.size() << endl;
+	random_shuffle(ivec.begin(), ivec.end());
+
+	for (const auto &x : ivec)
+		cout << x << " ";
+	cout << sl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("sina.dat", ios::binary);
+
+	if (ifs.fail()) {
+		cout << "dosya acilamadi\n";
+		return 1;
+	}
+	
+	int ival;
+
+	cout << hex << uppercase;
+
+	while (ifs.read(reinterpret_cast<char *>(&ival), sizeof(int))) {
+		cout << ival;
+		getchar();
+	}
+	
+	
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	char ch = 65;
+
+	cout << ch << endl;
+	cout.put(ch);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("sina.dat", ios::binary);
+
+	if (!ifs) {
+		cout << "dosya acilamadi..." << endl;
+		return 1;
+	}
+
+	ifs.seekg(0, ios::end);
+
+	cout << ifs.tellg() << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("sina.dat", ios::binary);
+
+	if (!ifs) {
+		cout << "dosya acilamadi..." << endl;
+		return 1;
+	}
+
+	int n;
+	int ival;
+
+	
+
+	for (;;) {
+		cout << "kacinci asal sayi : ";
+		cin >> n;
+		if (n == 0)
+			break;
+		ifs.seekg((n - 1) * sizeof(int), ios::beg);
+		ifs.read(reinterpret_cast<char *>(&ival), sizeof(int));
+		cout << ival << endl;
+	}
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("sina.dat", ios::binary);
+
+	if (!ifs) {
+		cout << "dosya acilamadi..." << endl;
+		return 1;
+	}
+
+	int n;
+	int a[10];
+
+	
+
+	for (;;) {
+		cout << "kacinci asal sayi : ";
+		cin >> n;
+		if (n == 0)
+			break;
+		ifs.seekg((n - 1) * sizeof(int), ios::beg);
+		ifs.read(reinterpret_cast<char *>(a), 10 * sizeof(int));
+		for (auto x : a)
+			cout << x << " ";
+		cout << endl;
+	}
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("orhan.txt");
+
+	if (!ifs) {
+		cout << "acilamadi" << endl;
+		return 1;
+	}
+	istream_iterator<int> iter1(ifs);
+	istream_iterator<int> iter2;
+
+	list<int> mylist(iter1, iter2);
+	///
+
+	cout << "list size = " << mylist.size() << endl;
+
+	mylist.reverse();
+	for (auto &r : mylist)
+		cout << r << " "
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("orhan.txt");
+
+	if (!ifs) {
+		cout << "acilamadi" << endl;
+		return 1;
+	}
+	istream_iterator<int> iter1(ifs);
+	istream_iterator<int> iter2;
+
+	list<int> mylist(iter1, iter2);
+	///
+
+	cout << "list size = " << mylist.size() << endl;
+
+	mylist.reverse();
+	for (auto &r : mylist)
+		cout << r << " "
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("poem.txt");
+
+	if (!ifs) {
+		cout << "acilamadi" << endl;
+		return 1;
+	}
+
+	char c;
+
+	while (ifs.get(c))
+		//if (ispunct(c))
+			cout << c;
+
+	cout << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("poem.txt");
+
+	if (!ifs) {
+		cout << "acilamadi" << endl;
+		return 1;
+	}
+
+	int c;
+
+	while ((c = ifs.get()) != EOF)
+			cout << (char)c;
+
+	cout << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	ifstream ifs("poem.txt");
+
+	if (!ifs) {
+		cout << "acilamadi" << endl;
+		return 1;
+	}
+
+	char c;
+
+	ifs >> noskipws;
+
+	while (ifs >> c)
+		cout << c;
+
+	cout << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	string s("     mustafa     ");
+	auto f = [](char c) {return !isspace(c);};
+
+	auto iter = find_if(s.begin(), s.end(), f);
+	auto riter = find_if(s.rbegin(), s.rend(), f);
+
+	s.assign(iter, riter.base());
+
+	cout << "(" << s << ")" << endl;
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	string s("mustafa   kemal    ataturk");
+
+	s.erase(unique(s.begin(), s.end(),
+		[](char c1, char c2) {return c1 == ' ' && c2 == ' ';}), s.end());
+
+	cout << "(" << s << ")" << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+
+int main(int argc, char *argv[])
+{
+	if (argc != 2) {
+		cerr << "usage : <boat> <file name>" << endl;
+		return 1;
+	}
+	char destname[L_tmpnam];
+	tmpnam(destname);
+
+	ifstream ifs(argv[1]);
+	if (!ifs) {
+		cout << argv[1] << " dosyasi acilamadi " << endl;
+		return 2;
+	}
+	ofstream ofs(destname);
+	if (!ofs) {
+		cout << "gecici dosya olusturulamadi" << endl;
+		return 3;
+	}
+	string sline;
+
+	auto f = [](char c) {return !isspace(c);};
+
+	
+	while (getline(ifs, sline)) {
+		auto iter = find_if(sline.begin(), sline.end(), f);
+		auto riter = find_if(sline.rbegin(), sline.rend(), f);
+		sline.assign(iter, riter.base());
+		sline.erase(unique(sline.begin(), sline.end(),
+			[](char c1, char c2) {return c1 == ' ' && c2 == ' ';}), sline.end());
+		ofs << sline << endl;
+	}
+
+	ifs.close();
+	ofs.close();
+
+	if (remove(argv[1])) {
+		cerr << "dosya silinemiyor" << endl;
+		return 4;
+	}
+
+	if (rename(destname, argv[1])) {
+		cerr << "dosya ismi degistirilemiyor" << endl;
+		return 5;
+	}
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+				31 Ekim 2015 Cumartesi
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
