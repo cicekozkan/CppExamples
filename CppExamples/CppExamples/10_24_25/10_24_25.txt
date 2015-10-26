@@ -1,34 +1,5 @@
 
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <bitset>
-#include <fstream>
-#include <sstream>
 
-using namespace std;
-
-
-
-int main()
-{
-	bitset<32> x(ios::boolalpha);
-
-	cout << x << endl;
-
-	
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
