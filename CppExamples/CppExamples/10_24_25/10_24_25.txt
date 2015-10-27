@@ -1,55 +1,7 @@
 
 
 
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-class ostream {
-public:
-/////
-	ostream &operator<<(ostream &(*fp)(ostream &))
-	{
-		return fp(*this)
-	}
-}
 
-
-
-ostream &oct(ostream &os)
-{
-	os.setf(ios::oct, ios::basefield);
-	return os;
-}
-
-
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <fstream>
-#include <bitset>
-
-using namespace std;
-
-
-
-int main()
-{
-	auto x = cout.flags();
-
-	cout << bitset<32>(x) << endl;
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
