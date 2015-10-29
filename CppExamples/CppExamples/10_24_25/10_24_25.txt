@@ -2,44 +2,7 @@
 
 
 
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <ctime>
-#include <iomanip>
-#include <sstream>
 
-#include "date.h"
-
-using namespace std;
-
-
-int main()
-{
-	randomize();
-	vector<string> svec;
-	ostringstream os;
-
-	fc(svec, 100, rs);
-	copy_if(svec.begin(), svec.end(), ostream_iterator<string>(os, " "), [](const string &r) {return r.length() == 6;});
-
-	cout << os.str() << endl;
-
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
