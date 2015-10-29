@@ -2,57 +2,7 @@
 
 
 
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
 
-
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <ctime>
-#include <iomanip>
-#include <sstream>
-
-#include "date.h"
-
-using namespace std;
-
-
-
-
-int main()
-{
-	cout << "bir yazi girin : ";
-	string s;
-
-	getline(cin, s);
-
-	istringstream iss(s);
-
-	double d;
-	string name;
-	int ival;
-
-	iss >> d >> name >> ival;
-
-	cout << "isim : " << name << endl;
-	cout << "dval : " << d<< endl;
-	cout << "ival : " << ival << endl;
-
-
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
