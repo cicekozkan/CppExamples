@@ -1,45 +1,6 @@
 
 
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <iomanip>
-#include <sstream>
 
-#include "date.h"
-
-using namespace std;
-
-
-
-int main()
-{
-	ostringstream oss;
-
-	
-	for (int k = 1; k <= 12; k++) {
-
-		oss << setw(2) << setfill('0') << k << ".jpg";
-		cout << oss.str() << endl;
-		getchar();
-		oss.str("");
-	}
-
-	return 0;
-}
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
