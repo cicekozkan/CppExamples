@@ -2,51 +2,6 @@
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <ctime>
-#include <iomanip>
-#include <fstream>
-
-#include "date.h"
-
-using namespace std;
-
-
-int main()
-{
-	ofstream ofs("sina.dat", ios::binary);
-
-	if (ofs.fail()) {
-		cout << "dosya olusturulamadi\n";
-		return 1;
-	}
-	int ival = 2;
-	int prime_cnt = 0;
-
-	while (prime_cnt < 100000) {
-		if (isprime(ival)) {
-			ofs.write(reinterpret_cast<char *>(&ival), sizeof(ival));
-			prime_cnt++;
-		}
-		ival++;
-	}
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
 
 
 #include <vector>
