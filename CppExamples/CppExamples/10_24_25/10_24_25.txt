@@ -3,49 +3,6 @@
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 
-
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <ctime>
-#include <iomanip>
-#include <fstream>
-
-#include "date.h"
-
-using namespace std;
-
-
-int main()
-{
-	int x;
-
-	cout << "bir tamsayi girin : ";
-	cin.exceptions(ios::eofbit | ios::badbit | ios::failbit);
-
-	try {
-		cin >> x;
-	}
-	catch (exception &r) {
-		cout << "hata yakalandi .... : " << r.what() << endl;
-	}
-
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-
 		25 Ekim 2015 Pazar
 
 ///////////////////////////////////////////////////////////////////
