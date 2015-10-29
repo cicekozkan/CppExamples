@@ -2,47 +2,6 @@
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
-
-
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <ctime>
-#include <iomanip>
-#include <fstream>
-
-#include "date.h"
-
-using namespace std;
-
-
-int main()
-{
-	ifstream ifs("orhan.txt");
-
-	if (!ifs) {
-		cout << "dosya acilamadi..." << endl;
-		return 1;
-	}
-	int ival;
-
-	while (ifs >> ival)
-		cout << ival << " ";
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
 #include <vector>
 #include <initializer_list>
 #include <string>
