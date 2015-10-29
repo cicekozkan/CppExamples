@@ -27,69 +27,6 @@ using namespace std;
 
 int main()
 {
-	ifstream ifs;
-	///////////
-	if (ifs.is_open()) {
-		cout << "acik dosya var" << endl;
-	}
-	else
-		cout << "acik dosya yok" << endl;
-
-	ifs.open("ornekler.txt");
-	if (!ifs) {
-		cout << "dosya acilamiyor" << endl;
-		return 1;
-	}
-	cout << "dosya acildi" << endl;
-
-	if (ifs.is_open()) {
-		cout << "acik dosya var" << endl;
-	}
-	else
-		cout << "acik dosya yok" << endl;
-
-	ifs.close();
-
-	if (ifs.is_open()) {
-		cout << "acik dosya var" << endl;
-	}
-	else
-		cout << "acik dosya yok" << endl;
-
-
-	
-
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-
-
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <ctime>
-#include <iomanip>
-#include <fstream>
-
-#include "date.h"
-
-using namespace std;
-
-
-int main()
-{
 	ifstream ifs("orhan.txt");
 
 	if (!ifs) {
