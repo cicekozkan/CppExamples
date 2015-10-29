@@ -1,8 +1,8 @@
 // explore stream state flags
-// goodbit 	no error
-// badbit 	irrecoverable stream error
-// failbit 	input / output operation failed(formatting or extraction error)
-// eofbit 	associated input sequence has reached end - of - file
+// good()	returns the state of goodbit (no error)
+// bad() 	returns the state of badbit (irrecoverable stream error)
+// fail() 	returns the state of failbit (input / output operation failed(formatting or extraction error) )
+// eof() 	returns the state of eofbit (associated input sequence has reached end - of - file )
 #include <iostream>
 
 using namespace std;
