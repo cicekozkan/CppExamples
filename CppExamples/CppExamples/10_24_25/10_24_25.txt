@@ -2,55 +2,6 @@
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
-
-
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <ctime>
-#include <iomanip>
-#include <fstream>
-
-#include "date.h"
-
-using namespace std;
-
-
-int main()
-{
-	ifstream ifs("sina.dat", ios::binary);
-	vector<int> ivec;
-
-	if (ifs.fail()) {
-		cout << "dosya acilamadi\n";
-		return 1;
-	}
-	int ival;
-
-	while (ifs.read(reinterpret_cast<char *>(&ival), sizeof(ival)))
-		ivec.push_back(ival);
-
-	cout << "size = " << ivec.size() << endl;
-	random_shuffle(ivec.begin(), ivec.end());
-
-	for (const auto &x : ivec)
-		cout << x << " ";
-	cout << sl;
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
 #include <vector>
 #include <initializer_list>
 #include <string>
