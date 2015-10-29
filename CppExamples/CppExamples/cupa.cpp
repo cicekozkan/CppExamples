@@ -28,3 +28,14 @@ ostream &sl(ostream &os)
 {
 	return os << "*******************************************************************************" << endl;
 }
+
+bool isprime(int val)
+{
+	if (val <= 2)		return false;
+	if (val % 2 == 0)	return false;
+	if (val % 3 == 0)	return false;
+	for (int i = 3; i*i <= val; i++) {
+		if (val%i == 0)	return false;
+	}
+	return true;
+}

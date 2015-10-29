@@ -29,6 +29,7 @@ void display(InIter beg, InIter end)
 }
 
 void randomize();
+bool isprime(int);
 
 std::string rs();
 
