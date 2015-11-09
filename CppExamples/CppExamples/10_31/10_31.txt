@@ -1,0 +1,1967 @@
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+				31 Ekim 2015 Cumartesi
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+class Base {
+public:
+	void pub_func() {}
+protected:
+	void pro_func() {}
+
+private: 
+	void pri_func() {}
+
+};
+
+
+class Der : public Base{
+	void foo()
+	{
+		pub_func();
+		pro_func();
+	}
+};
+
+int main()
+{
+	Der myder;
+
+	myder.pub_func();
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+class Base {
+public:
+	void pub_func() {}
+protected:
+	void pro_func() {}
+
+private: 
+	void pri_func() {}
+
+};
+
+
+class Der : private Base{
+public:
+	using Base::pub_func;
+};
+
+int main()
+{
+	Der myder;
+
+	myder.pub_func();
+
+	
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+class Base {
+public:
+	void pub_func() {}
+protected:
+	void pro_func() {}
+
+private: 
+	void pri_func() {}
+
+};
+
+
+class Der : private Base{
+public:
+	void foo()
+	{
+		pub_func();
+		pro_func();
+
+	}
+};
+
+
+class Sder : public Der {
+	void falanca()
+	{
+		pub_func();  //gecersiz
+		pro_func();  //gecersiz
+	}
+	
+};
+
+
+int main()
+{
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <fstream>
+
+#include "date.h"
+
+using namespace std;
+
+class Base {
+public:
+	void pub_func() {}
+protected:
+	void pro_func() {}
+
+private: 
+	void pri_func() {}
+
+};
+
+
+class Der : protected Base{
+public:
+	void foo()
+	{
+		pub_func();
+		pro_func();
+
+	}
+};
+
+
+class Sder : public Der {
+	void falanca()
+	{
+		pub_func();  //gecersiz
+		pro_func();  //gecersiz
+	}
+	
+};
+
+
+int main()
+{
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+template<typename T, typename U>
+struct Pair
+{
+	T first;
+	U second;
+	Pair();
+	Pair(const T &t, const U &u);
+	template<class A, class B)
+	Pair(const Pair<A, B> &r)
+}
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	tuple<Date, double, long, string> x;
+	Date mydate(12, 3, 1987);
+
+	get<0>(x) = mydate;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	int a = 10;
+	int b = 20;
+
+	auto x = make_pair(ref(a), ref(b));
+
+	x.first = 56;
+	x.second = 98;
+
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	int x = 20;
+	int y = 30;
+
+	pair<int, int> mypair(45, 98);
+
+	x = mypair.first;
+	y = mypair.second;
+
+	tie(x, y) = mypair;
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	Date d1;
+
+	tuple<int, double, Date, string> tx(10, 2.3, d1, "mustafa");
+	int ival;
+	double dval;
+	Date mydate;
+	string name;
+
+	tie(ival, dval, mydate, name) = tx;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	Date d1;
+
+	tuple<int, double, Date, string> tx(10, 2.3, d1, "mustafa");
+	int ival;
+	double dval;
+	Date mydate;
+	string name;
+
+	tie(ival, dval, std::ignore, name) = tx;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+
+
+class Myclass {
+	std::tuple<int, double, string, Date> mt;
+	////
+public:
+	bool less(const Myclass &r)const
+	{
+		int ival;
+		double dval;
+		string name;
+		Date mydate;
+
+
+		return tie(ival, dval, name, mydate) < r.mt;
+	}
+
+};
+
+
+int main()
+{
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	tuple<int, double, string> x;
+
+	cout << tuple_size<decltype(x)>::value << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	auto p1 = make_pair(10, 2.);
+	auto p2 = make_tuple(4, 1.2);
+
+	p2 = p1;
+	p1 = p2;  //gecersiz
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+
+int main()
+{
+	auto t1 = make_tuple(10, 3.4, string("ali"));
+	auto t2 = make_pair(2.4L, 4u);
+	int a = 5;
+	char c = 'K';
+
+	auto x = tuple_cat(t1, t2, tie(a, c));
+
+	cout << tuple_size<decltype(x)>::value << endl;
+
+	cout << get<0>(x) << endl;
+	cout << get<1>(x) << endl;
+	cout << get<2>(x) << endl;
+	cout << get<3>(x) << endl;
+	cout << get<4>(x) << endl;
+	cout << get<5>(x) << endl;
+	cout << get<6>(x) << endl;
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+int main()
+{
+	int n;
+
+	cout << "kac tamsayi : ";
+	cin >> n;
+
+	int *p = (int *)operator new(n * sizeof(int));
+	for (int k = 0; k < 10; ++k)
+		p[k] = k;
+	operator delete(p);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+class Myclass {
+	int a, b, c;
+public:
+	Myclass() {
+		cout << "Myclass::constructor" << endl;
+		cout << "this     =   " << this << endl;
+		cout << sl;
+	}
+
+	~Myclass() {
+		cout << "Myclass::destructor" << endl;
+		cout << "this     =   " << this << endl;
+		cout << sl;
+	}
+
+	void *operator new(size_t n)
+	{
+		cout << "Myclass::operator new()" << endl;
+		cout << "n =  " << n << endl;
+		void *vp = malloc(n);
+		cout << "elde edilen adres = " << vp << endl;
+		cout << sl;
+		return vp;
+	}
+
+	void operator delete(void *vp)
+	{
+		cout << "operator delete" << endl;
+		cout << "vp = " << vp << endl;
+		free(vp);
+		cout << sl;
+	}
+};
+
+int main()
+{
+	Myclass *p = new Myclass;
+	delete p;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+class Myclass {
+	int a, b, c;
+	static unsigned char buffer[];
+	static bool flags[];
+	const static unsigned int csimax = 100;
+
+public:
+	Myclass() : a(0), b(0), c(0) {}
+
+	void *operator new(size_t n)
+	{
+		int k;
+
+		for (k = 0; k < csimax; k++) {
+			if (!flags[k])
+				break;
+		}
+		if (k == csimax)
+			throw bad_alloc();
+
+		flags[k] = true;
+
+		return buffer + k * sizeof(Myclass);
+	}
+
+	void operator delete(void *vptr)
+	{
+		if (vptr == nullptr)
+			return;
+		flags[((unsigned char *)vptr - buffer) / sizeof(Myclass)] = false;
+	}
+////
+};
+
+
+unsigned char Myclass::buffer[csimax * sizeof(Myclass)];
+bool Myclass::flags[csimax] = { false };
+
+
+int main()
+{
+	Myclass *p = new Myclass;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+class Myclass {
+	int a, b, c;
+public:
+	Myclass() : a(0), b(0), c(0) {
+		cout << "this : " << this << endl;
+	}
+	~Myclass()
+	{
+		cout << "must be called destructor" << endl;
+	}
+};
+
+
+int main()
+{
+	char temp[sizeof(Myclass)];
+
+	cout << "temp adresi " << (void *)temp << endl;
+
+	Myclass *p = new (temp)Myclass;
+	////
+	p->~Myclass();
+
+	
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <tuple>
+#include "date.h"
+
+using namespace std;
+
+class Myclass {
+
+};
+
+void *operator new(size_t n, Myclass m)
+{
+	cout << "void *operator new(size_t n, Myclass)" << endl;
+return malloc(100);
+}
+
+int main()
+{
+	Myclass m;
+	int *p = new (m) int;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <memory>
+#include "date.h"
+
+using namespace std;
+
+struct Myclass {
+	Myclass() {
+		cout << "Myclass constructor" << endl;
+	}
+
+	~Myclass() {
+		cout << "Myclass destructor" << endl;
+	}
+};
+
+int main()
+{
+	unique_ptr<Myclass> ptr;
+
+	if (ptr) {
+		cout << "bir nesneyi kontrol ediyor" << endl;
+	}
+	else {
+		cout << "bir nesneyi kontrol etmiyor" << endl;
+
+	}
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <deque>
+#include <algorithm>
+#include "date.h"
+#include "cupa.h"
+#include <iostream>
+#include <list>
+#include <functional>
+#include <set>
+#include <map>
+#include <ctime>
+#include <iomanip>
+#include <memory>
+#include "date.h"
+
+using namespace std;
+
+struct Myclass {
+	Myclass(int) {
+		cout << "Myclass constructor(int)" << endl;
+	}
+
+	~Myclass() {
+		cout << "Myclass destructor" << endl;
+	}
+};
+
+int main()
+{
+	//unique_ptr<Myclass> ptr = new Myclass; geersiz
+	unique_ptr<Myclass> p1(new Myclass(10));
+	unique_ptr<Myclass> p2{ new Myclass(20)};
+
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+template<class T, class D = default_delete<T> >
+class unique_ptr {
+public:
+	explicit unique_ptr(T *);
+	unique_ptr(const unique_ptr &r) = delete;
+	unique_ptr(unique_ptr &&r);
+	unique_ptr &operator=(const unique_ptr &r) = delete;
+	unique_ptr &operator=(unique_ptr &&r);
+
+
+
+};
+
+
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+int func()
+{
+	return 1;
+}
+
+int main()
+{
+	constexpr int x = func();  //gecersiz
+	const int y = 10;  //gecerli
+	const int z = func();  //gecerli ama sabit ifadesi deil
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+int x = 45;
+
+int main()
+{
+	constexpr int *ptr = &x;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+constexpr int Max(int a, int b)
+{
+	return a > b ? a : b;
+}
+
+int main()
+{
+	const int x = 56;
+	const int y = 45;
+
+	int a[Max(x, y)];
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+constexpr int factorial(int a)
+{
+	return a > 1 ? a * factorial(a - 1) : 1;
+}
+
+
+int main()
+{
+	int a[factorial(5)];
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+constexpr int factorial(int a)
+{
+	return a > 1 ? a * factorial(a - 1) : 1;
+}
+
+
+int main()
+{
+	int a[factorial(5)];
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+template<class T, int n>
+constexpr int a_size(T(&r)[n])
+{
+	return n;
+}
+
+
+int main()
+{
+	int a[100];
+	int b[a_size(a)];
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+class Point{
+	double mx, my;
+public:
+	constexpr Point(double x, double y) : mx{ x }, my{ y } {}
+	constexpr double getDistance() { return mx * mx - my * my; }
+};
+
+
+int main()
+{
+	constexpr Point fixedpoint(1.1, 2.2);
+	fixedpoint.getDistance()
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+class Myclass {
+public:
+	int i;
+	double d;
+	string name;
+};
+
+int main()
+{
+	Myclass m = { 1, 5.7, "mustafa" };
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+//primer template
+template<typename D>
+struct DefaultDelete {
+	void operator()(D *ptr) { delete ptr; }
+};
+
+template<typename T>
+struct DefaultDelete<T[]>
+{
+	void operator()(T *ptr) { delete[] ptr; }
+};
+
+
+
+int main()
+{
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass() 
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+int main()
+{
+	unique_ptr<Myclass> up(new Myclass);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass() 
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+int main()
+{
+	unique_ptr<Myclass> up = new Myclass;  //gecersiz
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass() 
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+void func(unique_ptr<Myclass> ptr) {
+
+}
+
+int main()
+{
+	func(new Myclass); //gecersiz  (constructor explicit)
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass() 
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+unique_ptr<Myclass> func()
+{
+	return new Myclass; //gecersiz
+}
+
+int main()
+{
+	func(new Myclass); //gecersiz  (constructor explicit)
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass() 
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+
+int main()
+{
+	unique_ptr<Myclass> m(new Myclass);
+	if (m == nullptr) {
+		cout << "bir nesneye sahip degil" << endl;
+	}
+	else {
+		cout << "bir nesneye sahip" << endl;
+	}
+
+	if (m) {
+		cout << "bir nesneye sahip" << endl;
+	}
+	else {
+		cout << "bir nesneye sahip degil" << endl;
+	}
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass() 
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+
+int main()
+{
+	unique_ptr<Myclass> up1{ new Myclass };
+	//unique_ptr<Myclass> up2{up1}; // gecersiz cc deleted
+
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass() 
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+
+int main()
+{
+	unique_ptr<Myclass> up1{ new Myclass };
+	unique_ptr<Myclass> up2{ new Myclass };
+
+	up1 = up2;  //gecersiz c.a.o is deleted
+
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass() 
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+
+int main()
+{
+	unique_ptr<Myclass> up1(new Myclass);
+	if (up1) {
+		cout << "up1 nesneye sahip" << endl;
+	}
+	else {
+		cout << "up1 nesneye sahip degil" << endl;
+	}
+	
+	unique_ptr<Myclass> up2(move(up1));
+
+	if (up1) {
+		cout << "up1 nesneye sahip" << endl;
+	}
+	else {
+		cout << "up1 nesneye sahip degil" << endl;
+	}
+
+	if (up2) {
+		cout << "up2 nesneye sahip" << endl;
+	}
+	else {
+		cout << "up2 nesneye sahip degil" << endl;
+	}
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+public:
+	Myclass() 
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+unique_ptr<Myclass> func();
+
+int main()
+{
+	unique_ptr<Myclass> up(func());
+
+	up = func();
+
+	up = unique_ptr<Myclass>(new Myclass);
+
+
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+	int mx, my;
+public:
+	Myclass(int x, int y) :mx(x), my(y)
+	{
+		cout << "Myclass Constructor()" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+};
+
+
+int main()
+{
+	auto p = make_unique<string>(10, 'A');
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+	int mx, my;
+public:
+	Myclass(int x, int y) :mx(x), my(y)
+	{
+		cout << "Myclass Constructor(int, int)" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+	void display()const
+	{
+		cout << "mx = " << mx << "  my = " << my << endl;
+	}
+};
+
+
+int main()
+{
+	auto p = make_unique<Myclass>(10, 20);
+	p->display();
+	//p = nullptr;
+	//p.reset();
+	p.reset(nullptr);
+	getchar();
+	p.reset(new Myclass(45, 67));
+	p->display();
+
+	cout << "main sona erdi" << endl;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+	int mx, my;
+public:
+	Myclass(int x, int y) :mx(x), my(y)
+	{
+		cout << "Myclass Constructor(int, int)" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+	void display()const
+	{
+		cout << "mx = " << mx << "  my = " << my << endl;
+	}
+};
+
+
+int main()
+{
+	auto p1 = make_unique<Myclass>(10, 20);
+	p1->display();
+	auto p2 = make_unique<Myclass>(45, 60);
+	p2->display();
+
+	p1 = move(p2);
+	getchar();
+	p1->display();
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+	int mx, my;
+public:
+	Myclass(int x, int y) :mx(x), my(y)
+	{
+		cout << "Myclass Constructor(int, int)" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+	void display()const
+	{
+		cout << "mx = " << mx << "  my = " << my << endl;
+	}
+};
+
+
+int main()
+{
+	auto p1 = make_unique<Myclass>(10, 20);
+	
+	auto ptr = p1.release();  
+	/////
+	delete ptr;
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+	int mx, my;
+public:
+	Myclass(int x, int y) :mx(x), my(y)
+	{
+		cout << "Myclass Constructor(int, int)" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+	void display()const
+	{
+		cout << "mx = " << mx << "  my = " << my << endl;
+	}
+};
+
+
+int main()
+{
+	auto p1 = make_unique<Myclass>(10, 20);
+	unique_ptr<Myclass> p2;
+	p2.reset(p1.release());
+	/////
+	getchar();
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+	int mx, my;
+public:
+	Myclass(int x, int y) :mx(x), my(y)
+	{
+		cout << "Myclass Constructor(int, int)" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+	void display()const
+	{
+		cout << "mx = " << mx << "  my = " << my << endl;
+	}
+};
+
+
+int main()
+{
+	auto p1 = make_unique<Myclass>(10, 20);
+	Myclass *mptr = p1.get();
+	getchar();
+	delete mptr;  //runtime hatas
+	//delete edilmis nesne tekrar delete edilecek
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+	int mx, my;
+public:
+	Myclass(int x, int y) :mx(x), my(y)
+	{
+		cout << "Myclass Constructor(int, int)" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+	void display()const
+	{
+		cout << "mx = " << mx << "  my = " << my << endl;
+	}
+};
+
+
+int main()
+{
+	auto p1 = make_unique<Myclass>(10, 20);
+	Myclass *mptr = p1.get();
+	unique_ptr<Myclass> p2(mptr);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+	int mx, my;
+public:
+	Myclass(int x, int y) :mx(x), my(y)
+	{
+		cout << "Myclass Constructor(int, int)" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+	void display()const
+	{
+		cout << "mx = " << mx << "  my = " << my << endl;
+	}
+};
+
+
+
+
+int main()
+{
+	auto mydeleter = [](Myclass *ptr) {
+		cout << "delete islemi yapiliyor" << endl;
+		delete ptr;
+	};
+
+	unique_ptr<Myclass, decltype(mydeleter)> up(new Myclass(10, 56), mydeleter);
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+#include <vector>
+#include <initializer_list>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
+class Myclass {
+	int mx, my;
+public:
+	Myclass(int x, int y) :mx(x), my(y)
+	{
+		cout << "Myclass Constructor(int, int)" << endl;
+	}
+
+	~Myclass()
+	{
+		cout << "Myclass Destructor()" << endl;
+	}
+	void display()const
+	{
+		cout << "mx = " << mx << "  my = " << my << endl;
+	}
+};
+
+
+
+
+int main()
+{
+	unique_ptr<Myclass, void (*)(Myclass *)> up(new Myclass(10, 56), [](Myclass *ptr) {
+		cout << "delete islemi yapiliyor" << endl;
+		delete ptr;
+	});
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+#include <vector>
+#include <fstream>
+#include <string>
+#include <bitset>
+#include <algorithm>
+#include <iostream>
+#include <memory>
+#include <functional>
+
+
+using namespace std;
+
+class FileDeleter {
+	std::string mFileName;
+public:
+	FileDeleter(const std::string fn) : mFileName(fn) {}
+	void operator()(std::ofstream *p) {
+		p->close();
+		remove(mFileName.c_str());
+		delete p;
+	}
+};
+
+
+int main()
+{
+	unique_ptr<ofstream, FileDeleter> upf(new ofstream("emre.txt"), FileDeleter("emre.txt"));
+	/////
+
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
