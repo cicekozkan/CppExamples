@@ -32,46 +32,6 @@ int main()
 		return 1;
 	}
 
-	ifs.seekg(0, ios::end);
-
-	cout << ifs.tellg() << endl;
-
-
-	return 0;
-}
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-#include <vector>
-#include <initializer_list>
-#include <string>
-#include <deque>
-#include <algorithm>
-#include "date.h"
-#include "cupa.h"
-#include <iostream>
-#include <list>
-#include <functional>
-#include <set>
-#include <map>
-#include <ctime>
-#include <iomanip>
-#include <fstream>
-
-#include "date.h"
-
-using namespace std;
-
-
-int main()
-{
-	ifstream ifs("sina.dat", ios::binary);
-
-	if (!ifs) {
-		cout << "dosya acilamadi..." << endl;
-		return 1;
-	}
-
 	int n;
 	int ival;
 
